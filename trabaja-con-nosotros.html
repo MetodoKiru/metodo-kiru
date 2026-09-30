@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabaja con nosotros - Método Kiru</title>
+  <style>
+    :root {
+      --primary: #1d4d8f;
+      --primary-dark: #12386d;
+      --accent: #f4b942;
+      --text: #1d1d1d;
+      --light: #f6f8fb;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: var(--text);
+      background: #f7f7f7;
+    }
+
+    .topbar {
+      background: linear-gradient(90deg, var(--primary-dark), var(--primary));
+      color: var(--white);
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.7rem 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .topbar span {
+      opacity: 0.9;
+    }
+
+    .topbar a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    a,
+    a:link,
+    a:visited,
+    a:hover,
+    a:active {
+      color: inherit;
+      text-decoration: none;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="topbar">
+    <span>Mentoría educativa a domicilio</span>
+    <a href="https://wa.me/346XXXXXXXX" target="_blank">Reserva tu cita</a>
+  </div>
+
+  <header class="hero">
+    <nav>
+      <div class="logo">Método Kiru</div>
+      <div class="nav-links">
+        <a href="programas.html">Programas</a>
+        <a href="tarifas.html">Tarifas</a>
+        <a href="conocenos.html">Nosotros</a>
+        <a href="faq.html">FAQ</a>
+        <a href="trabaja-con-nosotros.html">Empleo</a>
+        <a href="https://wa.me/346XXXXXXXX" class="nav-whatsapp" target="_blank">WhatsApp</a>
+      </div>
+    </nav>
+
+    <!-- AQUÍ EMPIEZA EL CONTENIDO NUEVO -->
+    <div class="hero-content" style="padding-bottom: 4rem;">
+      <h1>TRABAJA CON NOSOTROS</h1>
+      
+      <!-- Bloque del puesto de Mentor/a -->
+      <div style="background: var(--white); border-radius: 8px; padding: 2.5rem; max-width: 600px; margin: 2rem auto; box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: var(--text);">
+        <h2 style="margin-top: 0; color: var(--primary-dark);">Mentor/a</h2>
+        
+        <p class="subtitle" style="font-size: 1.1rem; line-height: 1.5; margin-bottom: 2rem; color: var(--text);">
+          ¿Tienes experiencia en educación y te gustaría incorporarte como mentor a domicilio con Método Kiru? Rellena este formulario para iniciar tu proceso.
+        </p>
+        
+        <div class="hero-buttons" style="justify-content: center;">
+          <a href="https://forms.gle/Yh8Yrp8bvanPEbjY7" class="primary" target="_blank" style="background: var(--primary); color: var(--white); padding: 0.8rem 2rem; border-radius: 4px; font-weight: bold;">
+            QUIERO SER MENTOR/A
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <footer>
+    <p>Método Kiru</p>
+    <p>Mentoría educativa personalizada</p>
+    <p>Pozuelo · Aravaca · Las Rozas · Madrid centro</p>
+    
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
