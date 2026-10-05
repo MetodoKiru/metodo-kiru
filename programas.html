@@ -8,85 +8,123 @@
 </head>
 <body>
 
-  <!-- Barra superior unificada -->
-  <header class="subpage-hero" style="padding: 1rem 0; min-height: auto;">
-      <nav style="display: flex; justify-content: space-between; align-items: center; max-width: 1000px; margin: 0 auto; padding: 0 2rem;">
-          <a href="index.html" class="logo-link" style="font-size: 1.1rem; font-weight: bold; text-decoration: none; color: inherit;">Método Kiru</a>
-          <div style="display: flex; gap: 1.5rem; align-items: center;">
-              <a href="programas.html" style="text-decoration: none; color: inherit; font-size: 0.95rem;">Programas</a>
-              <a href="accesofamilias.html" style="text-decoration: none; color: inherit; font-size: 0.95rem;">Área de Familias</a>
-              <a href="descubrimientometodologia.html" style="text-decoration: none; color: inherit; font-size: 0.95rem;">Conócenos</a>
-              <a href="faq.html" style="text-decoration: none; color: inherit; font-size: 0.95rem;">FAQ</a>
-              <a href="https://calendly.com/m-sofiamunoz05/llamada-informacion" target="_blank" class="mini-btn">Reservar llamada</a>
-          </div>
-      </nav>
-  </header>
+  <!-- MENÚ -->
+  <div class="menu-overlay">
+    <button class="close-menu">✕</button>
 
-  <!-- CONTENIDO DE PROGRAMAS -->
-  <section class="programs" style="padding-top: 2rem;">
-    <div class="hero-content" style="text-align: center; margin-bottom: 2rem;">
-      <h1 style="font-size: 2rem; margin-bottom: 0.5rem;">Nuestros Programas</h1>
-      <p class="subtitle" style="font-size: 1rem; color: #555;">
+    <a href="index.html">Inicio</a>
+    <a href="programas.html">Programas</a>
+    <a href="tarifas.html">Tarifas</a>
+    <a href="accesofamilias.html">Área de Familias</a>
+    <a href="conocenos.html">Conócenos</a>
+    <a href="faq.html">Preguntas Frecuentes</a>
+
+    <a href="https://calendly.com/m-sofiamunoz05/llamada-informacion" target="_blank">
+      Reservar llamada
+    </a>
+  </div>
+
+  <!-- HERO -->
+<header class="subpage-hero">
+
+    <nav>
+      <div class="logo">Método Kiru</div>
+      <button class="menu-btn">☰</button>
+    </nav>
+
+    <div class="hero-content">
+
+      <h1>Nuestros Programas</h1>
+
+      <p class="subtitle">
         Dos formas de acompañar a tu hijo. Elige el nivel de apoyo que mejor se adapte a sus necesidades.
       </p>
+
+   <section class="programas-comparacion">
+
+  <div class="programa-card">
+    <div class="programa-header">
+      <h3>Programa Base</h3>
+      <p>Refuerzo académico</p>
     </div>
 
-    <div class="table-container">
-      <table class="program-table">
-        <thead>
-          <tr>
-            <th>Programa</th>
-            <th>Sesiones a domicilio</th>
-            <th>Apoyo académico y Campus Virtual</th>
-            <th>Mentoría personal</th>
-            <th>Proyecto personal</th>
-            <th>Sistema SkillCoins</th>
-            <th>Reunión semanal con padres + Cuaderno Familiar</th>
-            <th>Beneficio principal</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Programa Base*</strong></td>
-            <td>✓</td>
-            <td>✓</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-            <td>Mejorar resultados académicos, resolver dificultades concretas y ganar confianza en el estudio.</td>
-          </tr>
-          <tr>
-            <td><strong>Método Kiru</strong></td>
-            <td>✓</td>
-            <td>✓</td>
-            <td>✓</td>
-            <td>✓</td>
-            <td>✓</td>
-            <td>✓</td>
-            <td>Transformación integral hacia un adolescente más autónomo, equilibrado y responsable, con mejores hábitos, mayor rendimiento académico y menos conflictos familiares relacionados con los estudios.</td>
-          </tr>
-        </tbody>
-      </table>
+    <ul>
+      <li class="si">Sesiones a domicilio</li>
+      <li class="si">Apoyo académico y Campus Virtual</li>
+      <li class="no">Mentoría personal</li>
+      <li class="no">Proyecto personal</li>
+      <li class="no">Sistema SkillCoins</li>
+      <li class="no">Reunión semanal con padres</li>
+    </ul>
+
+    <div class="beneficio">
+      <strong>Beneficio principal</strong>
+      <p>
+        Mejorar resultados académicos, resolver dificultades concretas
+        y ganar confianza en el estudio.
+      </p>
+    </div>
+  </div>
+
+  <div class="programa-card destacado">
+    <div class="etiqueta">
+      Más completo
     </div>
 
-    <div class="program-note" style="margin-top: 1.5rem; font-size: 0.9rem; color: #666;">
-      <p><strong>* Programa Base sujeto a disponibilidad de plazas y zona geográfica.</strong></p>
-      <p>Si no hubiera disponibilidad, te propondremos la alternativa más adecuada para vuestra situación.</p>
+    <div class="programa-header">
+      <h3>Método Kiru</h3>
+      <p>Desarrollo académico y personal</p>
     </div>
 
-    <div class="hero-buttons" style="margin-top: 2rem; display: flex; gap: 1rem;">
-      <a href="accesofamilias.html" class="primary">Área de Familias</a>
-      <a href="https://calendly.com/m-sofiamunoz05/llamada-informacion" target="_blank" class="secondary">Reservar llamada gratuita</a>
+    <ul>
+      <li class="si">Sesiones a domicilio</li>
+      <li class="si">Apoyo académico y Campus Virtual</li>
+      <li class="si">Mentoría personal</li>
+      <li class="si">Proyecto personal</li>
+      <li class="si">Sistema SkillCoins</li>
+      <li class="si">Reunión semanal con padres + Cuaderno Familiar</li>
+    </ul>
+
+    <div class="beneficio">
+      <strong>Beneficio principal</strong>
+      <p>
+        Transformación hacia un alumno con mejores hábitos, mayor
+        rendimiento académico y menos conflictos familiares.
+      </p>
     </div>
+  </div>
+
+</section>
+
+    <div class="program-note">
+
+      <p>
+        <strong>* Programa Base sujeto a disponibilidad de plazas y zona geográfica.</strong>
+      </p>
+
+      <p>
+        Si no hubiera disponibilidad, te propondremos la alternativa más adecuada para vuestra situación.
+      </p>
+
+    </div>
+
+    <div class="hero-buttons">
+
+      <a href="tarifas.html" class="primary">
+        Ver tarifas
+      </a>
+
+      <a href="https://calendly.com/m-sofiamunoz05/llamada-informacion"
+         target="_blank"
+         class="secondary">
+        Reservar llamada gratuita
+      </a>
+
+    </div>
+
   </section>
 
-  <!-- Footer -->
-  <footer style="text-align: center; padding: 2rem; font-size: 0.85rem; color: #666; border-top: 1px solid #eae6df;">
-      <p style="margin-bottom: 0.25rem;">©️ 2025 Método kiru.</p>
-      <p>Pozuelo, Las Rozas, Majadahonda, Aravaca, Boadilla y Centro.</p>
-  </footer>
-
   <script src="script.js"></script>
+
 </body>
 </html>

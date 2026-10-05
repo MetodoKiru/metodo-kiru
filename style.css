@@ -1,134 +1,775 @@
-/* Reseteo general y espacios reducidos */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-body {
-  background: #f7f6f2;
-  color: #111;
-  font-family: Georgia, serif;
-  -webkit-font-smoothing: antialiased;
-  font-size: 13.5px;
-  line-height: 1.4;
+body{
+  background:#f7f6f2;
+  color:#111;
+  font-family:Georgia, serif;
+  -webkit-font-smoothing:antialiased;
 }
 
 /* =========================
-   BARRA SUPERIOR HORIZONTAL
+   NAVEGACIÓN
 ========================= */
-header.subpage-hero, 
-.hero {
-  padding: 1rem 5% !important;
-  min-height: auto !important;
-  background: #f7f6f2;
-  border-bottom: 1px solid #eae6df;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
-header.subpage-hero nav, 
-.hero nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 !important;
+.logo{
+  font-size:20px;
+  font-weight:400;
 }
 
-.logo, .logo-link {
-  font-size: 1rem !important;
-  font-weight: bold;
-  text-decoration: none;
-  color: #111;
+.menu-btn,
+.close-menu{
+  border:none;
+  background:none;
+  cursor:pointer;
+  color:#111;
 }
 
-/* Contenedor de enlaces de la barra superior */
-.nav-links, .subpage-hero nav div, .hero nav div {
-  display: flex;
-  gap: 1.2rem;
-  align-items: center;
+.menu-btn{
+  font-size:32px;
 }
 
-.subpage-hero nav a, .hero nav a {
-  text-decoration: none;
-  color: #111;
-  font-size: 0.9rem;
-}
-
-.subpage-hero nav a:hover, .hero nav a:hover {
-  opacity: 0.6;
+.close-menu{
+  position:absolute;
+  top:40px;
+  right:40px;
+  font-size:32px;
 }
 
 /* =========================
-   TEXTOS Y TÍTULOS COMPACTOS
+   MENÚ OVERLAY
 ========================= */
-h1 {
-  font-size: 1.6rem !important;
-  line-height: 1.2 !important;
-  font-weight: 400 !important;
-  margin-bottom: 0.6rem !important;
+
+.menu-overlay{
+  position:fixed;
+  inset:0;
+  background:#f7f6f2;
+  z-index:999;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:24px;
+
+  opacity:0;
+  pointer-events:none;
+  transition:.3s ease;
 }
 
-h2 {
-  font-size: 1.3rem !important;
-  font-weight: 400 !important;
-  margin-bottom: 0.5rem !important;
+.menu-overlay.active{
+  opacity:1;
+  pointer-events:auto;
 }
 
-h3 {
-  font-size: 1.05rem !important;
-  margin-bottom: 0.4rem !important;
+.menu-overlay a{
+  text-decoration:none;
+  color:#111;
+  font-size:34px;
+  transition:.2s;
 }
 
-p {
-  font-size: 0.9rem !important;
-  line-height: 1.4 !important;
-  margin-bottom: 0.6rem !important;
+.menu-overlay a:hover{
+  opacity:.6;
 }
 
-/* Secciones y espaciados reducidos */
-section {
-  padding: 2rem 5% !important;
-  max-width: 1100px;
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  min-height:100vh;
+  padding:40px 7%;
+  display:flex;
+  flex-direction:column;
+}
+
+.hero-content{
+  max-width:850px;
+  margin:auto 0;
+}
+
+.eyebrow{
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:12px;
+  opacity:.5;
+  margin-bottom:18px;
+}
+
+h1{
+  font-size:92px;
+  line-height:.95;
+  font-weight:400;
+  letter-spacing:-2px;
+  margin-bottom:24px;
+}
+
+.subtitle{
+  font-size:24px;
+  line-height:1.7;
+  max-width:700px;
+  opacity:.85;
+  margin-bottom:40px;
+}
+
+/* =========================
+   BOTONES
+========================= */
+
+.hero-buttons{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.hero-buttons a{
+  text-decoration:none;
+  padding:18px 32px;
+  border-radius:999px;
+  font-size:16px;
+  transition:.25s;
+}
+
+.primary{
+  background:#111;
+  color:white;
+  border:1px solid #111;
+
+}
+.primary,
+.primary:visited,
+.primary:hover,
+.primary:focus,
+.primary:active{
+  color:white !important;
+}
+
+.primary:hover{
+  opacity:.9;
+}
+
+.secondary{
+  color:#111;
+  border:1px solid #111;
+}
+
+.secondary:hover{
+  background:#111;
+  color:white;
+}
+.secondary,
+.secondary:visited{
+  color:#111 !important;
+}
+
+/* =========================
+   FRASE CENTRAL
+========================= */
+
+.quote{
+  padding:120px 7%;
+  text-align:center;
+}
+
+.quote h2{
+  max-width:900px;
+  margin:auto;
+  font-size:64px;
+  line-height:1.1;
+  font-weight:400;
+}
+
+/* =========================
+   TESTIMONIOS
+========================= */
+
+.testimonials{
+  background:white;
+  padding:120px 7%;
+}
+
+.testimonials h2{
+  font-size:52px;
+  font-weight:400;
+  text-align:center;
+  margin-bottom:60px;
+}
+
+blockquote{
+  max-width:850px;
+  margin:0 auto 60px;
+  font-size:34px;
+  line-height:1.5;
+}
+
+blockquote span{
+  display:block;
+  margin-top:14px;
+  font-size:16px;
+  opacity:.55;
+}
+
+/* =========================
+   (PROGRAMAS Y TARIFAS)
+========================= */
+
+.programas-comparacion{
+  max-width:1100px;
+  margin:80px auto;
+  padding:0 20px;
+
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:30px;
+}
+
+.programa-card{
+  background:#f9f4ec;
+  border:1px solid #e4d8c7;
+  border-radius:20px;
+  padding:35px;
+  position:relative;
+
+  box-shadow:0 10px 30px rgba(0,0,0,.05);
+}
+
+.programa-card.destacado{
+  border:2px solid #c8a97e;
+  transform:scale(1.02);
+}
+
+.etiqueta{
+  position:absolute;
+  top:-12px;
+  right:20px;
+
+  background:#c8a97e;
+  color:white;
+
+  padding:8px 16px;
+  border-radius:999px;
+
+  font-size:.8rem;
+  font-weight:600;
+}
+
+.programa-header{
+  margin-bottom:25px;
+}
+
+.programa-header h3{
+  color:#3d342b;
+  margin-bottom:6px;
+  font-size:1.8rem;
+}
+
+.programa-header p{
+  color:#8b7b68;
+}
+
+.programa-card ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.programa-card li{
+  padding:12px 0;
+  border-bottom:1px solid #e8ddd0;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.programa-card li.si::before{
+  content:"✓";
+  color:#8a9a5b;
+  font-weight:bold;
+  font-size:1.2rem;
+}
+
+.programa-card li.no::before{
+  content:"✕";
+  color:#c2b5a4;
+  font-weight:bold;
+  font-size:1.1rem;
+}
+
+.beneficio{
+  margin-top:30px;
+  padding-top:20px;
+  border-top:1px solid #d9ccb9;
+}
+
+.beneficio strong{
+  display:block;
+  margin-bottom:10px;
+  color:#3d342b;
+}
+
+.beneficio p{
+  color:#6b6258;
+  line-height:1.6;
+}
+
+.program-note{
+  text-align:center;
+  margin-top:30px;
+  color:#666;
+  line-height:1.7;
+}
+
+.program-note p{
+  margin-bottom:10px;
+}
+.tarifas-grid{
+  max-width:1000px;
+  margin:60px auto;
+  padding:0 20px;
+
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:30px;
+}
+
+.tarifa-card{
+  background:#f9f4ec;
+  border:1px solid #e4d8c7;
+  border-radius:20px;
+  padding:35px;
+
+  box-shadow:0 10px 30px rgba(0,0,0,.05);
+  position:relative;
+}
+
+.tarifa-card.destacado{
+  border:2px solid #c8a97e;
+}
+
+.tarifa-card h3{
+  text-align:center;
+  margin-bottom:25px;
+  color:#3d342b;
+  font-size:1.8rem;
+}
+
+.precio-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:18px 0;
+
+  border-bottom:1px solid #e4d8c7;
+}
+
+.precio-item:last-child{
+  border-bottom:none;
+}
+
+.precio-item span{
+  color:#6b6258;
+}
+
+.precio-item strong{
+  font-size:1.2rem;
+  color:#3d342b;
+}
+
+.etiqueta{
+  position:absolute;
+  top:-12px;
+  right:20px;
+
+  background:#c8a97e;
+  color:white;
+
+  padding:8px 16px;
+  border-radius:999px;
+
+  font-size:.8rem;
+  font-weight:600;
+}
+
+/* =========================
+   SUBPÁGINAS
+========================= */
+
+.subpage-hero{
+  padding:40px 7% 80px;
+}
+
+.subpage-content{
+  max-width:900px;
+}
+
+.subpage-content h1{
+  margin-bottom:20px;
+}
+
+/* =========================
+   FAQ
+========================= */
+
+.faq-section{
+  max-width:1100px;
+  margin:auto;
+  padding:40px 7% 100px;
+}
+
+.faq-item{
+  background:white;
+  border-radius:24px;
+  margin-bottom:18px;
+  padding:10px 28px;
+  box-shadow:0 10px 25px rgba(0,0,0,.04);
+}
+
+.faq-question{
+  width:100%;
+  border:none;
+  background:none;
+  padding:24px 0;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  font-family:Georgia, serif;
+  font-size:24px;
+  text-align:left;
+}
+
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  transition:.3s ease;
+}
+
+.faq-answer p{
+  padding-bottom:24px;
+  font-size:18px;
+  line-height:1.8;
+  opacity:.8;
+}
+
+.faq-item.active .faq-answer{
+  max-height:500px;
+}
+
+/* =========================
+   ÁREA FAMILIAS
+========================= */
+
+.family-dashboard{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:24px;
+  padding:40px 7% 100px;
+}
+
+.family-card{
+  background:white;
+  border-radius:28px;
+  padding:40px;
+  text-decoration:none;
+  color:#111;
+  box-shadow:0 10px 25px rgba(0,0,0,.04);
+  transition:.25s;
+}
+
+.family-card:hover{
+  transform:translateY(-4px);
+}
+
+.family-card h2{
+  font-size:36px;
+  margin-bottom:15px;
+}
+
+.family-card span{
+  opacity:.6;
+}
+
+/* =========================
+   MÓVIL
+========================= */
+
+@media(max-width:900px){
+
+  .hero{
+    min-height:auto;
+    padding:30px 6% 70px;
+  }
+
+  h1{
+    font-size:54px;
+    line-height:1;
+    letter-spacing:-1px;
+  }
+
+  .subtitle{
+    font-size:18px;
+    line-height:1.7;
+  }
+
+  .hero-buttons{
+    flex-direction:column;
+  }
+
+  .hero-buttons a{
+    width:100%;
+    text-align:center;
+  }
+
+  .quote{
+    padding:70px 6%;
+  }
+
+  .quote h2{
+    font-size:38px;
+  }
+
+  .testimonials{
+    padding:70px 6%;
+  }
+
+  .testimonials h2{
+    font-size:36px;
+  }
+
+  blockquote{
+    font-size:24px;
+  }
+
+  .programs{
+    padding:60px 4%;
+  }
+
+  .family-dashboard{
+    grid-template-columns:1fr;
+  }
+
+  .family-card h2{
+    font-size:30px;
+  }
+
+  .faq-question{
+    font-size:20px;
+  }
+
+  .menu-overlay a{
+    font-size:28px;
+  }
+
+  .program-table{
+    min-width:750px;
+  }
+}
+.about-hero {
+  max-width: 900px;
   margin: 0 auto;
+  padding: 80px 40px 120px;
 }
 
-/* Botones compactos */
-.primary, .secondary, .mini-btn, .nav-btn {
-  padding: 0.5rem 1rem !important;
-  font-size: 0.85rem !important;
-  border-radius: 999px;
-  text-decoration: none;
-  display: inline-block;
+.about-label {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 20px;
 }
 
-.primary {
-  background: #111;
-  color: white;
+.about-hero h1 {
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  line-height: 0.95;
+  font-weight: 400;
+  letter-spacing: -2px;
+  margin-bottom: 60px;
 }
 
-.secondary {
-  color: #111;
-  border: 1px solid #111;
+.about-text {
+  max-width: 650px;
 }
 
-/* Testimonios y citas compactas */
-blockquote, .result-pill, .editorial-price, .faq-item {
-  padding: 1rem !important;
-  margin-bottom: 0.8rem !important;
+.about-text p {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 28px;
+}
+.about-card {
+  max-width: 900px;
+  margin: 0 auto 100px;
+  padding: 50px;
   background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+  border-radius: 32px;
 }
 
-blockquote {
-  font-size: 0.95rem !important;
+.card-label {
+  color: #666;
+  margin-bottom: 12px;
 }
 
-blockquote span, .result-pill span {
-  font-size: 0.75rem !important;
-  opacity: 0.6;
+.about-card h2 {
+  font-size: 3rem;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.about-card p {
+  font-size: 1.2rem;
+  color: #555;
+}
+.team-page{
+  max-width:1100px;
+  margin:0 auto;
+  padding:80px 40px 120px;
+}
+
+.section-label{
+  color:#777;
+  margin-bottom:20px;
+}
+
+.team-page h1{
+  font-size:clamp(3rem,7vw,5.5rem);
+  line-height:1;
+  max-width:900px;
+  margin-bottom:40px;
+}
+
+.section-intro{
+  max-width:700px;
+  font-size:1.2rem;
+  line-height:1.8;
+  color:#555;
+  margin-bottom:80px;
+}
+
+.teacher-card{
+  display:flex;
+  gap:50px;
+  align-items:center;
+  background:white;
+  border-radius:32px;
+  padding:40px;
+}
+
+.teacher-card img{
+  width:220px;
+  height:220px;
+  border-radius:24px;
+  object-fit:cover;
+}
+
+.teacher-info h2{
+  font-size:2.5rem;
+  margin-bottom:8px;
+}
+
+.teacher-role{
+  color:#777;
+  margin-bottom:24px;
+}
+
+.teacher-info ul{
+  padding-left:20px;
+}
+
+.teacher-info li{
+  margin-bottom:12px;
+  line-height:1.7;
+  color:#444;
+}
+a{
+  text-decoration:none;
+}
+
+a:visited{
+  text-decoration:none;
+}
+
+/* HERO SUBPÁGINAS */
+
+.subpage-hero{
+  padding:40px 7% 20px;
+}
+
+.subpage-content{
+  max-width:900px;
+}
+
+.subpage-content h1{
+  margin-bottom:16px;
+}
+
+/* PROGRAMAS */
+
+.programs{
+  max-width:1400px;
+  margin:auto;
+  padding:20px 7% 80px;
+}
+
+.table-container{
+  overflow-x:auto;
+  margin-top:20px;
+}
+
+/* TARJETAS */
+
+.family-card{
+  background:white;
+  border-radius:24px;
+  padding:40px;
+  text-decoration:none;
+  color:#111;
+  box-shadow:0 8px 24px rgba(0,0,0,.05);
+  transition:.25s;
+}
+
+.family-card:hover{
+  transform:translateY(-3px);
+}
+
+/* TÍTULOS */
+
+h1{
+  font-size:80px;
+  line-height:.95;
+  font-weight:400;
+  letter-spacing:-2px;
+  margin-bottom:24px;
+}
+
+/* MÓVIL */
+
+@media(max-width:900px){
+
+  h1{
+    font-size:48px;
+    line-height:1;
+  }
+
+  .subpage-hero{
+    padding:30px 6% 10px;
+  }
+
+  .programs{
+    padding:10px 4% 60px;
+  }
+
+  .family-dashboard{
+    grid-template-columns:1fr;
+  }
+
 }
