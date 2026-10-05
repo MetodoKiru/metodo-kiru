@@ -16,14 +16,14 @@ body{
 }
 
 /* =========================
-   BARRA SUPERIOR MVP (Limpia y ligera)
+   BARRA SUPERIOR (Estilo Plataforma)
 ========================= */
 
 header.subpage-hero, 
 .hero {
-  padding: 1.2rem 6% !important;
+  padding: 1rem 4% !important;
   min-height: auto !important;
-  background: #f7f6f2;
+  background: #ffffff;
   border-bottom: 1px solid #eae6df;
   position: sticky;
   top: 0;
@@ -35,268 +35,235 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
 }
 
-.logo, .logo-link{
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.3rem !important;
-  font-weight: 600;
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   text-decoration: none;
   color: #111;
-  letter-spacing: -0.5px;
 }
 
-.menu-btn,
-.close-menu,
-.menu-overlay{
+.logo-icon {
+  background: #111;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.logo-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: 'Manrope', sans-serif;
+}
+
+.menu-btn, .close-menu, .menu-overlay{
   display: none !important;
 }
 
-header.subpage-hero nav div, 
-.hero nav div{
+.nav-links {
   display: flex;
-  gap: 2rem;
+  gap: 1.8rem;
   align-items: center;
 }
 
-header.subpage-hero nav a, 
-.hero nav a{
+.nav-links a {
   text-decoration: none;
-  color: #555;
+  color: #444;
   font-size: 0.9rem;
   font-weight: 500;
-  transition: color 0.2s ease;
 }
 
-header.subpage-hero nav a:hover{
+.nav-links a:hover {
   color: #111;
 }
 
-/* =========================
-   TIPOGRAFÍA Y ESPACIADO MVP
-========================= */
-
-.hero-content{
-  max-width: 950px;
-  margin: 3rem auto;
-  padding: 0 6%;
+/* Botones de la derecha de la barra */
+.nav-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
-.eyebrow{
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 11px;
-  opacity: .5;
-  margin-bottom: 1rem;
-  font-weight: 600;
+.btn-whatsapp-nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #10b981;
+  color: #059669;
+  background: #f0fdf4;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.btn-campus {
+  background: #111;
+  color: white;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+/* =========================
+   TARJETA CENTRAL HERO (Estilo Contenedor Blanco)
+========================= */
+
+.hero-card-container {
+  max-width: 1050px;
+  margin: 2.5rem auto 1.5rem auto;
+  background: white;
+  border: 1px solid #eae6df;
+  border-radius: 32px;
+  padding: 4rem 3rem;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+}
+
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #a7f3d0;
+  background: #f0fdf4;
+  color: #059669;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
 }
 
 h1{
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2.5rem, 5vw, 3.8rem) !important;
-  line-height: 1.05 !important;
+  font-size: clamp(2.5rem, 4.5vw, 3.8rem) !important;
+  line-height: 1.1 !important;
   font-weight: 400 !important;
-  letter-spacing: -1.5px !important;
+  letter-spacing: -1px !important;
   margin-bottom: 1.2rem !important;
   color: #111;
 }
 
-h2{
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.8rem, 3vw, 2.5rem) !important;
-  line-height: 1.15 !important;
-  font-weight: 400 !important;
-  margin-bottom: 1rem !important;
-}
-
-h3{
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.4rem !important;
-  margin-bottom: 0.5rem !important;
-  font-weight: 500;
-}
-
-p, .subtitle{
+.hero-subtitle{
   font-size: 1.05rem !important;
-  line-height: 1.7 !important;
-  max-width: 750px;
-  color: #444;
-  margin-bottom: 1.2rem !important;
-}
-
-section{
-  padding: 3rem 6% !important;
-}
-
-/* =========================
-   BOTONES
-========================= */
-
-.hero-buttons{
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-  margin-top: 1.8rem;
-}
-
-.hero-buttons a, .primary, .secondary, .mini-btn{
-  text-decoration:none;
-  padding: 0.7rem 1.4rem !important;
-  border-radius:999px;
-  font-size: 0.9rem !important;
-  font-weight: 500;
-  transition: all .25s ease;
-  display: inline-block;
-}
-
-.primary{
-  background:#111;
-  color:white !important;
-  border:1px solid #111;
-}
-
-.primary:hover{
-  background:#333;
-}
-
-.secondary{
-  color:#111 !important;
-  border:1px solid #ccc;
-  background: transparent;
-}
-
-.secondary:hover{
-  border-color: #111;
-}
-
-.mini-btn{
-  background: #111;
-  color: white !important;
-  padding: 0.5rem 1.1rem !important;
-}
-
-/* =========================
-   TARJETAS Y CONTENEDORES
-========================= */
-
-.quote{
-  padding: 4rem 6%;
-  text-align: center;
-}
-
-.quote h2, .editorial-quote p{
-  max-width: 900px;
-  margin: auto;
-  font-size: clamp(1.6rem, 3vw, 2.2rem) !important;
-  font-family: 'Cormorant Garamond', serif;
-}
-
-.testimonials{
-  background: white;
-  padding: 4rem 6%;
-}
-
-.testimonials h2{
-  text-align: center;
-  margin-bottom: 2.5rem;
-}
-
-blockquote{
-  max-width: 800px;
-  margin: 0 auto 2rem;
-  font-size: clamp(1.2rem, 2vw, 1.5rem) !important;
-  line-height: 1.45;
-  font-family: 'Cormorant Garamond', serif;
-  color: #222;
-}
-
-blockquote span{
-  display: block;
-  margin-top: 8px;
-  font-size: 0.85rem;
-  opacity: .5;
-  font-family: 'Manrope', sans-serif;
-}
-
-.cards, .programas-comparacion, .tarifas-grid, .family-dashboard, .method-pillars, .difference-grid, .kiru-grid{
-  max-width: 1100px;
-  margin: 2rem auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-  padding: 0;
-}
-
-.card, .programa-card, .tarifa-card, .family-card, .pillar, .difference-card, .kiru-card, .editorial-price, .faq-item{
-  background: white;
-  border: 1px solid #eae6df;
-  border-radius: 24px;
-  padding: 32px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-  transition: transform 0.2s ease;
-}
-
-.card:hover, .family-card:hover, .programa-card:hover, .tarifa-card:hover{
-  transform: translateY(-2px);
-}
-
-.etiqueta{
-  display: inline-block;
-  background: #f4efe6;
-  color: #8c6d3f;
-  padding: 6px 14px;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  margin-bottom: 16px;
-}
-
-.faq-section{
-  max-width: 900px;
-  margin: auto;
-  padding: 3rem 6%;
-}
-
-.faq-item{
-  margin-bottom: 16px;
-  padding: 16px 28px;
-}
-
-.faq-question{
-  width: 100%;
-  border: none;
-  background: none;
-  padding: 16px 0;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.3rem;
-  text-align: left;
-  color: #111;
-}
-
-.faq-answer p{
-  padding-bottom: 16px;
-  font-size: 0.95rem !important;
+  line-height: 1.6 !important;
+  max-width: 700px;
+  margin: 0 auto 1.8rem auto;
   color: #555;
 }
 
+.coverage-text {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #777;
+  margin-bottom: 2rem;
+}
+
+.coverage-text strong {
+  color: #111;
+}
+
+.hero-action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-main-whatsapp {
+  background: #059669;
+  color: white;
+  padding: 0.75rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8sdtpx;
+}
+
+.btn-secondary-programs {
+  background: #f3f4f6;
+  color: #111;
+  padding: 0.75rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+/* =========================
+   GRID DE TARJETAS INFERIORES
+========================= */
+
+.platform-grid {
+  max-width: 1050px;
+  margin: 0 auto 3rem auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.platform-card {
+  background: white;
+  border: 1px solid #eae6df;
+  border-radius: 28px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+  text-decoration: none;
+  color: #111;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.platform-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.platform-card p {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
 footer{
   text-align: center;
-  padding: 3rem;
+  padding: 2.5rem;
   font-size: 0.85rem;
   color: #777;
   border-top: 1px solid #eae6df;
   background: #f7f6f2;
 }
 
-@media(max-width:900px){
-  .cards, .programas-comparacion, .tarifas-grid, .family-dashboard, .method-pillars, .difference-grid, .kiru-grid{
+@media(max-width: 900px){
+  .platform-grid {
     grid-template-columns: 1fr;
+  }
+  .hero-card-container {
+    padding: 2.5rem 1.5rem;
+  }
+  .nav-links {
+    display: none;
   }
 }
