@@ -7,15 +7,11 @@
 body{
   background:#f7f6f2;
   color:#111;
-  font-family:Georgia, serif;
+  font-family: 'Manrope', sans-serif, Georgia, serif;
   -webkit-font-smoothing:antialiased;
-  font-size: 13.5px;
-  line-height: 1.4;
+  font-size: 14px;
+  line-height: 1.5;
 }
-
-/* =========================
-   BARRA SUPERIOR HORIZONTAL FIJA
-========================= */
 
 header.subpage-hero, 
 .hero {
@@ -39,23 +35,21 @@ nav{
 
 .logo, .logo-link{
   font-size: 1rem !important;
-  font-weight: bold;
+  font-weight: 600;
   text-decoration: none;
   color: #111;
 }
 
-/* Ocultamos los botones antiguos del menú lateral que ya no se usan */
 .menu-btn,
 .close-menu,
 .menu-overlay{
   display: none !important;
 }
 
-/* Contenedor de enlaces en la barra superior */
 header.subpage-hero nav div, 
 .hero nav div{
   display: flex;
-  gap: 1.2rem;
+  gap: 1.5rem;
   align-items: center;
 }
 
@@ -70,13 +64,9 @@ header.subpage-hero nav a:hover{
   opacity: 0.6;
 }
 
-/* =========================
-   TEXTOS Y TÍTULOS COMPACTOS
-========================= */
-
 .hero-content{
   max-width:900px;
-  margin: 1.5rem auto;
+  margin: 2rem auto;
 }
 
 .eyebrow{
@@ -84,57 +74,56 @@ header.subpage-hero nav a:hover{
   letter-spacing:2px;
   font-size:11px;
   opacity:.5;
-  margin-bottom:10px;
+  margin-bottom:12px;
 }
 
 h1{
-  font-size: 1.8rem !important;
+  font-family: Georgia, serif;
+  font-size: 2.2rem !important;
   line-height: 1.2 !important;
   font-weight: 400 !important;
   letter-spacing: -1px !important;
-  margin-bottom: 0.6rem !important;
+  margin-bottom: 0.8rem !important;
 }
 
 h2{
-  font-size: 1.35rem !important;
+  font-family: Georgia, serif;
+  font-size: 1.5rem !important;
   line-height: 1.2 !important;
   font-weight: 400 !important;
-  margin-bottom: 0.5rem !important;
-}
-
-h3{
-  font-size: 1.05rem !important;
-  margin-bottom: 0.4rem !important;
-}
-
-p, .subtitle, .method-text{
-  font-size: 0.9rem !important;
-  line-height: 1.4 !important;
-  max-width: 700px;
-  opacity: .85;
   margin-bottom: 0.6rem !important;
 }
 
-section{
-  padding: 2rem 5% !important;
+h3{
+  font-size: 1.1rem !important;
+  margin-bottom: 0.4rem !important;
 }
 
-/* =========================
-   BOTONES
-========================= */
+p, .subtitle{
+  font-size: 0.95rem !important;
+  line-height: 1.6 !important;
+  max-width: 700px;
+  opacity: .85;
+  margin-bottom: 0.8rem !important;
+}
+
+section{
+  padding: 2.5rem 5% !important;
+}
 
 .hero-buttons{
   display:flex;
-  gap:10px;
+  gap:12px;
   flex-wrap:wrap;
-  margin-top: 1rem;
+  margin-top: 1.2rem;
 }
 
 .hero-buttons a, .primary, .secondary, .mini-btn{
   text-decoration:none;
-  padding: 0.5rem 1rem !important;
+  padding: 0.6rem 1.2rem !important;
   border-radius:999px;
   font-size: 0.85rem !important;
+  font-weight: 500;
   transition:.25s;
   display: inline-block;
 }
@@ -165,37 +154,34 @@ section{
   color: white !important;
 }
 
-/* =========================
-   SECCIONES Y TARJETAS COMPACTAS
-========================= */
-
 .quote{
-  padding: 2rem 7%;
+  padding: 2.5rem 7%;
   text-align:center;
 }
 
 .quote h2, .editorial-quote p{
   max-width:800px;
   margin:auto;
-  font-size: 1.3rem !important;
+  font-size: 1.4rem !important;
 }
 
 .testimonials{
   background:white;
-  padding: 2rem 7%;
+  padding: 2.5rem 7%;
 }
 
 .testimonials h2{
-  font-size: 1.3rem !important;
+  font-size: 1.4rem !important;
   text-align:center;
   margin-bottom: 1.5rem;
 }
 
 blockquote{
   max-width:750px;
-  margin:0 auto 1rem;
+  margin:0 auto 1.2rem;
   font-size: 1rem !important;
-  line-height:1.4;
+  line-height:1.5;
+  font-family: Georgia, serif;
 }
 
 blockquote span{
@@ -203,6 +189,7 @@ blockquote span{
   margin-top:6px;
   font-size:0.8rem;
   opacity:.55;
+  font-family: 'Manrope', sans-serif;
 }
 
 .cards, .programas-comparacion, .tarifas-grid, .family-dashboard, .method-pillars, .difference-grid, .kiru-grid{
@@ -210,38 +197,38 @@ blockquote span{
   margin: 1.5rem auto;
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:20px;
+  gap:24px;
   padding: 0;
 }
 
 .card, .programa-card, .tarifa-card, .family-card, .pillar, .difference-card, .kiru-card, .editorial-price, .faq-item{
   background:white;
-  border:1px solid #e4d8c7;
-  border-radius:16px;
-  padding:24px;
-  box-shadow:0 4px 15px rgba(0,0,0,.03);
+  border:1px solid #eae6df;
+  border-radius:20px;
+  padding:28px;
+  box-shadow:0 4px 20px rgba(0,0,0,.02);
 }
 
 .etiqueta{
   display: inline-block;
   background:#c8a97e;
   color:white;
-  padding:4px 10px;
+  padding:4px 12px;
   border-radius:999px;
   font-size:.75rem;
   font-weight:600;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .faq-section{
   max-width:900px;
   margin:auto;
-  padding: 2rem 5%;
+  padding: 2.5rem 5%;
 }
 
 .faq-item{
-  margin-bottom:12px;
-  padding: 10px 20px;
+  margin-bottom:14px;
+  padding: 12px 24px;
 }
 
 .faq-question{
@@ -253,19 +240,24 @@ blockquote span{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  font-family:Georgia, serif;
-  font-size: 1.05rem;
+  font-family: Georgia, serif;
+  font-size: 1.1rem;
   text-align:left;
 }
 
 .faq-answer p{
   padding-bottom: 14px;
-  font-size: 0.85rem !important;
+  font-size: 0.9rem !important;
 }
 
-/* =========================
-   MÓVIL
-========================= */
+footer{
+  text-align: center;
+  padding: 2.5rem;
+  font-size: 0.85rem;
+  color: #666;
+  border-top: 1px solid #eae6df;
+  background: #f7f6f2;
+}
 
 @media(max-width:900px){
   .cards, .programas-comparacion, .tarifas-grid, .family-dashboard, .method-pillars, .difference-grid, .kiru-grid{
