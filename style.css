@@ -1,4 +1,4 @@
-/* Reseteo general */
+/* Reseteo general y espacios reducidos */
 * {
   margin: 0;
   padding: 0;
@@ -10,33 +10,16 @@ body {
   color: #111;
   font-family: Georgia, serif;
   -webkit-font-smoothing: antialiased;
-  font-size: 14px;
+  font-size: 13.5px;
+  line-height: 1.4;
 }
 
-/* Forzar que los textos y títulos de la página sean pequeños y compactos */
-h1 {
-  font-size: 1.8rem !important;
-  line-height: 1.2 !important;
-  font-weight: 400 !important;
-}
-
-h2 {
-  font-size: 1.4rem !important;
-  font-weight: 400 !important;
-}
-
-h3 {
-  font-size: 1.1rem !important;
-}
-
-p {
-  font-size: 0.95rem !important;
-  line-height: 1.5 !important;
-}
-
-/* Estilos de la barra superior */
-header.subpage-hero {
-  padding: 1rem 0 !important;
+/* =========================
+   BARRA SUPERIOR HORIZONTAL
+========================= */
+header.subpage-hero, 
+.hero {
+  padding: 1rem 5% !important;
   min-height: auto !important;
   background: #f7f6f2;
   border-bottom: 1px solid #eae6df;
@@ -45,12 +28,81 @@ header.subpage-hero {
   z-index: 1000;
 }
 
+header.subpage-hero nav, 
+.hero nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 !important;
+}
+
+.logo, .logo-link {
+  font-size: 1rem !important;
+  font-weight: bold;
+  text-decoration: none;
+  color: #111;
+}
+
+/* Contenedor de enlaces de la barra superior */
+.nav-links, .subpage-hero nav div, .hero nav div {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.subpage-hero nav a, .hero nav a {
+  text-decoration: none;
+  color: #111;
+  font-size: 0.9rem;
+}
+
+.subpage-hero nav a:hover, .hero nav a:hover {
+  opacity: 0.6;
+}
+
+/* =========================
+   TEXTOS Y TÍTULOS COMPACTOS
+========================= */
+h1 {
+  font-size: 1.6rem !important;
+  line-height: 1.2 !important;
+  font-weight: 400 !important;
+  margin-bottom: 0.6rem !important;
+}
+
+h2 {
+  font-size: 1.3rem !important;
+  font-weight: 400 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin-bottom: 0.4rem !important;
+}
+
+p {
+  font-size: 0.9rem !important;
+  line-height: 1.4 !important;
+  margin-bottom: 0.6rem !important;
+}
+
+/* Secciones y espaciados reducidos */
+section {
+  padding: 2rem 5% !important;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
 /* Botones compactos */
-.primary, .secondary, .mini-btn {
+.primary, .secondary, .mini-btn, .nav-btn {
   padding: 0.5rem 1rem !important;
   font-size: 0.85rem !important;
   border-radius: 999px;
   text-decoration: none;
+  display: inline-block;
 }
 
 .primary {
@@ -62,24 +114,21 @@ header.subpage-hero {
   color: #111;
   border: 1px solid #111;
 }
-/* =========================
-   ESTILOS COMPACTOS PARA TESTIMONIOS
-========================= */
-.results-editorial h2 {
-  font-size: 1.25rem !important; /* Título de sección más pequeño */
+
+/* Testimonios y citas compactas */
+blockquote, .result-pill, .editorial-price, .faq-item {
+  padding: 1rem !important;
+  margin-bottom: 0.8rem !important;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.03);
 }
 
-.results-editorial p,
-.results-list p,
-blockquote p,
-.result-pill p {
-  font-size: 0.95rem !important; /* Textos de las citas más pequeños */
-  line-height: 1.4 !important;
+blockquote {
+  font-size: 0.95rem !important;
 }
 
-.results-editorial span,
-.results-list span,
-blockquote span,
-.result-pill span {
-  font-size: 0.75rem !important; /* Firma de la madre más pequeña */
+blockquote span, .result-pill span {
+  font-size: 0.75rem !important;
+  opacity: 0.6;
 }
