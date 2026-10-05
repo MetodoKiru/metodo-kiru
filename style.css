@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600&display=swap');
+
 *{
   margin:0;
   padding:0;
@@ -7,15 +9,19 @@
 body{
   background:#f7f6f2;
   color:#111;
-  font-family: 'Manrope', sans-serif, Georgia, serif;
+  font-family: 'Manrope', sans-serif;
   -webkit-font-smoothing:antialiased;
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: 14.5px;
+  line-height: 1.6;
 }
+
+/* =========================
+   BARRA SUPERIOR MVP (Limpia y ligera)
+========================= */
 
 header.subpage-hero, 
 .hero {
-  padding: 1rem 5% !important;
+  padding: 1.2rem 6% !important;
   min-height: auto !important;
   background: #f7f6f2;
   border-bottom: 1px solid #eae6df;
@@ -34,10 +40,12 @@ nav{
 }
 
 .logo, .logo-link{
-  font-size: 1rem !important;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem !important;
   font-weight: 600;
   text-decoration: none;
   color: #111;
+  letter-spacing: -0.5px;
 }
 
 .menu-btn,
@@ -49,82 +57,97 @@ nav{
 header.subpage-hero nav div, 
 .hero nav div{
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
   align-items: center;
 }
 
 header.subpage-hero nav a, 
 .hero nav a{
   text-decoration: none;
-  color: #111;
+  color: #555;
   font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
 }
 
 header.subpage-hero nav a:hover{
-  opacity: 0.6;
+  color: #111;
 }
 
+/* =========================
+   TIPOGRAFÍA Y ESPACIADO MVP
+========================= */
+
 .hero-content{
-  max-width:900px;
-  margin: 2rem auto;
+  max-width: 950px;
+  margin: 3rem auto;
+  padding: 0 6%;
 }
 
 .eyebrow{
-  text-transform:uppercase;
-  letter-spacing:2px;
-  font-size:11px;
-  opacity:.5;
-  margin-bottom:12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 11px;
+  opacity: .5;
+  margin-bottom: 1rem;
+  font-weight: 600;
 }
 
 h1{
-  font-family: Georgia, serif;
-  font-size: 2.2rem !important;
-  line-height: 1.2 !important;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 5vw, 3.8rem) !important;
+  line-height: 1.05 !important;
   font-weight: 400 !important;
-  letter-spacing: -1px !important;
-  margin-bottom: 0.8rem !important;
+  letter-spacing: -1.5px !important;
+  margin-bottom: 1.2rem !important;
+  color: #111;
 }
 
 h2{
-  font-family: Georgia, serif;
-  font-size: 1.5rem !important;
-  line-height: 1.2 !important;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem) !important;
+  line-height: 1.15 !important;
   font-weight: 400 !important;
-  margin-bottom: 0.6rem !important;
+  margin-bottom: 1rem !important;
 }
 
 h3{
-  font-size: 1.1rem !important;
-  margin-bottom: 0.4rem !important;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem !important;
+  margin-bottom: 0.5rem !important;
+  font-weight: 500;
 }
 
 p, .subtitle{
-  font-size: 0.95rem !important;
-  line-height: 1.6 !important;
-  max-width: 700px;
-  opacity: .85;
-  margin-bottom: 0.8rem !important;
+  font-size: 1.05rem !important;
+  line-height: 1.7 !important;
+  max-width: 750px;
+  color: #444;
+  margin-bottom: 1.2rem !important;
 }
 
 section{
-  padding: 2.5rem 5% !important;
+  padding: 3rem 6% !important;
 }
+
+/* =========================
+   BOTONES
+========================= */
 
 .hero-buttons{
   display:flex;
-  gap:12px;
+  gap:14px;
   flex-wrap:wrap;
-  margin-top: 1.2rem;
+  margin-top: 1.8rem;
 }
 
 .hero-buttons a, .primary, .secondary, .mini-btn{
   text-decoration:none;
-  padding: 0.6rem 1.2rem !important;
+  padding: 0.7rem 1.4rem !important;
   border-radius:999px;
-  font-size: 0.85rem !important;
+  font-size: 0.9rem !important;
   font-weight: 500;
-  transition:.25s;
+  transition: all .25s ease;
   display: inline-block;
 }
 
@@ -135,132 +158,145 @@ section{
 }
 
 .primary:hover{
-  opacity:.9;
+  background:#333;
 }
 
 .secondary{
   color:#111 !important;
-  border:1px solid #111;
+  border:1px solid #ccc;
   background: transparent;
 }
 
 .secondary:hover{
-  background:#111;
-  color:white !important;
+  border-color: #111;
 }
 
 .mini-btn{
   background: #111;
   color: white !important;
+  padding: 0.5rem 1.1rem !important;
 }
 
+/* =========================
+   TARJETAS Y CONTENEDORES
+========================= */
+
 .quote{
-  padding: 2.5rem 7%;
-  text-align:center;
+  padding: 4rem 6%;
+  text-align: center;
 }
 
 .quote h2, .editorial-quote p{
-  max-width:800px;
-  margin:auto;
-  font-size: 1.4rem !important;
+  max-width: 900px;
+  margin: auto;
+  font-size: clamp(1.6rem, 3vw, 2.2rem) !important;
+  font-family: 'Cormorant Garamond', serif;
 }
 
 .testimonials{
-  background:white;
-  padding: 2.5rem 7%;
+  background: white;
+  padding: 4rem 6%;
 }
 
 .testimonials h2{
-  font-size: 1.4rem !important;
-  text-align:center;
-  margin-bottom: 1.5rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
 }
 
 blockquote{
-  max-width:750px;
-  margin:0 auto 1.2rem;
-  font-size: 1rem !important;
-  line-height:1.5;
-  font-family: Georgia, serif;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  font-size: clamp(1.2rem, 2vw, 1.5rem) !important;
+  line-height: 1.45;
+  font-family: 'Cormorant Garamond', serif;
+  color: #222;
 }
 
 blockquote span{
-  display:block;
-  margin-top:6px;
-  font-size:0.8rem;
-  opacity:.55;
+  display: block;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  opacity: .5;
   font-family: 'Manrope', sans-serif;
 }
 
 .cards, .programas-comparacion, .tarifas-grid, .family-dashboard, .method-pillars, .difference-grid, .kiru-grid{
-  max-width:1100px;
-  margin: 1.5rem auto;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:24px;
+  max-width: 1100px;
+  margin: 2rem auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
   padding: 0;
 }
 
 .card, .programa-card, .tarifa-card, .family-card, .pillar, .difference-card, .kiru-card, .editorial-price, .faq-item{
-  background:white;
-  border:1px solid #eae6df;
-  border-radius:20px;
-  padding:28px;
-  box-shadow:0 4px 20px rgba(0,0,0,.02);
+  background: white;
+  border: 1px solid #eae6df;
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+  transition: transform 0.2s ease;
+}
+
+.card:hover, .family-card:hover, .programa-card:hover, .tarifa-card:hover{
+  transform: translateY(-2px);
 }
 
 .etiqueta{
   display: inline-block;
-  background:#c8a97e;
-  color:white;
-  padding:4px 12px;
-  border-radius:999px;
-  font-size:.75rem;
-  font-weight:600;
-  margin-bottom: 12px;
+  background: #f4efe6;
+  color: #8c6d3f;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
 }
 
 .faq-section{
-  max-width:900px;
-  margin:auto;
-  padding: 2.5rem 5%;
+  max-width: 900px;
+  margin: auto;
+  padding: 3rem 6%;
 }
 
 .faq-item{
-  margin-bottom:14px;
-  padding: 12px 24px;
+  margin-bottom: 16px;
+  padding: 16px 28px;
 }
 
 .faq-question{
-  width:100%;
-  border:none;
-  background:none;
-  padding: 14px 0;
-  cursor:pointer;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  font-family: Georgia, serif;
-  font-size: 1.1rem;
-  text-align:left;
+  width: 100%;
+  border: none;
+  background: none;
+  padding: 16px 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  text-align: left;
+  color: #111;
 }
 
 .faq-answer p{
-  padding-bottom: 14px;
-  font-size: 0.9rem !important;
+  padding-bottom: 16px;
+  font-size: 0.95rem !important;
+  color: #555;
 }
 
 footer{
   text-align: center;
-  padding: 2.5rem;
+  padding: 3rem;
   font-size: 0.85rem;
-  color: #666;
+  color: #777;
   border-top: 1px solid #eae6df;
   background: #f7f6f2;
 }
 
 @media(max-width:900px){
   .cards, .programas-comparacion, .tarifas-grid, .family-dashboard, .method-pillars, .difference-grid, .kiru-grid{
-    grid-template-columns:1fr;
+    grid-template-columns: 1fr;
   }
 }
