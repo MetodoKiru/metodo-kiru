@@ -1,507 +1,64 @@
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+/* Reseteo general */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-  background:#f7f6f2;
-  color:#111;
-  font-family:Georgia, serif;
-  -webkit-font-smoothing:antialiased;
-}
-
-/* =========================
-   NAVEGACIÓN (Barra superior compacta)
-========================= */
-
-nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding: 15px 7%;
+body {
   background: #f7f6f2;
+  color: #111;
+  font-family: Georgia, serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 14px;
+}
+
+/* Forzar que los textos y títulos de la página sean pequeños y compactos */
+h1 {
+  font-size: 1.8rem !important;
+  line-height: 1.2 !important;
+  font-weight: 400 !important;
+}
+
+h2 {
+  font-size: 1.4rem !important;
+  font-weight: 400 !important;
+}
+
+h3 {
+  font-size: 1.1rem !important;
+}
+
+p {
+  font-size: 0.95rem !important;
+  line-height: 1.5 !important;
+}
+
+/* Estilos de la barra superior */
+header.subpage-hero {
+  padding: 1rem 0 !important;
+  min-height: auto !important;
+  background: #f7f6f2;
+  border-bottom: 1px solid #eae6df;
   position: sticky;
   top: 0;
   z-index: 1000;
-  border-bottom: 1px solid #eae6df;
 }
 
-.logo{
-  font-size:18px;
-  font-weight:400;
-}
-
-.menu-btn,
-.close-menu{
-  border:none;
-  background:none;
-  cursor:pointer;
-  color:#111;
-}
-
-.menu-btn{
-  font-size:24px;
-}
-
-.close-menu{
-  position:absolute;
-  top:30px;
-  right:30px;
-  font-size:28px;
-}
-
-/* =========================
-   MENÚ OVERLAY
-========================= */
-
-.menu-overlay{
-  position:fixed;
-  inset:0;
-  background:#f7f6f2;
-  z-index:999;
-
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  gap:20px;
-
-  opacity:0;
-  pointer-events:none;
-  transition:.3s ease;
-}
-
-.menu-overlay.active{
-  opacity:1;
-  pointer-events:auto;
-}
-
-.menu-overlay a{
-  text-decoration:none;
-  color:#111;
-  font-size:26px;
-  transition:.2s;
-}
-
-.menu-overlay a:hover{
-  opacity:.6;
-}
-
-/* =========================
-   HERO (Compacto y reducido)
-========================= */
-
-.hero{
-  min-height:auto;
-  padding:40px 7%;
-  display:flex;
-  flex-direction:column;
-}
-
-.hero-content{
-  max-width:850px;
-  margin:0;
-}
-
-.eyebrow{
-  text-transform:uppercase;
-  letter-spacing:1.5px;
-  font-size:11px;
-  opacity:.5;
-  margin-bottom:10px;
-}
-
-h1{
-  font-size:42px; /* Reducido de 92px a 42px */
-  line-height:1.15;
-  font-weight:400;
-  letter-spacing:-1px;
-  margin-bottom:16px;
-}
-
-.subtitle{
-  font-size:16px; /* Reducido de 24px a 16px */
-  line-height:1.5;
-  max-width:700px;
-  opacity:.85;
-  margin-bottom:24px;
-}
-
-/* =========================
-   BOTONES
-========================= */
-
-.hero-buttons{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
-
-.hero-buttons a{
-  text-decoration:none;
-  padding:10px 20px; /* Botones más compactos */
-  border-radius:999px;
-  font-size:14px;
-  transition:.25s;
-}
-
-.primary{
-  background:#111;
-  color:white;
-  border:1px solid #111;
-}
-
-.primary:hover{
-  opacity:.9;
-}
-
-.secondary{
-  color:#111;
-  border:1px solid #111;
-}
-
-.secondary:hover{
-  background:#111;
-  color:white;
-}
-
-/* =========================
-   FRASE CENTRAL
-========================= */
-
-.quote{
-  padding:50px 7%; /* Espacios muy reducidos */
-  text-align:center;
-}
-
-.quote h2{
-  max-width:800px;
-  margin:auto;
-  font-size:32px; /* Reducido de 64px */
-  line-height:1.3;
-  font-weight:400;
-}
-
-/* =========================
-   TESTIMONIOS
-========================= */
-
-.testimonials{
-  background:white;
-  padding:50px 7%;
-}
-
-.testimonials h2{
-  font-size:28px; /* Reducido de 52px */
-  font-weight:400;
-  text-align:center;
-  margin-bottom:30px;
-}
-
-blockquote{
-  max-width:850px;
-  margin:0 auto 30px;
-  font-size:18px; /* Reducido de 34px */
-  line-height:1.5;
-}
-
-blockquote span{
-  display:block;
-  margin-top:8px;
-  font-size:14px;
-  opacity:.55;
-}
-
-/* =========================
-   TABLAS (PROGRAMAS Y TARIFAS)
-========================= */
-
-.programs{
-  max-width:1400px;
-  margin:auto;
-  padding:40px 7%;
-}
-
-.table-container{
-  overflow-x:auto;
-  margin-top:20px;
-}
-
-.program-table{
-  width:100%;
-  min-width:900px;
-  border-collapse:collapse;
-  background:white;
-  border-radius:16px;
-  overflow:hidden;
-  box-shadow:0 4px 15px rgba(0,0,0,.04);
-}
-
-.program-table th{
-  background:#f1f1ee;
-  padding:14px 16px;
-  text-align:left;
-  font-size:14px;
-  font-weight:600;
-}
-
-.program-table td{
-  padding:16px;
-  border-top:1px solid #ececec;
-  vertical-align:top;
-  line-height:1.5;
-  font-size:14px;
-}
-
-.program-table td:not(:first-child):not(:last-child){
-  text-align:center;
-}
-
-.program-note{
-  text-align:center;
-  margin-top:20px;
-  color:#666;
-  line-height:1.5;
-  font-size:14px;
-}
-
-.program-note p{
-  margin-bottom:8px;
-}
-
-/* =========================
-   SUBPÁGINAS
-========================= */
-
-.subpage-hero{
-  padding:30px 7% 40px;
-}
-
-.subpage-content{
-  max-width:900px;
-}
-
-.subpage-content h1{
-  margin-bottom:15px;
-}
-
-/* =========================
-   FAQ
-========================= */
-
-.faq-section{
-  max-width:1100px;
-  margin:auto;
-  padding:30px 7% 60px;
-}
-
-.faq-item{
-  background:white;
-  border-radius:16px;
-  margin-bottom:12px;
-  padding:5px 20px;
-  box-shadow:0 4px 15px rgba(0,0,0,.04);
-}
-
-.faq-question{
-  width:100%;
-  border:none;
-  background:none;
-  padding:16px 0;
-  cursor:pointer;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-
-  font-family:Georgia, serif;
-  font-size:18px; /* Reducido de 24px */
-  text-align:left;
-}
-
-.faq-answer{
-  max-height:0;
-  overflow:hidden;
-  transition:.3s ease;
-}
-
-.faq-answer p{
-  padding-bottom:16px;
-  font-size:15px; /* Reducido de 18px */
-  line-height:1.6;
-  opacity:.8;
-}
-
-.faq-item.active .faq-answer{
-  max-height:500px;
-}
-
-/* =========================
-   ÁREA FAMILIAS
-========================= */
-
-.family-dashboard{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:20px;
-  padding:30px 7% 60px;
-}
-
-.family-card{
-  background:white;
-  border-radius:20px;
-  padding:25px;
-  text-decoration:none;
-  color:#111;
-  box-shadow:0 4px 15px rgba(0,0,0,.04);
-  transition:.25s;
-}
-
-.family-card:hover{
-  transform:translateY(-2px);
-}
-
-.family-card h2{
-  font-size:24px; /* Reducido de 36px */
-  margin-bottom:10px;
-}
-
-.family-card span{
-  opacity:.6;
-  font-size:14px;
-}
-
-/* =========================
-   MÓVIL
-========================= */
-
-@media(max-width:900px){
-
-  .hero{
-    padding:25px 5% 40px;
-  }
-
-  h1{
-    font-size:32px;
-  }
-
-  .subtitle{
-    font-size:15px;
-  }
-
-  .hero-buttons{
-    flex-direction:column;
-  }
-
-  .hero-buttons a{
-    width:100%;
-    text-align:center;
-  }
-
-  .quote{
-    padding:40px 5%;
-  }
-
-  .quote h2{
-    font-size:24px;
-  }
-
-  .testimonials{
-    padding:40px 5%;
-  }
-
-  .testimonials h2{
-    font-size:24px;
-  }
-
-  blockquote{
-    font-size:16px;
-  }
-
-  .programs{
-    padding:30px 4%;
-  }
-
-  .family-dashboard{
-    grid-template-columns:1fr;
-  }
-
-  .family-card h2{
-    font-size:22px;
-  }
-
-  .faq-question{
-    font-size:16px;
-  }
-
-  .menu-overlay a{
-    font-size:22px;
-  }
-
-  .program-table{
-    min-width:750px;
-  }
-  /* =========================
-   BARRA SUPERIOR HORIZONTAL
-========================= */
-
-.top-nav-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 5%;
-  background: #f7f6f2;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  border-bottom: 1px solid #eae6df;
-}
-
-.nav-logo {
-  font-size: 16px;
-  font-weight: 500;
-  text-decoration: none;
-  color: #111;
-}
-
-.nav-menu {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-
-.nav-menu a {
-  text-decoration: none;
-  color: #111;
-  font-size: 13px;
-  transition: opacity 0.2s;
-}
-
-.nav-menu a:hover {
-  opacity: 0.6;
-}
-
-.nav-btn {
-  background: #111;
-  color: white !important;
-  padding: 8px 14px;
+/* Botones compactos */
+.primary, .secondary, .mini-btn {
+  padding: 0.5rem 1rem !important;
+  font-size: 0.85rem !important;
   border-radius: 999px;
-  font-size: 13px;
+  text-decoration: none;
 }
 
-.nav-btn:hover {
-  opacity: 0.9 !important;
+.primary {
+  background: #111;
+  color: white;
 }
 
-@media (max-width: 1100px) {
-  .nav-menu {
-    gap: 10px;
-  }
-  .nav-menu a {
-    font-size: 11px;
-  }
-  .nav-btn {
-    padding: 6px 10px;
-  }
-}
+.secondary {
+  color: #111;
+  border: 1px solid #111;
 }
