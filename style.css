@@ -62,3 +62,24 @@ header.subpage-hero {
   color: #111;
   border: 1px solid #111;
 }
+/* =========================
+   ESTILOS COMPACTOS PARA TESTIMONIOS
+========================= */
+.results-editorial h2 {
+  font-size: 1.25rem !important; /* Título de sección más pequeño */
+}
+
+.results-editorial p,
+.results-list p,
+blockquote p,
+.result-pill p {
+  font-size: 0.95rem !important; /* Textos de las citas más pequeños */
+  line-height: 1.4 !important;
+}
+
+.results-editorial span,
+.results-list span,
+blockquote span,
+.result-pill span {
+  font-size: 0.75rem !important; /* Firma de la madre más pequeña */
+}
