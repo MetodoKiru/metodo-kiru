@@ -9,100 +9,117 @@ body{
   color:#111;
   font-family:Georgia, serif;
   -webkit-font-smoothing:antialiased;
-  font-size: 13.5px; /* Ligeramente más pequeño */
-  line-height: 1.4;
 }
 
 /* =========================
-   NAVEGACIÓN (Barra superior horizontal limpia)
+   NAVEGACIÓN
 ========================= */
-
-header.subpage-hero, 
-.hero {
-  padding: 1.2rem 7% !important;
-  min-height: auto !important;
-  background: #f7f6f2;
-  border-bottom: 1px solid #eae6df;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  display: block !important;
-}
 
 nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
-.logo, .logo-link{
-  font-size: 20px;
-  font-weight: 400;
-  text-decoration: none;
-  color: #111;
+.logo{
+  font-size:20px;
+  font-weight:400;
 }
 
 .menu-btn,
-.close-menu,
-.menu-overlay{
-  display:none !important;
+.close-menu{
+  border:none;
+  background:none;
+  cursor:pointer;
+  color:#111;
 }
 
-header.subpage-hero nav div, 
-.hero nav div{
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
+.menu-btn{
+  font-size:32px;
 }
 
-header.subpage-hero nav a, 
-.hero nav a{
-  text-decoration: none;
-  color: #111;
-  font-size: 0.95rem;
-}
-
-header.subpage-hero nav a:hover{
-  opacity: .6;
+.close-menu{
+  position:absolute;
+  top:40px;
+  right:40px;
+  font-size:32px;
 }
 
 /* =========================
-   HERO (Espacios y textos un poco más juntos)
+   MENÚ OVERLAY
+========================= */
+
+.menu-overlay{
+  position:fixed;
+  inset:0;
+  background:#f7f6f2;
+  z-index:999;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:24px;
+
+  opacity:0;
+  pointer-events:none;
+  transition:.3s ease;
+}
+
+.menu-overlay.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.menu-overlay a{
+  text-decoration:none;
+  color:#111;
+  font-size:34px;
+  transition:.2s;
+}
+
+.menu-overlay a:hover{
+  opacity:.6;
+}
+
+/* =========================
+   HERO
 ========================= */
 
 .hero{
-  padding: 30px 7% 40px !important;
+  min-height:100vh;
+  padding:40px 7%;
+  display:flex;
+  flex-direction:column;
 }
 
 .hero-content{
   max-width:850px;
-  margin: 1rem 0;
+  margin:auto 0;
 }
 
 .eyebrow{
   text-transform:uppercase;
   letter-spacing:2px;
-  font-size:11px;
+  font-size:12px;
   opacity:.5;
-  margin-bottom: 12px;
+  margin-bottom:18px;
 }
 
 h1{
-  font-size: 64px !important; /* Ligeramente más compacto que los 92px originales */
-  line-height: 1 !important;
+  font-size:92px;
+  line-height:.95;
   font-weight:400;
-  letter-spacing:-1.5px;
-  margin-bottom: 16px !important;
+  letter-spacing:-2px;
+  margin-bottom:24px;
 }
 
 .subtitle{
-  font-size: 20px !important; /* Ligeramente más pequeño */
-  line-height: 1.5;
+  font-size:24px;
+  line-height:1.7;
   max-width:700px;
   opacity:.85;
-  margin-bottom: 24px !important;
+  margin-bottom:40px;
 }
 
 /* =========================
@@ -117,9 +134,9 @@ h1{
 
 .hero-buttons a{
   text-decoration:none;
-  padding: 14px 28px; /* Un poco más compactos */
+  padding:18px 32px;
   border-radius:999px;
-  font-size: 15px;
+  font-size:16px;
   transition:.25s;
 }
 
@@ -127,8 +144,8 @@ h1{
   background:#111;
   color:white;
   border:1px solid #111;
-}
 
+}
 .primary,
 .primary:visited,
 .primary:hover,
@@ -150,18 +167,9 @@ h1{
   background:#111;
   color:white;
 }
-
 .secondary,
 .secondary:visited{
   color:#111 !important;
-}
-
-.mini-btn{
-  background: #111;
-  color: white !important;
-  padding: 10px 20px !important;
-  border-radius: 999px;
-  font-size: 14px;
 }
 
 /* =========================
@@ -169,14 +177,14 @@ h1{
 ========================= */
 
 .quote{
-  padding: 70px 7%;
+  padding:120px 7%;
   text-align:center;
 }
 
 .quote h2{
   max-width:900px;
   margin:auto;
-  font-size: 44px !important;
+  font-size:64px;
   line-height:1.1;
   font-weight:400;
 }
@@ -187,76 +195,82 @@ h1{
 
 .testimonials{
   background:white;
-  padding: 70px 7%;
+  padding:120px 7%;
 }
 
 .testimonials h2{
-  font-size: 38px !important;
+  font-size:52px;
   font-weight:400;
   text-align:center;
-  margin-bottom: 40px;
+  margin-bottom:60px;
 }
 
 blockquote{
   max-width:850px;
-  margin:0 auto 40px;
-  font-size: 26px !important;
-  line-height:1.4;
+  margin:0 auto 60px;
+  font-size:34px;
+  line-height:1.5;
 }
 
 blockquote span{
   display:block;
-  margin-top:10px;
-  font-size:15px;
+  margin-top:14px;
+  font-size:16px;
   opacity:.55;
 }
 
 /* =========================
-   PROGRAMAS Y TARIFAS
+   (PROGRAMAS Y TARIFAS)
 ========================= */
 
 .programas-comparacion{
   max-width:1100px;
-  margin: 40px auto;
+  margin:80px auto;
   padding:0 20px;
+
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
   gap:30px;
 }
 
-.programa-card, .tarifa-card{
+.programa-card{
   background:#f9f4ec;
   border:1px solid #e4d8c7;
   border-radius:20px;
-  padding:30px;
+  padding:35px;
   position:relative;
+
   box-shadow:0 10px 30px rgba(0,0,0,.05);
 }
 
-.programa-card.destacado, .tarifa-card.destacado{
+.programa-card.destacado{
   border:2px solid #c8a97e;
+  transform:scale(1.02);
 }
 
 .etiqueta{
   position:absolute;
   top:-12px;
   right:20px;
+
   background:#c8a97e;
   color:white;
-  padding:6px 14px;
+
+  padding:8px 16px;
   border-radius:999px;
+
   font-size:.8rem;
   font-weight:600;
 }
 
 .programa-header{
-  margin-bottom:20px;
+  margin-bottom:25px;
 }
 
-.programa-header h3, .tarifa-card h3{
+.programa-header h3{
   color:#3d342b;
   margin-bottom:6px;
-  font-size: 1.5rem;
+  font-size:1.8rem;
 }
 
 .programa-header p{
@@ -270,7 +284,7 @@ blockquote span{
 }
 
 .programa-card li{
-  padding:10px 0;
+  padding:12px 0;
   border-bottom:1px solid #e8ddd0;
   display:flex;
   align-items:center;
@@ -281,54 +295,81 @@ blockquote span{
   content:"✓";
   color:#8a9a5b;
   font-weight:bold;
-  font-size:1.1rem;
+  font-size:1.2rem;
 }
 
 .programa-card li.no::before{
   content:"✕";
   color:#c2b5a4;
   font-weight:bold;
-  font-size:1rem;
+  font-size:1.1rem;
 }
 
 .beneficio{
-  margin-top:20px;
-  padding-top:15px;
+  margin-top:30px;
+  padding-top:20px;
   border-top:1px solid #d9ccb9;
 }
 
 .beneficio strong{
   display:block;
-  margin-bottom:8px;
+  margin-bottom:10px;
   color:#3d342b;
 }
 
 .beneficio p{
   color:#6b6258;
-  line-height:1.5;
+  line-height:1.6;
 }
 
 .program-note{
   text-align:center;
-  margin-top:20px;
+  margin-top:30px;
   color:#666;
-  line-height:1.6;
+  line-height:1.7;
 }
 
+.program-note p{
+  margin-bottom:10px;
+}
 .tarifas-grid{
   max-width:1000px;
-  margin: 40px auto;
+  margin:60px auto;
   padding:0 20px;
+
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
   gap:30px;
+}
+
+.tarifa-card{
+  background:#f9f4ec;
+  border:1px solid #e4d8c7;
+  border-radius:20px;
+  padding:35px;
+
+  box-shadow:0 10px 30px rgba(0,0,0,.05);
+  position:relative;
+}
+
+.tarifa-card.destacado{
+  border:2px solid #c8a97e;
+}
+
+.tarifa-card h3{
+  text-align:center;
+  margin-bottom:25px;
+  color:#3d342b;
+  font-size:1.8rem;
 }
 
 .precio-item{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:14px 0;
+
+  padding:18px 0;
+
   border-bottom:1px solid #e4d8c7;
 }
 
@@ -341,16 +382,16 @@ blockquote span{
 }
 
 .precio-item strong{
-  font-size:1.1rem;
+  font-size:1.2rem;
   color:#3d342b;
 }
 
 /* =========================
-   SUBPÁGINAS Y FAQ
+   SUBPÁGINAS
 ========================= */
 
 .subpage-hero{
-  padding: 30px 7% 40px !important;
+  padding:40px 7% 80px;
 }
 
 .subpage-content{
@@ -358,34 +399,39 @@ blockquote span{
 }
 
 .subpage-content h1{
-  margin-bottom:14px;
+  margin-bottom:20px;
 }
+
+/* =========================
+   FAQ
+========================= */
 
 .faq-section{
   max-width:1100px;
   margin:auto;
-  padding: 30px 7% 70px;
+  padding:40px 7% 100px;
 }
 
 .faq-item{
   background:white;
-  border-radius:20px;
-  margin-bottom:14px;
-  padding: 8px 24px;
-  box-shadow:0 8px 20px rgba(0,0,0,.03);
+  border-radius:24px;
+  margin-bottom:18px;
+  padding:10px 28px;
+  box-shadow:0 10px 25px rgba(0,0,0,.04);
 }
 
 .faq-question{
   width:100%;
   border:none;
   background:none;
-  padding: 18px 0;
+  padding:24px 0;
   cursor:pointer;
   display:flex;
   justify-content:space-between;
   align-items:center;
+
   font-family:Georgia, serif;
-  font-size: 20px;
+  font-size:24px;
   text-align:left;
 }
 
@@ -396,9 +442,9 @@ blockquote span{
 }
 
 .faq-answer p{
-  padding-bottom:18px;
-  font-size: 16px;
-  line-height:1.6;
+  padding-bottom:24px;
+  font-size:18px;
+  line-height:1.8;
   opacity:.8;
 }
 
@@ -413,27 +459,27 @@ blockquote span{
 .family-dashboard{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:20px;
-  padding: 30px 7% 70px;
+  gap:24px;
+  padding:40px 7% 100px;
 }
 
 .family-card{
   background:white;
-  border-radius:24px;
-  padding:30px;
+  border-radius:28px;
+  padding:40px;
   text-decoration:none;
   color:#111;
-  box-shadow:0 8px 20px rgba(0,0,0,.03);
+  box-shadow:0 10px 25px rgba(0,0,0,.04);
   transition:.25s;
 }
 
 .family-card:hover{
-  transform:translateY(-3px);
+  transform:translateY(-4px);
 }
 
 .family-card h2{
-  font-size: 28px;
-  margin-bottom:10px;
+  font-size:36px;
+  margin-bottom:15px;
 }
 
 .family-card span{
@@ -445,31 +491,73 @@ blockquote span{
 ========================= */
 
 @media(max-width:900px){
+
   .hero{
-    padding:20px 6% 40px !important;
+    min-height:auto;
+    padding:30px 6% 70px;
   }
+
   h1{
-    font-size: 40px !important;
+    font-size:54px;
+    line-height:1;
+    letter-spacing:-1px;
   }
+
   .subtitle{
-    font-size: 16px !important;
+    font-size:18px;
+    line-height:1.7;
   }
+
+  .hero-buttons{
+    flex-direction:column;
+  }
+
+  .hero-buttons a{
+    width:100%;
+    text-align:center;
+  }
+
   .quote{
-    padding: 50px 6%;
+    padding:70px 6%;
   }
+
   .quote h2{
-    font-size: 30px !important;
+    font-size:38px;
   }
+
   .testimonials{
-    padding: 50px 6%;
+    padding:70px 6%;
   }
+
   .testimonials h2{
-    font-size: 28px !important;
+    font-size:36px;
   }
+
   blockquote{
-    font-size: 20px !important;
+    font-size:24px;
   }
+
+  .programs{
+    padding:60px 4%;
+  }
+
   .family-dashboard{
     grid-template-columns:1fr;
+  }
+
+  .family-card h2{
+    font-size:30px;
+  }
+
+  .faq-question{
+    font-size:20px;
+  }
+
+  .menu-overlay a{
+    font-size:28px;
+  }
+
+  .program-table{
+    min-width:750px;
   }
 }
