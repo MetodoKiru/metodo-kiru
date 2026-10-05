@@ -12,17 +12,23 @@ body{
 }
 
 /* =========================
-   NAVEGACIÓN
+   NAVEGACIÓN (Barra superior compacta)
 ========================= */
 
 nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  padding: 15px 7%;
+  background: #f7f6f2;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #eae6df;
 }
 
 .logo{
-  font-size:20px;
+  font-size:18px;
   font-weight:400;
 }
 
@@ -35,14 +41,14 @@ nav{
 }
 
 .menu-btn{
-  font-size:32px;
+  font-size:24px;
 }
 
 .close-menu{
   position:absolute;
-  top:40px;
-  right:40px;
-  font-size:32px;
+  top:30px;
+  right:30px;
+  font-size:28px;
 }
 
 /* =========================
@@ -59,7 +65,7 @@ nav{
   flex-direction:column;
   justify-content:center;
   align-items:center;
-  gap:24px;
+  gap:20px;
 
   opacity:0;
   pointer-events:none;
@@ -74,7 +80,7 @@ nav{
 .menu-overlay a{
   text-decoration:none;
   color:#111;
-  font-size:34px;
+  font-size:26px;
   transition:.2s;
 }
 
@@ -83,11 +89,11 @@ nav{
 }
 
 /* =========================
-   HERO
+   HERO (Compacto y reducido)
 ========================= */
 
 .hero{
-  min-height:100vh;
+  min-height:auto;
   padding:40px 7%;
   display:flex;
   flex-direction:column;
@@ -95,31 +101,31 @@ nav{
 
 .hero-content{
   max-width:850px;
-  margin:auto 0;
+  margin:0;
 }
 
 .eyebrow{
   text-transform:uppercase;
-  letter-spacing:2px;
-  font-size:12px;
+  letter-spacing:1.5px;
+  font-size:11px;
   opacity:.5;
-  margin-bottom:18px;
+  margin-bottom:10px;
 }
 
 h1{
-  font-size:92px;
-  line-height:.95;
+  font-size:42px; /* Reducido de 92px a 42px */
+  line-height:1.15;
   font-weight:400;
-  letter-spacing:-2px;
-  margin-bottom:24px;
+  letter-spacing:-1px;
+  margin-bottom:16px;
 }
 
 .subtitle{
-  font-size:24px;
-  line-height:1.7;
+  font-size:16px; /* Reducido de 24px a 16px */
+  line-height:1.5;
   max-width:700px;
   opacity:.85;
-  margin-bottom:40px;
+  margin-bottom:24px;
 }
 
 /* =========================
@@ -128,15 +134,15 @@ h1{
 
 .hero-buttons{
   display:flex;
-  gap:14px;
+  gap:10px;
   flex-wrap:wrap;
 }
 
 .hero-buttons a{
   text-decoration:none;
-  padding:18px 32px;
+  padding:10px 20px; /* Botones más compactos */
   border-radius:999px;
-  font-size:16px;
+  font-size:14px;
   transition:.25s;
 }
 
@@ -165,15 +171,15 @@ h1{
 ========================= */
 
 .quote{
-  padding:120px 7%;
+  padding:50px 7%; /* Espacios muy reducidos */
   text-align:center;
 }
 
 .quote h2{
-  max-width:900px;
+  max-width:800px;
   margin:auto;
-  font-size:64px;
-  line-height:1.1;
+  font-size:32px; /* Reducido de 64px */
+  line-height:1.3;
   font-weight:400;
 }
 
@@ -183,27 +189,27 @@ h1{
 
 .testimonials{
   background:white;
-  padding:120px 7%;
+  padding:50px 7%;
 }
 
 .testimonials h2{
-  font-size:52px;
+  font-size:28px; /* Reducido de 52px */
   font-weight:400;
   text-align:center;
-  margin-bottom:60px;
+  margin-bottom:30px;
 }
 
 blockquote{
   max-width:850px;
-  margin:0 auto 60px;
-  font-size:34px;
+  margin:0 auto 30px;
+  font-size:18px; /* Reducido de 34px */
   line-height:1.5;
 }
 
 blockquote span{
   display:block;
-  margin-top:14px;
-  font-size:16px;
+  margin-top:8px;
+  font-size:14px;
   opacity:.55;
 }
 
@@ -214,12 +220,12 @@ blockquote span{
 .programs{
   max-width:1400px;
   margin:auto;
-  padding:80px 7%;
+  padding:40px 7%;
 }
 
 .table-container{
   overflow-x:auto;
-  margin-top:30px;
+  margin-top:20px;
 }
 
 .program-table{
@@ -227,24 +233,25 @@ blockquote span{
   min-width:900px;
   border-collapse:collapse;
   background:white;
-  border-radius:24px;
+  border-radius:16px;
   overflow:hidden;
-  box-shadow:0 10px 30px rgba(0,0,0,.04);
+  box-shadow:0 4px 15px rgba(0,0,0,.04);
 }
 
 .program-table th{
   background:#f1f1ee;
-  padding:20px;
+  padding:14px 16px;
   text-align:left;
-  font-size:15px;
+  font-size:14px;
   font-weight:600;
 }
 
 .program-table td{
-  padding:22px 20px;
+  padding:16px;
   border-top:1px solid #ececec;
   vertical-align:top;
-  line-height:1.6;
+  line-height:1.5;
+  font-size:14px;
 }
 
 .program-table td:not(:first-child):not(:last-child){
@@ -253,13 +260,14 @@ blockquote span{
 
 .program-note{
   text-align:center;
-  margin-top:30px;
+  margin-top:20px;
   color:#666;
-  line-height:1.7;
+  line-height:1.5;
+  font-size:14px;
 }
 
 .program-note p{
-  margin-bottom:10px;
+  margin-bottom:8px;
 }
 
 /* =========================
@@ -267,7 +275,7 @@ blockquote span{
 ========================= */
 
 .subpage-hero{
-  padding:40px 7% 80px;
+  padding:30px 7% 40px;
 }
 
 .subpage-content{
@@ -275,7 +283,7 @@ blockquote span{
 }
 
 .subpage-content h1{
-  margin-bottom:20px;
+  margin-bottom:15px;
 }
 
 /* =========================
@@ -285,29 +293,29 @@ blockquote span{
 .faq-section{
   max-width:1100px;
   margin:auto;
-  padding:40px 7% 100px;
+  padding:30px 7% 60px;
 }
 
 .faq-item{
   background:white;
-  border-radius:24px;
-  margin-bottom:18px;
-  padding:10px 28px;
-  box-shadow:0 10px 25px rgba(0,0,0,.04);
+  border-radius:16px;
+  margin-bottom:12px;
+  padding:5px 20px;
+  box-shadow:0 4px 15px rgba(0,0,0,.04);
 }
 
 .faq-question{
   width:100%;
   border:none;
   background:none;
-  padding:24px 0;
+  padding:16px 0;
   cursor:pointer;
   display:flex;
   justify-content:space-between;
   align-items:center;
 
   font-family:Georgia, serif;
-  font-size:24px;
+  font-size:18px; /* Reducido de 24px */
   text-align:left;
 }
 
@@ -318,9 +326,9 @@ blockquote span{
 }
 
 .faq-answer p{
-  padding-bottom:24px;
-  font-size:18px;
-  line-height:1.8;
+  padding-bottom:16px;
+  font-size:15px; /* Reducido de 18px */
+  line-height:1.6;
   opacity:.8;
 }
 
@@ -335,31 +343,32 @@ blockquote span{
 .family-dashboard{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:24px;
-  padding:40px 7% 100px;
+  gap:20px;
+  padding:30px 7% 60px;
 }
 
 .family-card{
   background:white;
-  border-radius:28px;
-  padding:40px;
+  border-radius:20px;
+  padding:25px;
   text-decoration:none;
   color:#111;
-  box-shadow:0 10px 25px rgba(0,0,0,.04);
+  box-shadow:0 4px 15px rgba(0,0,0,.04);
   transition:.25s;
 }
 
 .family-card:hover{
-  transform:translateY(-4px);
+  transform:translateY(-2px);
 }
 
 .family-card h2{
-  font-size:36px;
-  margin-bottom:15px;
+  font-size:24px; /* Reducido de 36px */
+  margin-bottom:10px;
 }
 
 .family-card span{
   opacity:.6;
+  font-size:14px;
 }
 
 /* =========================
@@ -369,19 +378,15 @@ blockquote span{
 @media(max-width:900px){
 
   .hero{
-    min-height:auto;
-    padding:30px 6% 70px;
+    padding:25px 5% 40px;
   }
 
   h1{
-    font-size:54px;
-    line-height:1;
-    letter-spacing:-1px;
+    font-size:32px;
   }
 
   .subtitle{
-    font-size:18px;
-    line-height:1.7;
+    font-size:15px;
   }
 
   .hero-buttons{
@@ -394,27 +399,27 @@ blockquote span{
   }
 
   .quote{
-    padding:70px 6%;
+    padding:40px 5%;
   }
 
   .quote h2{
-    font-size:38px;
-  }
-
-  .testimonials{
-    padding:70px 6%;
-  }
-
-  .testimonials h2{
-    font-size:36px;
-  }
-
-  blockquote{
     font-size:24px;
   }
 
+  .testimonials{
+    padding:40px 5%;
+  }
+
+  .testimonials h2{
+    font-size:24px;
+  }
+
+  blockquote{
+    font-size:16px;
+  }
+
   .programs{
-    padding:60px 4%;
+    padding:30px 4%;
   }
 
   .family-dashboard{
@@ -422,15 +427,15 @@ blockquote span{
   }
 
   .family-card h2{
-    font-size:30px;
+    font-size:22px;
   }
 
   .faq-question{
-    font-size:20px;
+    font-size:16px;
   }
 
   .menu-overlay a{
-    font-size:28px;
+    font-size:22px;
   }
 
   .program-table{
