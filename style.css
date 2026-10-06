@@ -56,7 +56,7 @@ body{
 }
 
 /* =========================
-   HERO (Contenido principal sin bloquear scroll)
+   HERO (Contenido principal)
 ========================= */
 
 .hero{
@@ -141,49 +141,49 @@ h1{
 }
 
 /* =========================
-   FRASE CENTRAL
+   FRASE CENTRAL (Reducida)
 ========================= */
 
 .quote{
-  padding: 100px 7%;
+  padding: 80px 7%;
   text-align: center;
 }
 
 .quote h2{
   max-width: 900px;
   margin: auto;
-  font-size: 54px;
-  line-height: 1.1;
+  font-size: 38px;
+  line-height: 1.2;
   font-weight: 400;
 }
 
 /* =========================
-   TESTIMONIOS
+   TESTIMONIOS (Reducidos)
 ========================= */
 
 .testimonials{
   background: white;
-  padding: 100px 7%;
+  padding: 80px 7%;
 }
 
 .testimonials h2{
-  font-size: 44px;
+  font-size: 32px;
   font-weight: 400;
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 blockquote{
   max-width: 850px;
-  margin: 0 auto 50px;
-  font-size: 28px;
+  margin: 0 auto 40px;
+  font-size: 20px;
   line-height: 1.5;
 }
 
 blockquote span{
   display: block;
-  margin-top: 14px;
-  font-size: 16px;
+  margin-top: 10px;
+  font-size: 14px;
   opacity: .55;
 }
 
