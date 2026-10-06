@@ -12,7 +12,7 @@ body{
 }
 
 /* =========================
-   BARRA SUPERIOR FIJA ARRIBA (Limpia y en una línea)
+   BARRA SUPERIOR FIJA ARRIBA (Centrada y con logo)
 ========================= */
 
 .top-navbar {
@@ -32,6 +32,22 @@ body{
   margin: 0 auto;
 }
 
+/* Estilo para unir el logo y el texto Método Kiru en línea */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #111;
+}
+
+.logo-img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
 .logo{
   font-size: 20px;
   font-weight: 400;
@@ -39,14 +55,16 @@ body{
   color: #111;
 }
 
-.top-navbar nav div {
+/* Centrar los enlaces del menú arriba */
+.top-navbar nav div:not(.logo-container) {
   display: flex;
   gap: 2rem;
   align-items: center;
+  margin: 0 auto; /* Esto centra el bloque de enlaces en el espacio disponible */
 }
 
 .top-navbar nav a {
-  text-decoration: none; /* Quitamos el subrayado/barra de los enlaces */
+  text-decoration: none;
   color: #111;
   font-size: 0.95rem;
   transition: opacity 0.2s ease;
@@ -56,7 +74,6 @@ body{
   opacity: .6;
 }
 
-/* Excluimos el botón de reserva para que mantenga su estilo intacto */
 .top-navbar nav a.mini-btn {
   text-decoration: none;
   background: #111;
@@ -71,7 +88,7 @@ body{
 }
 
 /* =========================
-   HERO (Contenido principal)
+   HERO Y DEMÁS SECCIONES
 ========================= */
 
 .hero{
@@ -109,10 +126,6 @@ h1{
   margin-bottom: 28px;
 }
 
-/* =========================
-   BOTONES
-========================= */
-
 .hero-buttons{
   display: flex;
   gap: 14px;
@@ -149,10 +162,6 @@ h1{
   color: white !important;
 }
 
-/* =========================
-   FRASE CENTRAL (Reducida)
-========================= */
-
 .quote{
   padding: 80px 7%;
   text-align: center;
@@ -165,10 +174,6 @@ h1{
   line-height: 1.2;
   font-weight: 400;
 }
-
-/* =========================
-   TESTIMONIOS (Reducidos)
-========================= */
 
 .testimonials{
   background: white;
@@ -195,10 +200,6 @@ blockquote span{
   font-size: 14px;
   opacity: .55;
 }
-
-/* =========================
-   PROGRAMAS Y TARIFAS
-========================= */
 
 .programas-comparacion{
   max-width: 1100px;
@@ -350,10 +351,6 @@ blockquote span{
   font-size: 1.2rem;
   color: #3d342b;
 }
-
-/* =========================
-   FAQ Y ÁREA FAMILIAS
-========================= */
 
 .subpage-hero{
   padding: 30px 7% !important;
