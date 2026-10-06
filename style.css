@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600&display=swap');
+
 *{
   margin:0;
   padding:0;
@@ -7,119 +9,107 @@
 body{
   background:#f7f6f2;
   color:#111;
-  font-family:Georgia, serif;
+  font-family: 'Manrope', sans-serif;
   -webkit-font-smoothing:antialiased;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 /* =========================
-   NAVEGACIÓN
+   BARRA SUPERIOR HORIZONTAL
 ========================= */
+
+header.subpage-hero, 
+.hero {
+  padding: 1.2rem 7% !important;
+  min-height: auto !important;
+  background: #f7f6f2;
+  border-bottom: 1px solid #eae6df;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: block !important;
+}
 
 nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.logo{
-  font-size:20px;
-  font-weight:400;
+.logo, .logo-link{
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.2rem !important;
+  font-weight: 400;
+  text-decoration: none;
+  color: #111;
 }
 
 .menu-btn,
-.close-menu{
-  border:none;
-  background:none;
-  cursor:pointer;
-  color:#111;
-}
-
-.menu-btn{
-  font-size:32px;
-}
-
-.close-menu{
-  position:absolute;
-  top:40px;
-  right:40px;
-  font-size:32px;
-}
-
-/* =========================
-   MENÚ OVERLAY
-========================= */
-
+.close-menu,
 .menu-overlay{
-  position:fixed;
-  inset:0;
-  background:#f7f6f2;
-  z-index:999;
-
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  gap:24px;
-
-  opacity:0;
-  pointer-events:none;
-  transition:.3s ease;
+  display:none !important;
 }
 
-.menu-overlay.active{
-  opacity:1;
-  pointer-events:auto;
+header.subpage-hero nav div, 
+.hero nav div{
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
 }
 
-.menu-overlay a{
-  text-decoration:none;
-  color:#111;
-  font-size:34px;
-  transition:.2s;
+header.subpage-hero nav a, 
+.hero nav a{
+  text-decoration: none;
+  color: #111;
+  font-size: 0.9rem;
+  font-family: 'Manrope', sans-serif;
 }
 
-.menu-overlay a:hover{
-  opacity:.6;
+header.subpage-hero nav a:hover{
+  opacity: .6;
 }
 
 /* =========================
-   HERO
+   ESTÉTICA MVP: TIPOGRAFÍAS Y ESPACIADOS
 ========================= */
 
 .hero{
-  min-height:100vh;
-  padding:40px 7%;
-  display:flex;
-  flex-direction:column;
+  padding: 40px 7% !important;
 }
 
 .hero-content{
   max-width:850px;
-  margin:auto 0;
+  margin: auto 0;
 }
 
 .eyebrow{
   text-transform:uppercase;
   letter-spacing:2px;
-  font-size:12px;
+  font-size:11px;
   opacity:.5;
   margin-bottom:18px;
+  font-family: 'Manrope', sans-serif;
 }
 
 h1{
-  font-size:92px;
-  line-height:.95;
-  font-weight:400;
-  letter-spacing:-2px;
-  margin-bottom:24px;
+  font-family: 'DM Serif Display', serif;
+  font-size: 3rem !important;
+  line-height: 1.1 !important;
+  font-weight: 400;
+  letter-spacing: -1px;
+  margin-bottom: 20px !important;
 }
 
 .subtitle{
-  font-size:24px;
-  line-height:1.7;
+  font-size: 1.05rem !important;
+  line-height: 1.6;
   max-width:700px;
   opacity:.85;
-  margin-bottom:40px;
+  margin-bottom: 30px !important;
+  font-family: 'Manrope', sans-serif;
 }
 
 /* =========================
@@ -128,15 +118,16 @@ h1{
 
 .hero-buttons{
   display:flex;
-  gap:14px;
+  gap:12px;
   flex-wrap:wrap;
 }
 
 .hero-buttons a{
   text-decoration:none;
-  padding:18px 32px;
+  padding: 12px 26px;
   border-radius:999px;
-  font-size:16px;
+  font-size: 14px;
+  font-family: 'Manrope', sans-serif;
   transition:.25s;
 }
 
@@ -144,8 +135,8 @@ h1{
   background:#111;
   color:white;
   border:1px solid #111;
-
 }
+
 .primary,
 .primary:visited,
 .primary:hover,
@@ -161,15 +152,26 @@ h1{
 .secondary{
   color:#111;
   border:1px solid #111;
+  background: transparent;
 }
 
 .secondary:hover{
   background:#111;
   color:white;
 }
+
 .secondary,
 .secondary:visited{
   color:#111 !important;
+}
+
+.mini-btn{
+  background: #111;
+  color: white !important;
+  padding: 8px 18px !important;
+  border-radius: 999px;
+  font-size: 13px;
+  font-family: 'Manrope', sans-serif;
 }
 
 /* =========================
@@ -177,15 +179,16 @@ h1{
 ========================= */
 
 .quote{
-  padding:120px 7%;
+  padding: 90px 7%;
   text-align:center;
 }
 
 .quote h2{
   max-width:900px;
   margin:auto;
-  font-size:64px;
-  line-height:1.1;
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.2rem !important;
+  line-height:1.2;
   font-weight:400;
 }
 
@@ -195,39 +198,41 @@ h1{
 
 .testimonials{
   background:white;
-  padding:120px 7%;
+  padding: 90px 7%;
 }
 
 .testimonials h2{
-  font-size:52px;
+  font-family: 'DM Serif Display', serif;
+  font-size: 2rem !important;
   font-weight:400;
   text-align:center;
-  margin-bottom:60px;
+  margin-bottom: 50px;
 }
 
 blockquote{
   max-width:850px;
-  margin:0 auto 60px;
-  font-size:34px;
-  line-height:1.5;
+  margin:0 auto 50px;
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.5rem !important;
+  line-height:1.4;
 }
 
 blockquote span{
   display:block;
-  margin-top:14px;
-  font-size:16px;
+  margin-top:10px;
+  font-size:14px;
+  font-family: 'Manrope', sans-serif;
   opacity:.55;
 }
 
 /* =========================
-   (PROGRAMAS Y TARIFAS)
+   PROGRAMAS Y TARIFAS
 ========================= */
 
 .programas-comparacion{
   max-width:1100px;
-  margin:80px auto;
+  margin:60px auto;
   padding:0 20px;
-
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
   gap:30px;
@@ -239,7 +244,6 @@ blockquote span{
   border-radius:20px;
   padding:35px;
   position:relative;
-
   box-shadow:0 10px 30px rgba(0,0,0,.05);
 }
 
@@ -252,13 +256,10 @@ blockquote span{
   position:absolute;
   top:-12px;
   right:20px;
-
   background:#c8a97e;
   color:white;
-
   padding:8px 16px;
   border-radius:999px;
-
   font-size:.8rem;
   font-weight:600;
 }
@@ -268,9 +269,10 @@ blockquote span{
 }
 
 .programa-header h3{
+  font-family: 'DM Serif Display', serif;
   color:#3d342b;
   margin-bottom:6px;
-  font-size:1.8rem;
+  font-size: 1.6rem;
 }
 
 .programa-header p{
@@ -329,14 +331,10 @@ blockquote span{
   line-height:1.7;
 }
 
-.program-note p{
-  margin-bottom:10px;
-}
 .tarifas-grid{
   max-width:1000px;
-  margin:60px auto;
+  margin:50px auto;
   padding:0 20px;
-
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
   gap:30px;
@@ -347,7 +345,6 @@ blockquote span{
   border:1px solid #e4d8c7;
   border-radius:20px;
   padding:35px;
-
   box-shadow:0 10px 30px rgba(0,0,0,.05);
   position:relative;
 }
@@ -357,19 +354,18 @@ blockquote span{
 }
 
 .tarifa-card h3{
+  font-family: 'DM Serif Display', serif;
   text-align:center;
   margin-bottom:25px;
   color:#3d342b;
-  font-size:1.8rem;
+  font-size: 1.6rem;
 }
 
 .precio-item{
   display:flex;
   justify-content:space-between;
   align-items:center;
-
   padding:18px 0;
-
   border-bottom:1px solid #e4d8c7;
 }
 
@@ -382,16 +378,16 @@ blockquote span{
 }
 
 .precio-item strong{
-  font-size:1.2rem;
+  font-size:1.1rem;
   color:#3d342b;
 }
 
 /* =========================
-   SUBPÁGINAS
+   SUBPÁGINAS Y FAQ
 ========================= */
 
 .subpage-hero{
-  padding:40px 7% 80px;
+  padding:40px 7% 60px;
 }
 
 .subpage-content{
@@ -399,39 +395,34 @@ blockquote span{
 }
 
 .subpage-content h1{
-  margin-bottom:20px;
+  margin-bottom:16px;
 }
-
-/* =========================
-   FAQ
-========================= */
 
 .faq-section{
   max-width:1100px;
   margin:auto;
-  padding:40px 7% 100px;
+  padding:40px 7% 90px;
 }
 
 .faq-item{
   background:white;
-  border-radius:24px;
-  margin-bottom:18px;
+  border-radius:20px;
+  margin-bottom:16px;
   padding:10px 28px;
-  box-shadow:0 10px 25px rgba(0,0,0,.04);
+  box-shadow:0 8px 20px rgba(0,0,0,.03);
 }
 
 .faq-question{
   width:100%;
   border:none;
   background:none;
-  padding:24px 0;
+  padding:20px 0;
   cursor:pointer;
   display:flex;
   justify-content:space-between;
   align-items:center;
-
-  font-family:Georgia, serif;
-  font-size:24px;
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.3rem;
   text-align:left;
 }
 
@@ -442,9 +433,9 @@ blockquote span{
 }
 
 .faq-answer p{
-  padding-bottom:24px;
-  font-size:18px;
-  line-height:1.8;
+  padding-bottom:20px;
+  font-size: 0.95rem;
+  line-height:1.7;
   opacity:.8;
 }
 
@@ -460,30 +451,32 @@ blockquote span{
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:24px;
-  padding:40px 7% 100px;
+  padding:40px 7% 90px;
 }
 
 .family-card{
   background:white;
-  border-radius:28px;
-  padding:40px;
+  border-radius:24px;
+  padding:35px;
   text-decoration:none;
   color:#111;
-  box-shadow:0 10px 25px rgba(0,0,0,.04);
+  box-shadow:0 8px 20px rgba(0,0,0,.03);
   transition:.25s;
 }
 
 .family-card:hover{
-  transform:translateY(-4px);
+  transform:translateY(-3px);
 }
 
 .family-card h2{
-  font-size:36px;
-  margin-bottom:15px;
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.8rem;
+  margin-bottom:12px;
 }
 
 .family-card span{
   opacity:.6;
+  font-size: 0.9rem;
 }
 
 /* =========================
@@ -491,73 +484,31 @@ blockquote span{
 ========================= */
 
 @media(max-width:900px){
-
   .hero{
-    min-height:auto;
-    padding:30px 6% 70px;
+    padding:30px 6% 60px;
   }
-
   h1{
-    font-size:54px;
-    line-height:1;
-    letter-spacing:-1px;
+    font-size: 2.3rem !important;
   }
-
   .subtitle{
-    font-size:18px;
-    line-height:1.7;
+    font-size: 1rem !important;
   }
-
-  .hero-buttons{
-    flex-direction:column;
-  }
-
-  .hero-buttons a{
-    width:100%;
-    text-align:center;
-  }
-
   .quote{
-    padding:70px 6%;
+    padding:60px 6%;
   }
-
   .quote h2{
-    font-size:38px;
+    font-size: 1.6rem !important;
   }
-
   .testimonials{
-    padding:70px 6%;
+    padding:60px 6%;
   }
-
   .testimonials h2{
-    font-size:36px;
+    font-size: 1.6rem !important;
   }
-
   blockquote{
-    font-size:24px;
+    font-size: 1.2rem !important;
   }
-
-  .programs{
-    padding:60px 4%;
-  }
-
   .family-dashboard{
     grid-template-columns:1fr;
-  }
-
-  .family-card h2{
-    font-size:30px;
-  }
-
-  .faq-question{
-    font-size:20px;
-  }
-
-  .menu-overlay a{
-    font-size:28px;
-  }
-
-  .program-table{
-    min-width:750px;
   }
 }
