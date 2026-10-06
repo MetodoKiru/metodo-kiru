@@ -12,90 +12,76 @@ body{
 }
 
 /* =========================
-   NAVEGACIÓN
+   BARRA SUPERIOR HORIZONTAL FIJA
 ========================= */
+
+header.subpage-hero, 
+.hero {
+  padding: 1.2rem 7% !important;
+  min-height: auto !important;
+  background: #f7f6f2;
+  border-bottom: 1px solid #eae6df;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: block !important;
+}
 
 nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.logo{
-  font-size:20px;
-  font-weight:400;
+.logo, .logo-link{
+  font-size: 20px;
+  font-weight: 400;
+  text-decoration: none;
+  color: #111;
 }
 
+/* Ocultamos el menú desplegable antiguo lateral */
 .menu-btn,
-.close-menu{
-  border:none;
-  background:none;
-  cursor:pointer;
-  color:#111;
-}
-
-.menu-btn{
-  font-size:32px;
-}
-
-.close-menu{
-  position:absolute;
-  top:40px;
-  right:40px;
-  font-size:32px;
-}
-
-/* =========================
-   MENÚ OVERLAY
-========================= */
-
+.close-menu,
 .menu-overlay{
-  position:fixed;
-  inset:0;
-  background:#f7f6f2;
-  z-index:999;
-
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  gap:24px;
-
-  opacity:0;
-  pointer-events:none;
-  transition:.3s ease;
+  display: none !important;
 }
 
-.menu-overlay.active{
-  opacity:1;
-  pointer-events:auto;
+/* Enlaces de la barra superior horizontal */
+header.subpage-hero nav div, 
+.hero nav div{
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
 }
 
-.menu-overlay a{
-  text-decoration:none;
-  color:#111;
-  font-size:34px;
-  transition:.2s;
+header.subpage-hero nav a, 
+.hero nav a{
+  text-decoration: none;
+  color: #111;
+  font-size: 0.95rem;
 }
 
-.menu-overlay a:hover{
-  opacity:.6;
+header.subpage-hero nav a:hover{
+  opacity: .6;
 }
 
 /* =========================
-   HERO (Ajustado: textos más juntos y compactos)
+   HERO
 ========================= */
 
 .hero{
-  min-height:100vh;
-  padding:40px 7%;
+  min-height: auto !important;
+  padding: 40px 7% !important;
   display:flex;
   flex-direction:column;
 }
 
 .hero-content{
   max-width:850px;
-  margin:auto 0;
+  margin: 2rem 0;
 }
 
 .eyebrow{
@@ -144,8 +130,8 @@ h1{
   background:#111;
   color:white;
   border:1px solid #111;
-
 }
+
 .primary,
 .primary:visited,
 .primary:hover,
@@ -167,9 +153,18 @@ h1{
   background:#111;
   color:white;
 }
+
 .secondary,
 .secondary:visited{
   color:#111 !important;
+}
+
+.mini-btn{
+  background: #111;
+  color: white !important;
+  padding: 10px 20px !important;
+  border-radius: 999px;
+  font-size: 14px;
 }
 
 /* =========================
@@ -220,14 +215,13 @@ blockquote span{
 }
 
 /* =========================
-   (PROGRAMAS Y TARIFAS)
+   PROGRAMAS Y TARIFAS
 ========================= */
 
 .programas-comparacion{
   max-width:1100px;
   margin:80px auto;
   padding:0 20px;
-
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
   gap:30px;
@@ -239,7 +233,6 @@ blockquote span{
   border-radius:20px;
   padding:35px;
   position:relative;
-
   box-shadow:0 10px 30px rgba(0,0,0,.05);
 }
 
@@ -252,13 +245,10 @@ blockquote span{
   position:absolute;
   top:-12px;
   right:20px;
-
   background:#c8a97e;
   color:white;
-
   padding:8px 16px;
   border-radius:999px;
-
   font-size:.8rem;
   font-weight:600;
 }
@@ -332,11 +322,11 @@ blockquote span{
 .program-note p{
   margin-bottom:10px;
 }
+
 .tarifas-grid{
   max-width:1000px;
   margin:60px auto;
   padding:0 20px;
-
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
   gap:30px;
@@ -347,7 +337,6 @@ blockquote span{
   border:1px solid #e4d8c7;
   border-radius:20px;
   padding:35px;
-
   box-shadow:0 10px 30px rgba(0,0,0,.05);
   position:relative;
 }
@@ -367,9 +356,7 @@ blockquote span{
   display:flex;
   justify-content:space-between;
   align-items:center;
-
   padding:18px 0;
-
   border-bottom:1px solid #e4d8c7;
 }
 
@@ -387,11 +374,11 @@ blockquote span{
 }
 
 /* =========================
-   SUBPÁGINAS
+   SUBPÁGINAS Y FAQ
 ========================= */
 
 .subpage-hero{
-  padding:40px 7% 80px;
+  padding: 30px 7% !important;
 }
 
 .subpage-content{
@@ -401,10 +388,6 @@ blockquote span{
 .subpage-content h1{
   margin-bottom:20px;
 }
-
-/* =========================
-   FAQ
-========================= */
 
 .faq-section{
   max-width:1100px;
@@ -429,7 +412,6 @@ blockquote span{
   display:flex;
   justify-content:space-between;
   align-items:center;
-
   font-family:Georgia, serif;
   font-size:24px;
   text-align:left;
@@ -491,73 +473,22 @@ blockquote span{
 ========================= */
 
 @media(max-width:900px){
-
-  .hero{
-    min-height:auto;
-    padding:30px 6% 70px;
-  }
-
   h1{
-    font-size:54px;
-    line-height:1;
-    letter-spacing:-1px;
+    font-size:42px;
+    line-height:1.1;
   }
-
   .subtitle{
-    font-size:18px;
-    line-height:1.7;
+    font-size:16px;
   }
-
   .hero-buttons{
     flex-direction:column;
   }
-
   .hero-buttons a{
     width:100%;
     text-align:center;
   }
-
-  .quote{
-    padding:70px 6%;
-  }
-
-  .quote h2{
-    font-size:38px;
-  }
-
-  .testimonials{
-    padding:70px 6%;
-  }
-
-  .testimonials h2{
-    font-size:36px;
-  }
-
-  blockquote{
-    font-size:24px;
-  }
-
-  .programs{
-    padding:60px 4%;
-  }
-
-  .family-dashboard{
-    grid-template-columns:1fr;
-  }
-
-  .family-card h2{
-    font-size:30px;
-  }
-
-  .faq-question{
-    font-size:20px;
-  }
-
-  .menu-overlay a{
-    font-size:28px;
-  }
-
-  .program-table{
-    min-width:750px;
+  header.subpage-hero nav div, 
+  .hero nav div{
+    display: none; /* En móvil muy pequeño se adapta limpio */
   }
 }
