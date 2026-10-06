@@ -12,100 +12,86 @@ body{
 }
 
 /* =========================
-   BARRA SUPERIOR HORIZONTAL FIJA
+   BARRA SUPERIOR FIJA ARRIBA
 ========================= */
 
-header.subpage-hero, 
-.hero {
-  padding: 1.2rem 7% !important;
-  min-height: auto !important;
-  background: #f7f6f2;
-  border-bottom: 1px solid #eae6df;
+.top-navbar {
   position: sticky;
   top: 0;
   z-index: 1000;
-  display: block !important;
+  background: #f7f6f2;
+  border-bottom: 1px solid #eae6df;
+  padding: 1.2rem 7%;
 }
 
-nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+.top-navbar nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.logo, .logo-link{
+.logo{
   font-size: 20px;
   font-weight: 400;
   text-decoration: none;
   color: #111;
 }
 
-/* Ocultamos el menú desplegable antiguo lateral */
-.menu-btn,
-.close-menu,
-.menu-overlay{
-  display: none !important;
-}
-
-/* Enlaces de la barra superior horizontal */
-header.subpage-hero nav div, 
-.hero nav div{
+.top-navbar nav div {
   display: flex;
   gap: 1.5rem;
   align-items: center;
 }
 
-header.subpage-hero nav a, 
-.hero nav a{
+.top-navbar nav a {
   text-decoration: none;
   color: #111;
   font-size: 0.95rem;
 }
 
-header.subpage-hero nav a:hover{
+.top-navbar nav a:hover {
   opacity: .6;
 }
 
 /* =========================
-   HERO
+   HERO (Contenido principal sin bloquear scroll)
 ========================= */
 
 .hero{
-  min-height: auto !important;
-  padding: 40px 7% !important;
-  display:flex;
-  flex-direction:column;
+  padding: 40px 7%;
+  display: flex;
+  flex-direction: column;
 }
 
 .hero-content{
-  max-width:850px;
+  max-width: 850px;
   margin: 2rem 0;
 }
 
 .eyebrow{
-  text-transform:uppercase;
-  letter-spacing:2px;
-  font-size:12px;
-  opacity:.5;
-  margin-bottom:10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
+  opacity: .5;
+  margin-bottom: 10px;
 }
 
 h1{
-  font-size:80px;
-  line-height:1;
-  font-weight:400;
-  letter-spacing:-2px;
-  margin-bottom:16px;
+  font-size: 68px;
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: -2px;
+  margin-bottom: 16px;
 }
 
 .subtitle{
-  font-size:20px;
-  line-height:1.6;
-  max-width:700px;
-  opacity:.85;
-  margin-bottom:28px;
+  font-size: 20px;
+  line-height: 1.6;
+  max-width: 700px;
+  opacity: .85;
+  margin-bottom: 28px;
 }
 
 /* =========================
@@ -113,50 +99,37 @@ h1{
 ========================= */
 
 .hero-buttons{
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
 }
 
 .hero-buttons a{
-  text-decoration:none;
-  padding:18px 32px;
-  border-radius:999px;
-  font-size:16px;
-  transition:.25s;
+  text-decoration: none;
+  padding: 18px 32px;
+  border-radius: 999px;
+  font-size: 16px;
+  transition: .25s;
 }
 
 .primary{
-  background:#111;
-  color:white;
-  border:1px solid #111;
-}
-
-.primary,
-.primary:visited,
-.primary:hover,
-.primary:focus,
-.primary:active{
-  color:white !important;
+  background: #111;
+  color: white !important;
+  border: 1px solid #111;
 }
 
 .primary:hover{
-  opacity:.9;
+  opacity: .9;
 }
 
 .secondary{
-  color:#111;
-  border:1px solid #111;
+  color: #111 !important;
+  border: 1px solid #111;
 }
 
 .secondary:hover{
-  background:#111;
-  color:white;
-}
-
-.secondary,
-.secondary:visited{
-  color:#111 !important;
+  background: #111;
+  color: white !important;
 }
 
 .mini-btn{
@@ -172,16 +145,16 @@ h1{
 ========================= */
 
 .quote{
-  padding:120px 7%;
-  text-align:center;
+  padding: 100px 7%;
+  text-align: center;
 }
 
 .quote h2{
-  max-width:900px;
-  margin:auto;
-  font-size:64px;
-  line-height:1.1;
-  font-weight:400;
+  max-width: 900px;
+  margin: auto;
+  font-size: 54px;
+  line-height: 1.1;
+  font-weight: 400;
 }
 
 /* =========================
@@ -189,29 +162,29 @@ h1{
 ========================= */
 
 .testimonials{
-  background:white;
-  padding:120px 7%;
+  background: white;
+  padding: 100px 7%;
 }
 
 .testimonials h2{
-  font-size:52px;
-  font-weight:400;
-  text-align:center;
-  margin-bottom:60px;
+  font-size: 44px;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 50px;
 }
 
 blockquote{
-  max-width:850px;
-  margin:0 auto 60px;
-  font-size:34px;
-  line-height:1.5;
+  max-width: 850px;
+  margin: 0 auto 50px;
+  font-size: 28px;
+  line-height: 1.5;
 }
 
 blockquote span{
-  display:block;
-  margin-top:14px;
-  font-size:16px;
-  opacity:.55;
+  display: block;
+  margin-top: 14px;
+  font-size: 16px;
+  opacity: .55;
 }
 
 /* =========================
@@ -219,276 +192,235 @@ blockquote span{
 ========================= */
 
 .programas-comparacion{
-  max-width:1100px;
-  margin:80px auto;
-  padding:0 20px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-  gap:30px;
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
 }
 
 .programa-card{
-  background:#f9f4ec;
-  border:1px solid #e4d8c7;
-  border-radius:20px;
-  padding:35px;
-  position:relative;
-  box-shadow:0 10px 30px rgba(0,0,0,.05);
+  background: #f9f4ec;
+  border: 1px solid #e4d8c7;
+  border-radius: 20px;
+  padding: 35px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,.05);
 }
 
 .programa-card.destacado{
-  border:2px solid #c8a97e;
-  transform:scale(1.02);
+  border: 2px solid #c8a97e;
+  transform: scale(1.02);
 }
 
 .etiqueta{
-  position:absolute;
-  top:-12px;
-  right:20px;
-  background:#c8a97e;
-  color:white;
-  padding:8px 16px;
-  border-radius:999px;
-  font-size:.8rem;
-  font-weight:600;
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background: #c8a97e;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: .8rem;
+  font-weight: 600;
 }
 
 .programa-header{
-  margin-bottom:25px;
+  margin-bottom: 25px;
 }
 
 .programa-header h3{
-  color:#3d342b;
-  margin-bottom:6px;
-  font-size:1.8rem;
+  color: #3d342b;
+  margin-bottom: 6px;
+  font-size: 1.8rem;
 }
 
 .programa-header p{
-  color:#8b7b68;
+  color: #8b7b68;
 }
 
 .programa-card ul{
-  list-style:none;
-  padding:0;
-  margin:0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .programa-card li{
-  padding:12px 0;
-  border-bottom:1px solid #e8ddd0;
-  display:flex;
-  align-items:center;
-  gap:12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #e8ddd0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .programa-card li.si::before{
-  content:"✓";
-  color:#8a9a5b;
-  font-weight:bold;
-  font-size:1.2rem;
+  content: "✓";
+  color: #8a9a5b;
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 
 .programa-card li.no::before{
-  content:"✕";
-  color:#c2b5a4;
-  font-weight:bold;
-  font-size:1.1rem;
+  content: "✕";
+  color: #c2b5a4;
+  font-weight: bold;
+  font-size: 1.1rem;
 }
 
 .beneficio{
-  margin-top:30px;
-  padding-top:20px;
-  border-top:1px solid #d9ccb9;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #d9ccb9;
 }
 
 .beneficio strong{
-  display:block;
-  margin-bottom:10px;
-  color:#3d342b;
+  display: block;
+  margin-bottom: 10px;
+  color: #3d342b;
 }
 
 .beneficio p{
-  color:#6b6258;
-  line-height:1.6;
+  color: #6b6258;
+  line-height: 1.6;
 }
 
 .program-note{
-  text-align:center;
-  margin-top:30px;
-  color:#666;
-  line-height:1.7;
-}
-
-.program-note p{
-  margin-bottom:10px;
+  text-align: center;
+  margin-top: 30px;
+  color: #666;
+  line-height: 1.7;
 }
 
 .tarifas-grid{
-  max-width:1000px;
-  margin:60px auto;
-  padding:0 20px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-  gap:30px;
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
 }
 
 .tarifa-card{
-  background:#f9f4ec;
-  border:1px solid #e4d8c7;
-  border-radius:20px;
-  padding:35px;
-  box-shadow:0 10px 30px rgba(0,0,0,.05);
-  position:relative;
+  background: #f9f4ec;
+  border: 1px solid #e4d8c7;
+  border-radius: 20px;
+  padding: 35px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.05);
+  position: relative;
 }
 
 .tarifa-card.destacado{
-  border:2px solid #c8a97e;
+  border: 2px solid #c8a97e;
 }
 
 .tarifa-card h3{
-  text-align:center;
-  margin-bottom:25px;
-  color:#3d342b;
-  font-size:1.8rem;
+  text-align: center;
+  margin-bottom: 25px;
+  color: #3d342b;
+  font-size: 1.8rem;
 }
 
 .precio-item{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:18px 0;
-  border-bottom:1px solid #e4d8c7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: 1px solid #e4d8c7;
 }
 
 .precio-item:last-child{
-  border-bottom:none;
+  border-bottom: none;
 }
 
 .precio-item span{
-  color:#6b6258;
+  color: #6b6258;
 }
 
 .precio-item strong{
-  font-size:1.2rem;
-  color:#3d342b;
+  font-size: 1.2rem;
+  color: #3d342b;
 }
 
 /* =========================
-   SUBPÁGINAS Y FAQ
+   FAQ Y ÁREA FAMILIAS
 ========================= */
 
 .subpage-hero{
   padding: 30px 7% !important;
 }
 
-.subpage-content{
-  max-width:900px;
-}
-
-.subpage-content h1{
-  margin-bottom:20px;
-}
-
 .faq-section{
-  max-width:1100px;
-  margin:auto;
-  padding:40px 7% 100px;
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 7% 100px;
 }
 
 .faq-item{
-  background:white;
-  border-radius:24px;
-  margin-bottom:18px;
-  padding:10px 28px;
-  box-shadow:0 10px 25px rgba(0,0,0,.04);
+  background: white;
+  border-radius: 24px;
+  margin-bottom: 18px;
+  padding: 10px 28px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.04);
 }
 
 .faq-question{
-  width:100%;
-  border:none;
-  background:none;
-  padding:24px 0;
-  cursor:pointer;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  font-family:Georgia, serif;
-  font-size:24px;
-  text-align:left;
+  width: 100%;
+  border: none;
+  background: none;
+  padding: 24px 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Georgia, serif;
+  font-size: 24px;
+  text-align: left;
 }
 
 .faq-answer{
-  max-height:0;
-  overflow:hidden;
-  transition:.3s ease;
+  max-height: 0;
+  overflow: hidden;
+  transition: .3s ease;
 }
 
 .faq-answer p{
-  padding-bottom:24px;
-  font-size:18px;
-  line-height:1.8;
-  opacity:.8;
+  padding-bottom: 24px;
+  font-size: 18px;
+  line-height: 1.8;
+  opacity: .8;
 }
 
 .faq-item.active .faq-answer{
-  max-height:500px;
+  max-height: 500px;
 }
 
-/* =========================
-   ÁREA FAMILIAS
-========================= */
-
 .family-dashboard{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:24px;
-  padding:40px 7% 100px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  padding: 40px 7% 100px;
 }
 
 .family-card{
-  background:white;
-  border-radius:28px;
-  padding:40px;
-  text-decoration:none;
-  color:#111;
-  box-shadow:0 10px 25px rgba(0,0,0,.04);
-  transition:.25s;
+  background: white;
+  border-radius: 28px;
+  padding: 40px;
+  text-decoration: none;
+  color: #111;
+  box-shadow: 0 10px 25px rgba(0,0,0,.04);
+  transition: .25s;
 }
 
 .family-card:hover{
-  transform:translateY(-4px);
+  transform: translateY(-4px);
 }
 
 .family-card h2{
-  font-size:36px;
-  margin-bottom:15px;
+  font-size: 36px;
+  margin-bottom: 15px;
 }
 
 .family-card span{
-  opacity:.6;
-}
-
-/* =========================
-   MÓVIL
-========================= */
-
-@media(max-width:900px){
-  h1{
-    font-size:42px;
-    line-height:1.1;
-  }
-  .subtitle{
-    font-size:16px;
-  }
-  .hero-buttons{
-    flex-direction:column;
-  }
-  .hero-buttons a{
-    width:100%;
-    text-align:center;
-  }
-  header.subpage-hero nav div, 
-  .hero nav div{
-    display: none; /* En móvil muy pequeño se adapta limpio */
-  }
+  opacity: .6;
 }
