@@ -8,144 +8,106 @@
 </head>
 <body>
 
-  <!-- MENÚ -->
-  <div class="menu-overlay">
-    <button class="close-menu">✕</button>
-
-    <a href="index.html">Inicio</a>
-    <a href="programas.html">Programas</a>
-    <a href="tarifas.html">Tarifas</a>
-    <a href="accesofamilias.html">Área de Familias</a>
-    <a href="conocenos.html">Conócenos</a>
-    <a href="faq.html">Preguntas Frecuentes</a>
-
-    <a href="https://calendly.com/m-sofiamunoz05/llamada-informacion" target="_blank">
-      Reservar llamada
-    </a>
-  </div>
-
-  <!-- HERO -->
-  <header class="hero">
+  <!-- BARRA SUPERIOR FIJA -->
+  <header class="top-navbar">
     <nav>
-      <div class="logo">Método Kiru</div>
-      <button class="menu-btn">☰</button>
+      <a href="index.html" class="logo-container">
+        <img src="logo.png" alt="Logo" class="logo-img">
+        <span class="logo">Método Kiru</span>
+      </a>
+      <div>
+        <a href="index.html" style="text-decoration: none; color: #111;">Inicio</a>
+        <a href="programas.html" style="text-decoration: none; color: #111;">Programas</a>
+        <a href="tarifas.html" style="text-decoration: none; color: #111;">Tarifas</a>
+        <a href="accesofamilias.html" style="text-decoration: none; color: #111;">Área de Familias</a>
+        <a href="conocenos.html" style="text-decoration: none; color: #111;">Conócenos</a>
+        <a href="faq.html" style="text-decoration: none; color: #111;">FAQ</a>
+      </div>
+      <a href="https://calendly.com/m-sofiamunoz05/llamada-informacion" target="_blank" class="mini-btn" style="text-decoration: none;">Reservar llamada</a>
     </nav>
+  </header>
 
-    <div class="hero-content">
-      <h1>Tarifas</h1>
-
+  <!-- TARIFAS CONTENT -->
+  <section style="padding: 40px 7%;">
+    <div class="hero-content" style="max-width: 1000px; margin: 0 auto;">
+      <h1 style="font-size: 68px;">Tarifas</h1>
       <p class="subtitle">
         Elige la frecuencia de acompañamiento que mejor se adapte a las necesidades de tu hijo.
       </p>
     </div>
-  </header>
 
-  <!-- TARIFAS -->
-  <section class="programs">
+    <section class="tarifas-grid">
+      <div class="tarifa-card">
+        <h3>Programa Base</h3>
 
-    <h2>Programa Base</h2>
+        <div class="precio-item">
+          <span>1 sesión semanal</span>
+          <strong>150 €/mes</strong>
+        </div>
 
-    <div class="table-container">
-      <table class="program-table">
+        <div class="precio-item">
+          <span>2 sesiones semanales</span>
+          <strong>300 €/mes</strong>
+        </div>
 
-        <thead>
-          <tr>
-            <th>Frecuencia</th>
-            <th>Sesiones</th>
-            <th>Precio</th>
-          </tr>
-        </thead>
+        <div class="precio-item">
+          <span>3 sesiones semanales</span>
+          <strong>480 €/mes</strong>
+        </div>
+      </div>
 
-        <tbody>
+      <div class="tarifa-card destacado">
+        <div class="etiqueta">
+          Método Kiru
+        </div>
 
-          <tr>
-            <td>1 sesión semanal</td>
-            <td>4 sesiones al mes</td>
-            <td>150 €/mes</td>
-          </tr>
+        <h3>Método Kiru</h3>
 
-          <tr>
-            <td>2 sesiones semanales</td>
-            <td>8 sesiones al mes</td>
-            <td>300 €/mes</td>
-          </tr>
+        <div class="precio-item">
+          <span>1 sesión semanal</span>
+          <strong>175 €/mes</strong>
+        </div>
 
-          <tr>
-            <td>3 sesiones semanales</td>
-            <td>12 sesiones al mes</td>
-            <td>480 €/mes</td>
-          </tr>
+        <div class="precio-item">
+          <span>2 sesiones semanales</span>
+          <strong>325 €/mes</strong>
+        </div>
 
-        </tbody>
+        <div class="precio-item">
+          <span>3 sesiones semanales</span>
+          <strong>500 €/mes</strong>
+        </div>
+      </div>
+    </section>
 
-      </table>
-    </div>
-
-    <br><br>
-
-    <h2>Método Kiru</h2>
-
-    <div class="table-container">
-      <table class="program-table">
-
-        <thead>
-          <tr>
-            <th>Frecuencia</th>
-            <th>Sesiones</th>
-            <th>Precio</th>
-          </tr>
-        </thead>
-
-        <tbody>
-
-          <tr>
-            <td>1 sesión semanal</td>
-            <td>4 sesiones al mes</td>
-            <td><strong>175 €/mes</strong></td>
-          </tr>
-
-          <tr>
-            <td>2 sesiones semanales</td>
-            <td>8 sesiones al mes</td>
-            <td><strong>325 €/mes</strong></td>
-          </tr>
-
-          <tr>
-            <td>3 sesiones semanales</td>
-            <td>12 sesiones al mes</td>
-            <td><strong>500 €/mes</strong></td>
-          </tr>
-
-        </tbody>
-
-      </table>
-    </div>
-
-    <div class="program-note">
-
-      <p>
+    <!-- WELCOME PACK -->
+    <div class="program-note" style="background: #f9f4ec; border: 1px solid #e4d8c7; padding: 20px; border-radius: 16px; max-width: 1000px; margin: 30px auto; text-align: center;">
+      <p style="font-size: 16px; color: #3d342b; margin-bottom: 6px;">
+        <strong>Welcome pack: 25€</strong> (3 libros + material Método Kiru)
+      </p>
+      <p style="font-size: 14px; color: #6b6258;">
         Los precios están expresados por mes y pueden estar sujetos a disponibilidad de plazas y zona geográfica.
       </p>
-
     </div>
 
-    <div class="hero-buttons">
-
+    <div class="hero-buttons" style="justify-content: center; margin-top: 40px;">
       <a href="programas.html" class="primary">
         Ver qué incluye cada programa
       </a>
-
       <a href="https://calendly.com/m-sofiamunoz05/llamada-informacion"
          target="_blank"
          class="secondary">
         Reservar llamada gratuita
       </a>
-
     </div>
-
   </section>
 
-  <script src="script.js"></script>
+  <!-- PIE DE PÁGINA -->
+  <footer style="text-align: center; padding: 40px 7%; background: white; border-top: 1px solid #e4d8c7; color: #555; font-size: 14px; line-height: 1.6;">
+    <p style="margin-bottom: 6px;">©️2025 Método kiru.</p>
+    <p>Pozuelo, Las Rozas, Majadahonda, Aravaca, Boadilla y Centro.</p>
+  </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>

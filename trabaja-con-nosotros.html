@@ -26,6 +26,25 @@
       background: #f7f7f7;
     }
 
+    /* Reglas añadidas para arreglar el menú roto de la captura */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
     .topbar {
       background: linear-gradient(90deg, var(--primary-dark), var(--primary));
       color: var(--white);
@@ -83,15 +102,14 @@
       </div>
     </nav>
 
-    <!-- AQUÍ EMPIEZA EL CONTENIDO NUEVO -->
-    <div class="hero-content" style="padding-bottom: 4rem;">
+    <!-- AÑADIDO: margin: 0 auto; width: 100%; para forzar el centrado -->
+    <div class="hero-content" style="padding-bottom: 4rem; text-align: center; margin: 0 auto; width: 100%;">
       <h1>TRABAJA CON NOSOTROS</h1>
       
-      <!-- Bloque del puesto de Mentor/a -->
-      <div style="background: var(--white); border-radius: 8px; padding: 2.5rem; max-width: 600px; margin: 2rem auto; box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: var(--text);">
+      <div style="background: var(--white); border-radius: 8px; padding: 2.5rem; max-width: 600px; margin: 2rem auto; box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: var(--text); text-align: center;">
         <h2 style="margin-top: 0; color: var(--primary-dark);">Mentor/a</h2>
         
-        <p class="subtitle" style="font-size: 1.1rem; line-height: 1.5; margin-bottom: 2rem; color: var(--text);">
+        <p class="subtitle" style="font-size: 1.1rem; line-height: 1.5; margin-bottom: 2rem; color: var(--text); margin-left: auto; margin-right: auto;">
           ¿Tienes experiencia en educación y te gustaría incorporarte como mentor a domicilio con Método Kiru? Rellena este formulario para iniciar tu proceso.
         </p>
         
@@ -104,11 +122,10 @@
     </div>
   </header>
 
-  <footer>
+  <footer style="text-align: center; padding: 2rem;">
     <p>Método Kiru</p>
     <p>Mentoría educativa personalizada</p>
     <p>Pozuelo · Aravaca · Las Rozas · Madrid centro</p>
-    
   </footer>
 
   <script src="script.js"></script>
