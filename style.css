@@ -12,7 +12,7 @@ body{
 }
 
 /* =========================
-   BARRA SUPERIOR FIJA (Centrada)
+   BARRA SUPERIOR FIJA (Centrada con Logo y Texto)
 ========================= */
 
 .top-navbar {
@@ -32,17 +32,25 @@ body{
   margin: 0 auto;
 }
 
-/* Estilo del logo nuevo (solo la imagen) */
 .logo-container {
   display: flex;
   align-items: center;
+  gap: 12px;
   text-decoration: none;
 }
 
 .logo-img {
-  height: 40px; /* Ajustado para que se vea bien el logo oficial */
+  height: 38px;
   width: auto;
   object-fit: contain;
+}
+
+.logo-text {
+  font-family: Georgia, serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #111;
+  letter-spacing: -0.5px;
 }
 
 /* Contenedor central de los enlaces */
@@ -50,7 +58,7 @@ body{
   display: flex;
   gap: 2rem;
   align-items: center;
-  margin: 0 auto; /* Centra los enlaces */
+  margin: 0 auto;
 }
 
 .top-navbar nav a {
@@ -79,7 +87,7 @@ body{
 }
 
 /* =========================
-   SECCIÓN HERO (Textos compactos)
+   SECCIÓN HERO
 ========================= */
 
 .hero{
@@ -102,7 +110,7 @@ body{
 }
 
 h1{
-  font-size: 68px; /* Ajustado */
+  font-size: 68px;
   line-height: 1;
   font-weight: 400;
   letter-spacing: -2px;
@@ -118,7 +126,7 @@ h1{
 }
 
 /* =========================
-   BOTONES PRINCIPALES
+   BOTONES
 ========================= */
 
 .hero-buttons{
@@ -156,7 +164,7 @@ h1{
 }
 
 /* =========================
-   FRASE CENTRAL (Reducida)
+   SECCIONES GENERALES
 ========================= */
 
 .quote{
@@ -171,10 +179,6 @@ h1{
   line-height: 1.2;
   font-weight: 400;
 }
-
-/* =========================
-   TESTIMONIOS (Reducidos)
-========================= */
 
 .testimonials{
   background: white;
@@ -201,10 +205,6 @@ blockquote span{
   font-size: 14px;
   opacity: .55;
 }
-
-/* =========================
-   PROGRAMAS Y TARIFAS
-========================= */
 
 .programas-comparacion{
   max-width: 1100px;
@@ -361,10 +361,6 @@ blockquote span{
   color:#3d342b;
 }
 
-/* =========================
-   SUBPÁGINAS GENERAL
-========================= */
-
 .subpage-hero{
   padding: 60px 7% !important;
 }
@@ -372,10 +368,6 @@ blockquote span{
 .subpage-content{
   max-width:900px;
 }
-
-/* =========================
-   FAQ
-========================= */
 
 .faq-section{
   max-width:1100px;
@@ -422,10 +414,6 @@ blockquote span{
   max-height:500px;
 }
 
-/* =========================
-   ÁREA FAMILIAS
-========================= */
-
 .family-dashboard{
   display:grid;
   grid-template-columns:repeat(2,1fr);
@@ -464,10 +452,6 @@ blockquote span{
   margin-bottom: 8px;
 }
 
-/* =========================
-   FOOTER
-========================= */
-
 footer{
   text-align:center;
   padding:40px 7%;
@@ -478,73 +462,27 @@ footer{
   line-height:1.6;
 }
 
-/* =========================
-   MÓVIL
-========================= */
-
 @media(max-width:900px){
-
   .top-navbar {
     padding: 1rem 5%;
   }
-
-  .logo-img {
-    height: 32px;
-  }
-
   .nav-links {
-    display: none; /* Oculta el menú en móvil, implementa menú hamburguesa si es necesario */
+    display: none;
   }
-
   .hero{
-    min-height:auto;
     padding:40px 6% 60px;
   }
-
   h1{
     font-size:44px;
-    letter-spacing:-1px;
   }
-
-  .subtitle{
-    font-size:18px;
-    line-height:1.7;
-  }
-
   .hero-buttons{
     flex-direction:column;
   }
-
   .hero-buttons a{
     width:100%;
     text-align:center;
   }
-
-  .quote{
-    padding:70px 6%;
-  }
-
-  .quote h2{
-    font-size:30px;
-  }
-
-  .testimonials{
-    padding:70px 6%;
-  }
-
-  .testimonials h2{
-    font-size:28px;
-  }
-
-  blockquote{
-    font-size:18px;
-  }
-
   .family-dashboard{
     grid-template-columns:1fr;
-  }
-
-  .faq-question{
-    font-size:20px;
   }
 }
