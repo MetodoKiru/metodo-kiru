@@ -12,7 +12,7 @@ body{
 }
 
 /* =========================
-   BARRA SUPERIOR FIJA (Centrada con Logo y Texto)
+   BARRA SUPERIOR FIJA
 ========================= */
 
 .top-navbar {
@@ -39,10 +39,19 @@ body{
   text-decoration: none;
 }
 
-.logo-img {
+/* Cajita elegante para la K (sin depender de archivos de imagen) */
+.logo-icon-box {
+  width: 38px;
   height: 38px;
-  width: auto;
-  object-fit: contain;
+  background-color: #121c2d;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: Georgia, serif;
+  font-size: 22px;
+  font-weight: bold;
 }
 
 .logo-text {
