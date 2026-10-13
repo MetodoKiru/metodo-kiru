@@ -21,7 +21,7 @@ body{
   z-index: 1000;
   background: #f7f6f2;
   border-bottom: 1px solid #eae6df;
-  padding: 1rem 7%;
+  padding: 0.8rem 7%; /* Ligeramente más compacto */
 }
 
 .top-navbar nav {
@@ -35,28 +35,29 @@ body{
 .logo-container {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   text-decoration: none;
 }
 
-/* Cajita elegante para la K (sin depender de archivos de imagen) */
+/* Cajita un pelín más pequeña (32px en vez de 38px) */
 .logo-icon-box {
-  width: 38px;
-  height: 38px;
+  width: 32px;
+  height: 32px;
   background-color: #121c2d;
-  border-radius: 10px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   font-family: Georgia, serif;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: bold;
 }
 
+/* Texto del logo un pelín más pequeño y elegante (18px en vez de 20px) */
 .logo-text {
   font-family: Georgia, serif;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400;
   color: #111;
   letter-spacing: -0.5px;
@@ -85,9 +86,9 @@ body{
 .mini-btn {
   background: #111;
   color: white !important;
-  padding: 10px 22px !important;
+  padding: 9px 20px !important;
   border-radius: 999px;
-  font-size: 14px;
+  font-size: 13.5px;
   text-decoration: none;
 }
 
