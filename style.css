@@ -21,7 +21,7 @@ body{
   z-index: 1000;
   background: #f7f6f2;
   border-bottom: 1px solid #eae6df;
-  padding: 0.8rem 7%; /* Ligeramente más compacto */
+  padding: 0.8rem 7%;
 }
 
 .top-navbar nav {
@@ -39,7 +39,6 @@ body{
   text-decoration: none;
 }
 
-/* Cajita un pelín más pequeña (32px en vez de 38px) */
 .logo-icon-box {
   width: 32px;
   height: 32px;
@@ -54,7 +53,6 @@ body{
   font-weight: bold;
 }
 
-/* Texto del logo un pelín más pequeño y elegante (18px en vez de 20px) */
 .logo-text {
   font-family: Georgia, serif;
   font-size: 18px;
@@ -82,14 +80,14 @@ body{
   opacity: .6;
 }
 
-/* Botón de llamada a la derecha */
+/* Botón de WhatsApp a la derecha (Sin subrayado) */
 .mini-btn {
   background: #111;
   color: white !important;
   padding: 9px 20px !important;
   border-radius: 999px;
   font-size: 13.5px;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 .mini-btn:hover {
@@ -146,7 +144,7 @@ h1{
 }
 
 .hero-buttons a{
-  text-decoration: none;
+  text-decoration: none !important;
   padding: 18px 32px;
   border-radius: 999px;
   font-size: 16px;
