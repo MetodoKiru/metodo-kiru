@@ -1,134 +1,66 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trabaja con nosotros - Método Kiru</title>
-  <style>
-    :root {
-      --primary: #1d4d8f;
-      --primary-dark: #12386d;
-      --accent: #f4b942;
-      --text: #1d1d1d;
-      --light: #f6f8fb;
-      --white: #ffffff;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      color: var(--text);
-      background: #f7f7f7;
-    }
-
-    /* Reglas añadidas para arreglar el menú roto de la captura */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5rem 2rem;
-    }
-    
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-    }
-    
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-
-    .topbar {
-      background: linear-gradient(90deg, var(--primary-dark), var(--primary));
-      color: var(--white);
-      font-size: 0.85rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      padding: 0.7rem 1.5rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1rem;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    }
-
-    .topbar span {
-      opacity: 0.9;
-    }
-
-    .topbar a {
-      color: var(--white);
-      text-decoration: none;
-      font-weight: 700;
-    }
-
-    a,
-    a:link,
-    a:visited,
-    a:hover,
-    a:active {
-      color: inherit;
-      text-decoration: none;
-    }
-  </style>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <div class="topbar">
-    <span>Mentoría educativa a domicilio</span>
-    <a href="https://wa.me/346XXXXXXXX" target="_blank">Reserva tu cita</a>
-  </div>
-
-  <header class="hero">
+  <!-- BARRA SUPERIOR FIJA (Igual que en el index) -->
+  <header class="top-navbar">
     <nav>
-      <div class="logo">Método Kiru</div>
+      <a href="index.html" class="logo-container">
+        <div class="logo-icon-box">K</div>
+        <span class="logo-text">Método Kiru</span>
+      </a>
       <div class="nav-links">
+        <a href="index.html">Inicio</a>
         <a href="programas.html">Programas</a>
         <a href="tarifas.html">Tarifas</a>
-        <a href="conocenos.html">Nosotros</a>
+        <a href="accesofamilias.html">Área de Familias</a>
+        <a href="conocenos.html">Conócenos</a>
         <a href="faq.html">FAQ</a>
-        <a href="trabaja-con-nosotros.html">Empleo</a>
-        <a href="https://wa.me/346XXXXXXXX" class="nav-whatsapp" target="_blank">WhatsApp</a>
+        <a href="trabaja-con-nosotros.html" style="text-decoration: none; color: #111;">Trabaja con nosotros</a>
       </div>
+      <a href="https://wa.me/34651382833?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20M%C3%A9todo%20Kiru." target="_blank" class="mini-btn">WhatsApp</a>
     </nav>
+  </header>
 
-    <!-- AÑADIDO: margin: 0 auto; width: 100%; para forzar el centrado -->
-    <div class="hero-content" style="padding-bottom: 4rem; text-align: center; margin: 0 auto; width: 100%;">
-      <h1>TRABAJA CON NOSOTROS</h1>
+  <!-- CONTENIDO PRINCIPAL CENTRADO -->
+  <section class="hero" style="min-height: calc(100vh - 200px); display: flex; align-items: center; justify-content: center; text-align: center;">
+    <div class="hero-content" style="margin: 0 auto; width: 100%; max-width: 800px;">
       
-      <div style="background: var(--white); border-radius: 8px; padding: 2.5rem; max-width: 600px; margin: 2rem auto; box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: var(--text); text-align: center;">
-        <h2 style="margin-top: 0; color: var(--primary-dark);">Mentor/a</h2>
+      <h1 style="margin-bottom: 40px; font-size: 52px;">Trabaja con nosotros</h1>
+      
+      <!-- Tarjeta del puesto -->
+      <div style="background: #ffffff; border-radius: 28px; padding: 3.5rem 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.04); margin: 0 auto; max-width: 650px;">
+        <h2 style="font-size: 32px; font-weight: normal; margin-top: 0; margin-bottom: 20px;">Mentor/a</h2>
         
-        <p class="subtitle" style="font-size: 1.1rem; line-height: 1.5; margin-bottom: 2rem; color: var(--text); margin-left: auto; margin-right: auto;">
+        <p class="subtitle" style="font-size: 1.2rem; line-height: 1.6; margin-bottom: 3rem; opacity: 0.85; margin-left: auto; margin-right: auto;">
           ¿Tienes experiencia en educación y te gustaría incorporarte como mentor a domicilio con Método Kiru? Rellena este formulario para iniciar tu proceso.
         </p>
         
         <div class="hero-buttons" style="justify-content: center;">
-          <a href="https://forms.gle/Yh8Yrp8bvanPEbjY7" class="primary" target="_blank" style="background: var(--primary); color: var(--white); padding: 0.8rem 2rem; border-radius: 4px; font-weight: bold;">
+          <a href="https://forms.gle/Yh8Yrp8bvanPEbjY7" 
+             target="_blank" 
+             class="primary" 
+             style="font-weight: bold; padding: 18px 40px;">
             QUIERO SER MENTOR/A
           </a>
         </div>
       </div>
+      
     </div>
-  </header>
+  </section>
 
-  <footer style="text-align: center; padding: 2rem;">
-    <p>Método Kiru</p>
-    <p>Mentoría educativa personalizada</p>
-    <p>Pozuelo · Aravaca · Las Rozas · Madrid centro</p>
+  <!-- PIE DE PÁGINA (Igual que en el index) -->
+  <footer>
+    <p style="margin-bottom: 6px;">©️2025 Método kiru.</p>
+    <p>Pozuelo, Las Rozas, Majadahonda, Aravaca, Boadilla y Centro.</p>
   </footer>
 
   <script src="script.js"></script>
-
 </body>
 </html>
