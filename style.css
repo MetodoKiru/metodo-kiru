@@ -97,19 +97,76 @@ h1, h2, .logo-text, .logo-icon-box{
   opacity: .9;
 }
 
+/* Menú de tres rayas */
+
+.menu-toggle{
+  display: none;
+  background: none;
+  border: none;
+  color: #111;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.menu-toggle:hover{
+  background: #eae6df;
+}
+
+@media(max-width:1100px){
+  .top-navbar nav{
+    gap: 12px;
+  }
+  .logo-container{
+    margin-right: auto;
+  }
+  .menu-toggle{
+    display: inline-flex;
+  }
+  .nav-links{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    margin: 0;
+    padding: 8px 7% 20px;
+    background: #f7f6f2;
+    border-bottom: 1px solid #eae6df;
+    box-shadow: 0 16px 30px rgba(0,0,0,.06);
+  }
+  .top-navbar.menu-open .nav-links{
+    display: flex;
+  }
+  .top-navbar .nav-links a{
+    padding: 14px 0;
+    font-size: 17px;
+    border-bottom: 1px solid #eae6df;
+  }
+  .top-navbar .nav-links a:last-child{
+    border-bottom: none;
+  }
+}
+
 /* =========================
    SECCIÓN HERO
 ========================= */
 
 .hero{
-  padding: 60px 7%;
+  padding: 64px 7% 56px;
   display: flex;
   flex-direction: column;
 }
 
 .hero-content{
   max-width: 850px;
-  margin-top: 2rem;
+  margin-top: 0;
 }
 
 .eyebrow{
@@ -209,7 +266,7 @@ h1{
 /* Secciones de la home */
 
 .section{
-  padding: 90px 7%;
+  padding: 56px 7%;
 }
 
 .section-white{
@@ -217,10 +274,33 @@ h1{
 }
 
 .section-title{
-  font-size: 40px;
+  font-size: 36px;
   font-weight: 400;
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 32px;
+}
+
+.page-title{
+  font-size: 48px;
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.hero-buttons.centered{
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.testimonial-featured{
+  max-width: 680px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 24px;
+  padding: 32px 36px;
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,.04);
 }
 
 .pillars{
@@ -262,10 +342,10 @@ h1{
 .step-number{
   display: block;
   font-family: 'DM Serif Display', Georgia, serif;
-  font-size: 44px;
+  font-size: 36px;
   line-height: 1;
   color: #c8a97e;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 
 .testimonial-grid{
@@ -287,13 +367,13 @@ h1{
 }
 
 .closing{
-  padding: 90px 7% 100px;
+  padding: 56px 7% 64px;
   text-align: center;
   border-top: 1px solid #eae6df;
 }
 
-.closing .section-title{
-  margin-bottom: 30px;
+.closing .quote-text{
+  margin-bottom: 4px;
 }
 
 .closing .hero-buttons{
@@ -623,9 +703,6 @@ footer{
   .top-navbar {
     padding: 1rem 5%;
   }
-  .nav-links {
-    display: none;
-  }
   .hero{
     padding:40px 6% 60px;
   }
@@ -638,6 +715,42 @@ footer{
   }
   .hero-buttons a.text-link{
     align-self:center;
+    width:auto;
+  }
+  .hero{
+    padding:36px 6% 40px;
+  }
+  .pillars{
+    grid-template-columns:1fr 1fr;
+    gap:22px 18px;
+  }
+  .pillar{
+    padding-top:14px;
+  }
+  .pillar h3,
+  .steps h3{
+    font-size:16px;
+    margin-bottom:4px;
+  }
+  .pillar p,
+  .steps p{
+    font-size:14px;
+  }
+  .steps{
+    gap:22px;
+  }
+  .steps li{
+    display:grid;
+    grid-template-columns:36px 1fr;
+    column-gap:10px;
+  }
+  .step-number{
+    grid-row:span 2;
+    font-size:30px;
+    margin-bottom:0;
+  }
+  .closing{
+    padding:44px 6% 48px;
   }
   .section{
     padding:60px 6%;
@@ -646,13 +759,19 @@ footer{
     font-size:32px;
     margin-bottom:32px;
   }
-  .pillars,
   .steps,
   .testimonial-grid{
     grid-template-columns:1fr;
   }
   .quote-text{
     font-size:20px;
+  }
+  .page-title{
+    font-size:36px;
+  }
+  .testimonial-featured{
+    padding:26px 22px;
+    font-size:17px;
   }
   .hero-buttons a{
     width:100%;

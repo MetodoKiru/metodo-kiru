@@ -2,23 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://metodokiru.es/</loc>
+    <loc>https://www.metodokiru.es/</loc>
   </url>
 
   <url>
-    <loc>https://metodokiru.es/conocenos</loc>
+    <loc>https://www.metodokiru.es/conocenos</loc>
   </url>
 
   <url>
-    <loc>https://metodokiru.es/tarifas</loc>
+    <loc>https://www.metodokiru.es/tarifas</loc>
   </url>
 
   <url>
-    <loc>https://metodokiru.es/accesofamilias.html</loc>
+    <loc>https://www.metodokiru.es/accesofamilias.html</loc>
   </url>
 
   <url>
-    <loc>https://metodokiru.es/programas.html</loc>
+    <loc>https://www.metodokiru.es/programas.html</loc>
+  </url>
+
+  <url>
+    <loc>https://www.metodokiru.es/testimonios</loc>
   </url>
 
 </urlset>
