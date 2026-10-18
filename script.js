@@ -94,7 +94,10 @@ async function kiruTeam() {
       if (src) {
         const img = kiruEl("img");
         img.src = src; img.alt = p.nombre; img.loading = "lazy";
-        img.onerror = () => { img.remove(); avatar.textContent = initials; };
+        const fallback = () => { img.remove(); avatar.textContent = initials; };
+        img.onerror = fallback;
+        img.onload = () => { if (img.naturalWidth < 40) fallback(); };
+        setTimeout(() => { if (!img.complete || !img.naturalWidth) fallback(); }, 6000);
         avatar.appendChild(img);
       } else avatar.textContent = initials;
       card.appendChild(avatar);
