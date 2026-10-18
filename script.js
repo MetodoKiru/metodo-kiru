@@ -35,7 +35,7 @@ const KIRU_DATA = {
   // Hoja «Nuestro Equipo (respuestas)» › pestaña Web
   equipo: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTQ-tT6GsDSnTJTE_ZYwLA9aV8hHO3mXMWmfm30Cuesp4AZASTNnwobgowbpdTUq7r6OfvB5N0N_bCm/pub?gid=70570631&single=true&output=csv",
   // Hoja «Testimonios Método Kiru» › pestaña Web
-  opiniones: ""
+  opiniones: "https://docs.google.com/spreadsheets/d/e/2PACX-1vT9fcG5Gis_dfePaGpGKt2O39dQhKISsUhEy0lMpV5Xd_FuMrYeavfqoXf-_HVDYgq4W2G2KbZzePmL/pub?gid=625830375&single=true&output=csv"
 };
 
 function kiruParseCSV(text) {
