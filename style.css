@@ -375,6 +375,82 @@ h1{
   justify-content: center;
 }
 
+/* Fotos */
+
+.hero-with-photo{
+  flex-direction: row;
+  align-items: center;
+  gap: 56px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-with-photo .hero-content{
+  flex: 1 1 0;
+}
+
+.hero-photo{
+  flex: 0 0 34%;
+  margin: 0;
+}
+
+.hero-photo img,
+.session-photo img{
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+.how-it-works{
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.session-photo{
+  margin: 0;
+}
+
+.session-photo img{
+  height: 300px;
+  object-fit: cover;
+  object-position: center 45%;
+}
+
+.hero-photo img{
+  max-height: 420px;
+  object-fit: cover;
+}
+
+.how-it-works .steps{
+  grid-template-columns: 1fr;
+  gap: 26px;
+}
+
+.how-it-works .steps li{
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  column-gap: 12px;
+}
+
+.how-it-works .step-number{
+  grid-row: span 2;
+  margin-bottom: 0;
+}
+
+.welcome-pack-photo{
+  float: right;
+  width: 92px;
+  height: auto;
+  margin: 2px 0 8px 16px;
+  border-radius: 12px;
+}
+
 /* Welcome Pack en Tarifas */
 
 .welcome-pack{
@@ -732,6 +808,29 @@ footer{
   }
   .hero{
     padding:36px 6% 40px;
+  }
+  .hero-with-photo{
+    flex-direction:column;
+    align-items:stretch;
+    gap:28px;
+  }
+  .hero-photo{
+    order:-1;
+  }
+  .hero-photo img{
+    max-height:none;
+    height:200px;
+    object-fit:cover;
+    object-position:center 30%;
+  }
+  .how-it-works{
+    grid-template-columns:1fr;
+    gap:26px;
+  }
+  .session-photo img{
+    height:220px;
+    object-fit:cover;
+    object-position:center 45%;
   }
   .pillars{
     grid-template-columns:1fr 1fr;

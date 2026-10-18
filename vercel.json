@@ -1,7 +1,25 @@
 {
   "cleanUrls": true,
   "redirects": [
-    { "source": "/accesofamilias", "destination": "/", "permanent": true },
-    { "source": "/accesofamilias.html", "destination": "/", "permanent": true }
+    {
+      "source": "/accesofamilias",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/accesofamilias.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/conocenos",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/conocenos.html",
+      "destination": "/",
+      "permanent": true
+    }
   ]
 }
