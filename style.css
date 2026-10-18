@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700&display=swap');
+
 *{
   margin:0;
   padding:0;
@@ -7,8 +9,12 @@
 body{
   background:#f7f6f2;
   color:#111;
-  font-family:Georgia, serif;
+  font-family:'Manrope', sans-serif;
   -webkit-font-smoothing:antialiased;
+}
+
+h1, h2, .logo-text, .logo-icon-box{
+  font-family:'DM Serif Display', Georgia, serif;
 }
 
 /* =========================
@@ -48,13 +54,10 @@ body{
   align-items: center;
   justify-content: center;
   color: white;
-  font-family: Georgia, serif;
   font-size: 18px;
-  font-weight: bold;
 }
 
 .logo-text {
-  font-family: Georgia, serif;
   font-size: 18px;
   font-weight: 400;
   color: #111;
@@ -110,27 +113,26 @@ body{
 }
 
 .eyebrow{
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 12px;
-  opacity: .5;
-  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #8b7b68;
+  margin-bottom: 18px;
 }
 
 h1{
-  font-size: 68px;
-  line-height: 1;
+  font-size: 64px;
+  line-height: 1.05;
   font-weight: 400;
-  letter-spacing: -2px;
-  margin-bottom: 16px;
+  letter-spacing: -1px;
+  margin-bottom: 22px;
 }
 
 .subtitle{
-  font-size: 20px;
-  line-height: 1.6;
-  max-width: 700px;
-  opacity: .85;
-  margin-bottom: 28px;
+  font-size: 19px;
+  line-height: 1.65;
+  max-width: 620px;
+  color: #444;
+  margin-bottom: 36px;
 }
 
 /* =========================
@@ -139,8 +141,9 @@ h1{
 
 .hero-buttons{
   display: flex;
-  gap: 14px;
+  gap: 28px;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .hero-buttons a{
@@ -148,7 +151,20 @@ h1{
   padding: 18px 32px;
   border-radius: 999px;
   font-size: 16px;
+  font-weight: 600;
   transition: .25s;
+}
+
+.hero-buttons a.text-link{
+  padding: 0;
+  border-radius: 0;
+  color: #111;
+  border-bottom: 1px solid #111;
+  font-weight: 500;
+}
+
+.hero-buttons a.text-link:hover{
+  opacity: .6;
 }
 
 .primary{
@@ -176,16 +192,145 @@ h1{
 ========================= */
 
 .quote{
-  padding: 80px 7%;
+  padding: 70px 7% 30px;
   text-align: center;
+  border-top: 1px solid #eae6df;
 }
 
-.quote h2{
-  max-width: 900px;
+.quote-text{
+  max-width: 760px;
   margin: auto;
-  font-size: 38px;
-  line-height: 1.2;
+  font-size: 24px;
+  line-height: 1.5;
+  font-weight: 500;
+  color: #3d342b;
+}
+
+/* Secciones de la home */
+
+.section{
+  padding: 90px 7%;
+}
+
+.section-white{
+  background: white;
+}
+
+.section-title{
+  font-size: 40px;
   font-weight: 400;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.pillars{
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 32px;
+}
+
+.pillar{
+  border-top: 1px solid #d9ccb9;
+  padding-top: 20px;
+}
+
+.pillar h3,
+.steps h3{
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.pillar p,
+.steps p{
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.steps{
+  list-style: none;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.step-number{
+  display: block;
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 44px;
+  line-height: 1;
+  color: #c8a97e;
+  margin-bottom: 14px;
+}
+
+.testimonial-grid{
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.testimonial-grid blockquote{
+  background: white;
+  border-radius: 24px;
+  padding: 32px;
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.6;
+  box-shadow: 0 10px 25px rgba(0,0,0,.04);
+}
+
+.closing{
+  padding: 90px 7% 100px;
+  text-align: center;
+  border-top: 1px solid #eae6df;
+}
+
+.closing .section-title{
+  margin-bottom: 30px;
+}
+
+.closing .hero-buttons{
+  justify-content: center;
+}
+
+/* Welcome Pack en Tarifas */
+
+.welcome-pack{
+  padding-top: 22px;
+}
+
+.welcome-pack-row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  color: #3d342b;
+}
+
+.welcome-pack-row strong{
+  font-size: 1.2rem;
+}
+
+.welcome-pack p{
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #6b6258;
+}
+
+.price-note{
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 14px;
+  color: #6b6258;
 }
 
 .testimonials{
@@ -342,6 +487,8 @@ blockquote span{
 }
 
 .tarifa-card h3{
+  font-family:'DM Serif Display', Georgia, serif;
+  font-weight:400;
   text-align:center;
   margin-bottom:25px;
   color:#3d342b;
@@ -400,8 +547,10 @@ blockquote span{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  font-family:Georgia, serif;
-  font-size:24px;
+  font-family:'Manrope', sans-serif;
+  font-weight:600;
+  font-size:20px;
+  color:#111;
   text-align:left;
 }
 
@@ -485,6 +634,25 @@ footer{
   }
   .hero-buttons{
     flex-direction:column;
+    align-items:stretch;
+  }
+  .hero-buttons a.text-link{
+    align-self:center;
+  }
+  .section{
+    padding:60px 6%;
+  }
+  .section-title{
+    font-size:32px;
+    margin-bottom:32px;
+  }
+  .pillars,
+  .steps,
+  .testimonial-grid{
+    grid-template-columns:1fr;
+  }
+  .quote-text{
+    font-size:20px;
   }
   .hero-buttons a{
     width:100%;
