@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuestro equipo | Método Kiru</title>
+  <meta name="description" content="Conoce a los mentores de Método Kiru: clases y mentoría a domicilio para alumnos con TDAH y TEA en el noroeste de Madrid.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- BARRA SUPERIOR FIJA -->
+  <header class="top-navbar">
+    <nav>
+      <a href="index.html" class="logo-container">
+        <div class="logo-icon-box">K</div>
+        <span class="logo-text">Método Kiru</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Inicio</a>
+        <a href="programas.html">Programas</a>
+        <a href="tarifas.html">Tarifas</a>
+        <a href="testimonios.html">Opiniones</a>
+        <a href="faq.html">FAQ</a>
+        <a href="trabaja-con-nosotros.html">Trabaja con nosotros</a>
+      </div>
+      <div class="nav-actions">
+        <a href="https://campus-kiru-q3gmzbqbb-campus-kiru.vercel.app/#campus" target="_blank" rel="noopener" class="mini-btn">Plataforma</a>
+        <a href="https://wa.me/34651382833?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20M%C3%A9todo%20Kiru." target="_blank" rel="noopener" class="mini-btn">WhatsApp</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="section">
+    <h1 class="page-title">Nuestro equipo</h1>
+    <p class="page-intro">Mentores formados en la metodología Método Kiru.</p>
+
+    <div class="team-grid" id="team-grid" aria-live="polite"></div>
+  </section>
+
+  <script>
+    // Datos: pestaña «Web» de la hoja «Nuestro Equipo (respuestas)», publicada como CSV.
+    // Se actualiza sola cuando alguien rellena el formulario.
+    const TEAM_CSV_URL = "";
+
+    function parseCSV(text) {
+      const rows = []; let row = [], cell = "", q = false;
+      for (let i = 0; i < text.length; i++) {
+        const c = text[i];
+        if (q) {
+          if (c === '"' && text[i + 1] === '"') { cell += '"'; i++; }
+          else if (c === '"') q = false;
+          else cell += c;
+        } else if (c === '"') q = true;
+        else if (c === ",") { row.push(cell); cell = ""; }
+        else if (c === "\n" || c === "\r") {
+          if (c === "\r" && text[i + 1] === "\n") i++;
+          row.push(cell); rows.push(row); row = []; cell = "";
+        } else cell += c;
+      }
+      if (cell || row.length) { row.push(cell); rows.push(row); }
+      return rows.filter(r => r.some(v => v.trim()));
+    }
+
+    function driveImage(url) {
+      const m = (url || "").match(/[?&]id=([\w-]+)|\/d\/([\w-]+)/);
+      const id = m && (m[1] || m[2]);
+      return id ? "https://drive.google.com/thumbnail?id=" + id + "&sz=w600" : "";
+    }
+
+    function el(tag, cls, text) {
+      const e = document.createElement(tag);
+      if (cls) e.className = cls;
+      if (text) e.textContent = text;
+      return e;
+    }
+
+    function initials(name) {
+      return name.split(/\s+/).filter(Boolean).slice(0, 2).map(w => w[0].toUpperCase()).join("");
+    }
+
+    async function loadTeam() {
+      const grid = document.getElementById("team-grid");
+      try {
+        if (!TEAM_CSV_URL) throw new Error("sin datos");
+        const res = await fetch(TEAM_CSV_URL, { cache: "no-store" });
+        if (!res.ok) throw new Error(res.status);
+        const [header, ...rows] = parseCSV(await res.text());
+        const col = n => header.findIndex(h => h.trim().toLowerCase() === n);
+        const iN = col("nombre"), iE = col("estudios"), iX = col("experiencia"), iF = col("foto");
+        rows.forEach(r => {
+          const name = (r[iN] || "").trim();
+          if (!name) return;
+          const card = el("article", "team-card");
+          const photo = driveImage(r[iF]);
+          const avatar = el("div", "team-photo");
+          if (photo) {
+            const img = el("img");
+            img.src = photo; img.alt = name; img.loading = "lazy";
+            img.onerror = () => { img.remove(); avatar.textContent = initials(name); };
+            avatar.appendChild(img);
+          } else avatar.textContent = initials(name);
+          card.appendChild(avatar);
+          card.appendChild(el("h2", "team-name", name));
+          if (r[iE]) card.appendChild(el("p", "team-studies", r[iE].trim()));
+          if (r[iX]) card.appendChild(el("p", "team-exp", r[iX].split(",").map(s => s.trim()).filter(Boolean).join(" · ")));
+          grid.appendChild(card);
+        });
+        if (!grid.children.length) throw new Error("vacío");
+      } catch (e) {
+        grid.appendChild(el("p", "team-empty", "Muy pronto presentaremos aquí a nuestro equipo."));
+      }
+    }
+    loadTeam();
+  </script>
+
+  <!-- PIE DE PÁGINA -->
+  <footer>
+    <p class="footer-links"><a href="index.html">Inicio</a> · <a href="programas.html">Programas</a> · <a href="tarifas.html">Tarifas</a> · <a href="testimonios.html">Opiniones</a> · <a href="faq.html">FAQ</a> · <a href="trabaja-con-nosotros.html">Trabaja con nosotros</a> · <a href="https://campus-kiru-q3gmzbqbb-campus-kiru.vercel.app/#campus" target="_blank" rel="noopener">Plataforma Kiru</a></p>
+    <p>Clases a domicilio en el noroeste de Madrid: Pozuelo, Aravaca, Las Rozas, Majadahonda y Boadilla.</p>
+    <p class="footer-copy">© 2026 Método Kiru</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
