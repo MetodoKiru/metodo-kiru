@@ -83,10 +83,12 @@ h1, h2, .logo-text, .logo-icon-box{
   opacity: .6;
 }
 
-/* Botón de WhatsApp a la derecha (Sin subrayado) */
+/* Botones negros de la barra (Plataforma y WhatsApp) */
 .mini-btn {
   background: #111;
   color: white !important;
+  font-weight: 600;
+  white-space: nowrap;
   padding: 9px 20px !important;
   border-radius: 999px;
   font-size: 13.5px;
@@ -97,60 +99,53 @@ h1, h2, .logo-text, .logo-icon-box{
   opacity: .9;
 }
 
-/* Menú de tres rayas */
+/* Barra superior: acciones y página actual */
 
-.menu-toggle{
-  display: none;
-  background: none;
-  border: none;
-  color: #111;
-  width: 40px;
-  height: 40px;
+.nav-actions{
+  display: flex;
+  gap: 8px;
   align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  cursor: pointer;
 }
 
-.menu-toggle:hover{
-  background: #eae6df;
+.top-navbar .nav-links a.active{
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: #c8a97e;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 8px;
 }
 
+/* En pantallas pequeñas las páginas se ven siempre, en una fila deslizable */
 @media(max-width:1100px){
+  .top-navbar{
+    padding: 0.7rem 5% 0;
+  }
   .top-navbar nav{
-    gap: 12px;
-  }
-  .logo-container{
-    margin-right: auto;
-  }
-  .menu-toggle{
-    display: inline-flex;
+    flex-wrap: wrap;
+    row-gap: 6px;
   }
   .nav-links{
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
+    order: 3;
+    width: 100%;
     margin: 0;
-    padding: 8px 7% 20px;
-    background: #f7f6f2;
-    border-bottom: 1px solid #eae6df;
-    box-shadow: 0 16px 30px rgba(0,0,0,.06);
+    gap: 22px;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    padding: 8px 0 10px;
+    -webkit-mask-image: linear-gradient(to right, #000 88%, transparent);
+            mask-image: linear-gradient(to right, #000 88%, transparent);
   }
-  .top-navbar.menu-open .nav-links{
-    display: flex;
+  .nav-links::-webkit-scrollbar{
+    display: none;
   }
   .top-navbar .nav-links a{
-    padding: 14px 0;
-    font-size: 17px;
-    border-bottom: 1px solid #eae6df;
+    font-size: 15px;
+    flex: 0 0 auto;
   }
   .top-navbar .nav-links a:last-child{
-    border-bottom: none;
+    padding-right: 32px;
   }
 }
 
@@ -549,7 +544,7 @@ blockquote span{
   margin:60px auto;
   padding:0 20px;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));
   gap:30px;
 }
 
@@ -689,6 +684,27 @@ blockquote span{
   margin-bottom: 8px;
 }
 
+footer p{
+  margin-bottom:6px;
+}
+
+.footer-links a{
+  color:#111;
+  text-decoration:none;
+}
+
+.footer-links a:hover{
+  text-decoration:underline;
+}
+
+.footer-links{
+  margin-bottom:14px !important;
+}
+
+.footer-copy{
+  opacity:.7;
+}
+
 footer{
   text-align:center;
   padding:40px 7%;
@@ -700,9 +716,6 @@ footer{
 }
 
 @media(max-width:900px){
-  .top-navbar {
-    padding: 1rem 5%;
-  }
   .hero{
     padding:40px 6% 60px;
   }
@@ -779,5 +792,47 @@ footer{
   }
   .family-dashboard{
     grid-template-columns:1fr;
+  }
+}
+@media(max-width:600px){
+  .tarifas-grid{
+    padding:0;
+    margin:36px auto;
+    gap:20px;
+  }
+  .tarifa-card{
+    padding:26px 22px;
+  }
+  .precio-item span{
+    font-size:15px;
+  }
+  .precio-item strong{
+    white-space:nowrap;
+  }
+}
+
+@media(max-width:420px){
+  .mini-btn{
+    padding: 8px 13px !important;
+    font-size: 13px;
+  }
+  .logo-text{
+    font-size: 16px;
+  }
+  .logo-container{
+    gap: 8px;
+  }
+}
+
+@media(max-width:380px){
+  .mini-btn{
+    padding: 7px 11px !important;
+    font-size: 12.5px;
+  }
+  .nav-actions{
+    gap: 6px;
+  }
+  .logo-text{
+    font-size: 15px;
   }
 }
