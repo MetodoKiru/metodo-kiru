@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // =========================================================
 const KIRU_DATA = {
   // Hoja «Nuestro Equipo (respuestas)» › pestaña Web
-  equipo: "",
+  equipo: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTQ-tT6GsDSnTJTE_ZYwLA9aV8hHO3mXMWmfm30Cuesp4AZASTNnwobgowbpdTUq7r6OfvB5N0N_bCm/pub?gid=70570631&single=true&output=csv",
   // Hoja «Testimonios Método Kiru» › pestaña Web
   opiniones: ""
 };
