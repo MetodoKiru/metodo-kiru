@@ -20,6 +20,26 @@
       "source": "/conocenos.html",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/summerprogram",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/summerprogram.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/descrubrirmetodología",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/descrubrirmetodología.html",
+      "destination": "/",
+      "permanent": true
     }
   ]
 }
