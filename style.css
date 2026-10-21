@@ -619,24 +619,25 @@ blockquote span{
 }
 
 .programa-card{
-  background: #f9f4ec;
-  border: 1px solid #e4d8c7;
+  background: #fff;
+  border: 1px solid #e9e6e0;
   border-radius: 20px;
   padding: 35px;
   position: relative;
-  box-shadow: 0 10px 30px rgba(0,0,0,.05);
+  box-shadow: 0 6px 22px rgba(35,32,27,.045);
 }
 
 .programa-card.destacado{
-  border: 2px solid #c8a97e;
-  transform: scale(1.02);
+  background: #fff;
+  border: 1px solid #d8d1c5;
+  transform: none;
 }
 
 .etiqueta{
   position: absolute;
   top: -12px;
   right: 20px;
-  background: #c8a97e;
+  background: #292825;
   color: white;
   padding: 8px 16px;
   border-radius: 999px;
@@ -666,7 +667,7 @@ blockquote span{
 
 .programa-card li{
   padding:12px 0;
-  border-bottom:1px solid #e8ddd0;
+  border-bottom:1px solid #eeece7;
   display:flex;
   align-items:center;
   gap:12px;
@@ -689,7 +690,7 @@ blockquote span{
 .beneficio{
   margin-top:30px;
   padding-top:20px;
-  border-top:1px solid #d9ccb9;
+  border-top:1px solid #eeece7;
 }
 
 .beneficio strong{
