@@ -85,11 +85,11 @@ function kiruDriveImage(url) {
 const KIRU_EQUIPOS = [
   { id: "mentores", titulo: "Mentores", texto: "Acompañan a cada alumno en casa, con la metodología Método Kiru.", clave: /mentor/i },
   { id: "coordinadores", titulo: "Coordinadores", texto: "Organizan las clases y están en contacto con las familias.", clave: /coordin/i,
-    tareas: "Asignación de mentor a cada familia · Seguimiento de las clases · Contacto con las familias" },
+    tareas: "Familias y mentores · Seguimiento de clases" },
   { id: "rrhh", titulo: "RRHH", texto: "Seleccionan y forman a los nuevos mentores.", clave: /rrhh|recursos humanos/i,
-    tareas: "Selección de mentores · Entrevistas · Formación y acreditación" },
+    tareas: "Selección y formación de mentores" },
   { id: "desarrolladores", titulo: "Desarrolladores", texto: "Crean la web, la plataforma y las herramientas de Método Kiru.", clave: /desarroll|program|tecnolog/i,
-    tareas: "Creación de perfiles en la plataforma · Web y campus Kiru · Automatizaciones" }
+    tareas: "Perfiles de la plataforma · Web" }
 ];
 
 // Respuestas como «No soy mentora» no se muestran en la web.
