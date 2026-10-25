@@ -84,12 +84,20 @@ function kiruDriveImage(url) {
 // Si alguien marca varios puestos, aparece en cada uno; si lo deja vacío, va a Mentores.
 const KIRU_EQUIPOS = [
   { id: "mentores", titulo: "Mentores", texto: "Acompañan a cada alumno en casa, con la metodología Método Kiru.", clave: /mentor/i },
-  { id: "coordinadores", titulo: "Coordinadores", texto: "Organizan las clases y están en contacto con las familias.", clave: /coordin/i },
-  { id: "rrhh", titulo: "RRHH", texto: "Seleccionan y forman a los nuevos mentores.", clave: /rrhh|recursos humanos/i },
-  { id: "desarrolladores", titulo: "Desarrolladores", texto: "Crean la web, la plataforma y las herramientas de Método Kiru.", clave: /desarroll|program|tecnolog/i }
+  { id: "coordinadores", titulo: "Coordinadores", texto: "Organizan las clases y están en contacto con las familias.", clave: /coordin/i,
+    tareas: "Asignación de mentor a cada familia · Seguimiento de las clases · Contacto con las familias" },
+  { id: "rrhh", titulo: "RRHH", texto: "Seleccionan y forman a los nuevos mentores.", clave: /rrhh|recursos humanos/i,
+    tareas: "Selección de mentores · Entrevistas · Formación y acreditación" },
+  { id: "desarrolladores", titulo: "Desarrolladores", texto: "Crean la web, la plataforma y las herramientas de Método Kiru.", clave: /desarroll|program|tecnolog/i,
+    tareas: "Creación de perfiles en la plataforma · Web y campus Kiru · Automatizaciones" }
 ];
 
-function kiruTeamCard(p) {
+// Respuestas como «No soy mentora» no se muestran en la web.
+function kiruDato(v) {
+  return /^no soy mentor/i.test(v || "") ? "" : (v || "");
+}
+
+function kiruTeamCard(p, eq) {
   const card = kiruEl("article", "team-card");
   const avatar = kiruEl("div", "team-photo");
   const initials = p.nombre.split(/\s+/).slice(0, 2).map(w => w[0].toUpperCase()).join("");
@@ -106,10 +114,13 @@ function kiruTeamCard(p) {
   card.appendChild(avatar);
   card.appendChild(kiruEl("h3", "team-name", p.nombre));
   if (p.estudios) card.appendChild(kiruEl("p", "team-studies", p.estudios));
-  const datos = [
-    ["Especialidad", (p.experiencia || "").split(",").map(s => s.trim()).filter(Boolean).join(" · ")],
-    ["Disponible", p.disponibilidad],
-    ["Zonas", p.zona]
+  // Mentores: especialidad, días y zonas. Resto de puestos: de qué se encarga.
+  const datos = eq.tareas ? [
+    ["Se encarga de", eq.tareas]
+  ] : [
+    ["Especialidad", kiruDato(p.experiencia).split(",").map(s => s.trim()).filter(Boolean).join(" · ")],
+    ["Disponible", kiruDato(p.disponibilidad)],
+    ["Zonas", kiruDato(p.zona)]
   ].filter(d => d[1]);
   if (datos.length) {
     const dl = kiruEl("dl", "team-info");
@@ -131,7 +142,7 @@ async function kiruTeam() {
     sec.appendChild(kiruEl("h2", "team-section-title", eq.titulo));
     sec.appendChild(kiruEl("p", "team-section-intro", eq.texto));
     const grid = kiruEl("div", "team-grid");
-    if (miembros.length) miembros.forEach(p => grid.appendChild(kiruTeamCard(p)));
+    if (miembros.length) miembros.forEach(p => grid.appendChild(kiruTeamCard(p, eq)));
     else grid.appendChild(kiruEl("p", "team-empty", "Muy pronto presentaremos aquí a este equipo."));
     sec.appendChild(grid);
     box.appendChild(sec);
