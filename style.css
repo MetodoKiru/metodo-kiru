@@ -499,6 +499,7 @@ h1{
 }
 
 .team-name{
+  font-family: 'DM Serif Display', Georgia, serif;
   font-size: 24px;
   font-weight: 400;
   margin-bottom: 6px;
@@ -517,14 +518,15 @@ h1{
 }
 
 .team-info{
-  margin-top: 16px;
-  padding-top: 14px;
+  margin-top: 14px;
+  padding-top: 12px;
   border-top: 1px solid #eae6df;
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 6px 12px;
+  gap: 4px 10px;
   text-align: left;
-  font-size: 14px;
+  font-size: 13px;
+  line-height: 1.5;
 }
 
 .team-info dt{
@@ -542,6 +544,47 @@ h1{
   font-weight: 600;
   color: #8b7b68;
   margin: -16px auto 28px;
+}
+
+.team-tabs{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 auto 40px;
+}
+
+.team-tabs a{
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: white;
+  color: #3d342b;
+  text-decoration: none;
+  font-size: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.04);
+}
+
+.team-tabs a:hover{
+  background: #f9f4ec;
+}
+
+.team-section{
+  margin: 0 auto 56px;
+  scroll-margin-top: 100px;
+}
+
+.team-section-title{
+  text-align: center;
+  font-size: 30px;
+  font-weight: 400;
+  margin-bottom: 6px;
+}
+
+.team-section-intro{
+  text-align: center;
+  color: #6b6258;
+  margin: 0 auto 24px;
+  max-width: 520px;
 }
 
 .team-empty{

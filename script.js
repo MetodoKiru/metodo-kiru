@@ -80,41 +80,62 @@ function kiruDriveImage(url) {
 }
 
 // ---------- Equipo ----------
-async function kiruTeam() {
-  const grid = document.getElementById("team-grid");
-  if (!grid) return;
-  try {
-    const people = (await kiruLoad(KIRU_DATA.equipo)).filter(p => p.nombre);
-    if (!people.length) throw new Error("vacío");
-    people.forEach(p => {
-      const card = kiruEl("article", "team-card");
-      const avatar = kiruEl("div", "team-photo");
-      const initials = p.nombre.split(/\s+/).slice(0, 2).map(w => w[0].toUpperCase()).join("");
-      const src = kiruDriveImage(p.foto);
-      if (src) {
-        const img = kiruEl("img");
-        img.src = src; img.alt = p.nombre; img.loading = "lazy";
-        const fallback = () => { img.remove(); avatar.textContent = initials; };
-        img.onerror = fallback;
-        img.onload = () => { if (img.naturalWidth < 40) fallback(); };
-        setTimeout(() => { if (!img.complete || !img.naturalWidth) fallback(); }, 6000);
-        avatar.appendChild(img);
-      } else avatar.textContent = initials;
-      card.appendChild(avatar);
-      card.appendChild(kiruEl("h2", "team-name", p.nombre));
-      if (p.estudios) card.appendChild(kiruEl("p", "team-studies", p.estudios));
-      if (p.experiencia) card.appendChild(kiruEl("p", "team-exp", p.experiencia.split(",").map(s => s.trim()).filter(Boolean).join(" · ")));
-      if (p.disponibilidad || p.zona) {
-        const dl = kiruEl("dl", "team-info");
-        if (p.disponibilidad) { dl.appendChild(kiruEl("dt", "", "Días")); dl.appendChild(kiruEl("dd", "", p.disponibilidad)); }
-        if (p.zona) { dl.appendChild(kiruEl("dt", "", "Zona")); dl.appendChild(kiruEl("dd", "", p.zona)); }
-        card.appendChild(dl);
-      }
-      grid.appendChild(card);
-    });
-  } catch (e) {
-    grid.appendChild(kiruEl("p", "team-empty", "Muy pronto presentaremos aquí a nuestro equipo."));
+// Cada persona sale en el apartado de su «Puesto» (columna del formulario).
+// Si alguien marca varios puestos, aparece en cada uno; si lo deja vacío, va a Mentores.
+const KIRU_EQUIPOS = [
+  { id: "mentores", titulo: "Mentores", texto: "Acompañan a cada alumno en casa, con la metodología Método Kiru.", clave: /mentor/i },
+  { id: "coordinadores", titulo: "Coordinadores", texto: "Organizan las clases y están en contacto con las familias.", clave: /coordin/i },
+  { id: "rrhh", titulo: "RRHH", texto: "Seleccionan y forman a los nuevos mentores.", clave: /rrhh|recursos humanos/i },
+  { id: "desarrolladores", titulo: "Desarrolladores", texto: "Crean la web, la plataforma y las herramientas de Método Kiru.", clave: /desarroll|program|tecnolog/i }
+];
+
+function kiruTeamCard(p) {
+  const card = kiruEl("article", "team-card");
+  const avatar = kiruEl("div", "team-photo");
+  const initials = p.nombre.split(/\s+/).slice(0, 2).map(w => w[0].toUpperCase()).join("");
+  const src = kiruDriveImage(p.foto);
+  if (src) {
+    const img = kiruEl("img");
+    img.src = src; img.alt = p.nombre; img.loading = "lazy";
+    const fallback = () => { img.remove(); avatar.textContent = initials; };
+    img.onerror = fallback;
+    img.onload = () => { if (img.naturalWidth < 40) fallback(); };
+    setTimeout(() => { if (!img.complete || !img.naturalWidth) fallback(); }, 6000);
+    avatar.appendChild(img);
+  } else avatar.textContent = initials;
+  card.appendChild(avatar);
+  card.appendChild(kiruEl("h3", "team-name", p.nombre));
+  if (p.estudios) card.appendChild(kiruEl("p", "team-studies", p.estudios));
+  const datos = [
+    ["Especialidad", (p.experiencia || "").split(",").map(s => s.trim()).filter(Boolean).join(" · ")],
+    ["Disponible", p.disponibilidad],
+    ["Zonas", p.zona]
+  ].filter(d => d[1]);
+  if (datos.length) {
+    const dl = kiruEl("dl", "team-info");
+    datos.forEach(([k, v]) => { dl.appendChild(kiruEl("dt", "", k + ":")); dl.appendChild(kiruEl("dd", "", v)); });
+    card.appendChild(dl);
   }
+  return card;
+}
+
+async function kiruTeam() {
+  const box = document.getElementById("team-grid");
+  if (!box) return;
+  let people = [];
+  try { people = (await kiruLoad(KIRU_DATA.equipo)).filter(p => p.nombre); } catch (e) {}
+  KIRU_EQUIPOS.forEach(eq => {
+    const miembros = people.filter(p => eq.clave.test(p.puesto || "") || (eq.id === "mentores" && !KIRU_EQUIPOS.some(o => o.clave.test(p.puesto || ""))));
+    const sec = kiruEl("section", "team-section");
+    sec.id = eq.id;
+    sec.appendChild(kiruEl("h2", "team-section-title", eq.titulo));
+    sec.appendChild(kiruEl("p", "team-section-intro", eq.texto));
+    const grid = kiruEl("div", "team-grid");
+    if (miembros.length) miembros.forEach(p => grid.appendChild(kiruTeamCard(p)));
+    else grid.appendChild(kiruEl("p", "team-empty", "Muy pronto presentaremos aquí a este equipo."));
+    sec.appendChild(grid);
+    box.appendChild(sec);
+  });
 }
 
 // ---------- Opiniones ----------
