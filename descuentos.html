@@ -15,6 +15,9 @@
     .discount-wrap { max-width: 900px; margin: 26px auto 72px; padding: 0 24px; }
     .discount-card { background: #fff; border: 1px solid #e4d8c7; border-radius: 26px; padding: clamp(24px, 4vw, 42px); box-shadow: 0 10px 30px rgba(0,0,0,.045); }
     .discount-kicker { font-size: 12px; text-transform: uppercase; letter-spacing: 1.8px; color: #8b7b68; font-weight: 700; margin-bottom: 12px; }
+    .discount-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 18px 0 28px; }
+    .discount-field label { display: block; color: #3d342b; font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+    .discount-field select { width: 100%; border: 1px solid #d8cbb9; border-radius: 12px; padding: 13px 14px; background: #fff; color: #3d342b; font: 500 15px 'Manrope', sans-serif; }
     .discount-months { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
     .discount-months label { font-size: 18px; font-weight: 600; color: #3d342b; }
     .month-value { font-family: 'DM Serif Display', Georgia, serif; font-size: 34px; color: #3d342b; white-space: nowrap; }
@@ -43,6 +46,7 @@
     @media(max-width: 600px) {
       .discount-intro { padding: 36px 6% 8px; }
       .discount-wrap { padding: 0 16px; margin: 20px auto 48px; }
+      .discount-options { grid-template-columns: 1fr; gap: 12px; }
       .discount-months { align-items: flex-start; flex-direction: column; gap: 4px; }
       .price-details { grid-template-columns: 1fr; }
       .price-detail { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
@@ -87,6 +91,24 @@
     <section class="discount-wrap" aria-label="Calculadora de descuentos">
       <div class="discount-card">
         <p class="discount-kicker">Calcula tu opción</p>
+        <div class="discount-options">
+          <div class="discount-field">
+            <label for="program">¿Qué programa te interesa?</label>
+            <select id="program">
+              <option value="base">Programa Base</option>
+              <option value="kiru" selected>Método Kiru</option>
+            </select>
+          </div>
+          <div class="discount-field">
+            <label for="frequency">¿Cuántas sesiones por semana?</label>
+            <select id="frequency">
+              <option value="1">1 sesión semanal</option>
+              <option value="2" selected>2 sesiones semanales</option>
+              <option value="3">3 sesiones semanales</option>
+            </select>
+          </div>
+        </div>
+
         <div class="discount-months">
           <label for="months">¿Cuántos meses quieres contratar?</label>
           <div class="month-value"><span id="months-value">3</span> <small>meses</small></div>
@@ -111,8 +133,8 @@
         </div>
 
         <div class="price-details">
-          <div class="price-detail"><span>Precio sin descuento</span><strong id="regular-total">1.050,00 €</strong></div>
-          <div class="price-detail"><span>Precio mensual equivalente</span><strong id="monthly-equivalent">332,50 €</strong></div>
+          <div class="price-detail"><span>Precio mensual sin descuento</span><strong id="monthly-price">350,00 €</strong></div>
+          <div class="price-detail"><span>Precio sin descuento del periodo</span><strong id="regular-total">1.050,00 €</strong></div>
           <div class="price-detail"><span>Sesiones aproximadas</span><strong id="session-count">24 sesiones</strong></div>
         </div>
 
@@ -135,7 +157,13 @@
 
   <script>
     (() => {
-      const monthlyPrice = 350;
+      const prices = {
+        base: { 1: 150, 2: 300, 3: 480 },
+        kiru: { 1: 175, 2: 350, 3: 500 }
+      };
+      const programInput = document.getElementById('program');
+      const frequencyInput = document.getElementById('frequency');
+      const monthlyPriceDisplay = document.getElementById('monthly-price');
       const monthsInput = document.getElementById('months');
       const monthsValue = document.getElementById('months-value');
       const savingAmount = document.getElementById('saving-amount');
@@ -150,8 +178,11 @@
 
       function update() {
         const months = Number(monthsInput.value);
+        const frequency = Number(frequencyInput.value);
+        const monthlyPrice = prices[programInput.value][frequency];
         const rate = discountRate(months);
         const regular = monthlyPrice * months;
+        monthlyPriceDisplay.textContent = euro(monthlyPrice);
         const saving = regular * rate;
         const total = regular - saving;
         monthsValue.textContent = months;
@@ -160,11 +191,13 @@
         finalTotal.textContent = euro(total);
         regularTotal.textContent = euro(regular);
         monthlyEquivalent.textContent = euro(total / months);
-        sessionCount.textContent = (months * 8) + (months === 1 ? ' sesiones' : ' sesiones');
+        sessionCount.textContent = (months * 4 * frequency) + ' sesiones aprox.';
         quickButtons.forEach(button => button.setAttribute('aria-pressed', String(Number(button.dataset.months) === months)));
       }
 
       monthsInput.addEventListener('input', update);
+      programInput.addEventListener('change', update);
+      frequencyInput.addEventListener('change', update);
       quickButtons.forEach(button => button.addEventListener('click', () => {
         monthsInput.value = button.dataset.months;
         update();
