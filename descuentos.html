@@ -174,7 +174,13 @@
       const sessionCount = document.getElementById('session-count');
       const quickButtons = [...document.querySelectorAll('[data-months]')];
       const euro = value => new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' }).format(value);
-      const discountRate = months => months < 3 ? 0 : months === 3 ? 0.05 : months === 4 ? 0.06 : months === 5 ? 0.07 : months === 6 ? 0.08 : months === 7 ? 0.09 : 0.10;
+      const discountRate = months => {
+        if (months < 3) return 0;
+        const rates = programInput.value === 'base'
+          ? { 3: 0.02, 4: 0.03, 5: 0.04, 6: 0.05, 7: 0.06, 8: 0.07 }
+          : { 3: 0.05, 4: 0.06, 5: 0.07, 6: 0.08, 7: 0.09, 8: 0.10 };
+        return rates[months] || 0;
+      };
 
       function update() {
         const months = Number(monthsInput.value);
