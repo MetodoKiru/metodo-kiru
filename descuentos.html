@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,follow">
+  <title>Opciones de continuidad | Método Kiru</title>
+  <meta name="description" content="Consulta las opciones de pago anticipado y el ahorro por continuidad con Método Kiru.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .discount-intro { max-width: 900px; margin: 0 auto; padding: 56px 7% 12px; }
+    .discount-intro .eyebrow { margin-bottom: 12px; }
+    .discount-intro h1 { font-size: clamp(38px, 5vw, 58px); margin-bottom: 18px; }
+    .discount-intro .subtitle { max-width: 700px; margin-bottom: 0; }
+    .discount-wrap { max-width: 900px; margin: 26px auto 72px; padding: 0 24px; }
+    .discount-card { background: #fff; border: 1px solid #e4d8c7; border-radius: 26px; padding: clamp(24px, 4vw, 42px); box-shadow: 0 10px 30px rgba(0,0,0,.045); }
+    .discount-kicker { font-size: 12px; text-transform: uppercase; letter-spacing: 1.8px; color: #8b7b68; font-weight: 700; margin-bottom: 12px; }
+    .discount-months { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+    .discount-months label { font-size: 18px; font-weight: 600; color: #3d342b; }
+    .month-value { font-family: 'DM Serif Display', Georgia, serif; font-size: 34px; color: #3d342b; white-space: nowrap; }
+    .month-value small { font-family: 'Manrope', sans-serif; font-size: 14px; color: #6b6258; }
+    .discount-slider { width: 100%; accent-color: #c8a97e; cursor: pointer; margin: 4px 0 8px; }
+    .slider-ends { display: flex; justify-content: space-between; color: #8b7b68; font-size: 13px; }
+    .quick-months { display: flex; flex-wrap: wrap; gap: 10px; margin: 22px 0 30px; }
+    .quick-months button { border: 1px solid #e4d8c7; background: #f9f4ec; color: #3d342b; border-radius: 999px; padding: 10px 16px; font: 600 14px 'Manrope', sans-serif; cursor: pointer; transition: background .2s, border-color .2s; }
+    .quick-months button:hover, .quick-months button[aria-pressed="true"] { background: #eee5d8; border-color: #c8a97e; }
+    .discount-result { background: #f9f4ec; border-radius: 20px; padding: 24px; }
+    .saving-label { font-size: 14px; color: #55734d; font-weight: 700; margin-bottom: 4px; }
+    .saving-amount { color: #55734d; font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(40px, 6vw, 58px); line-height: 1.12; margin-bottom: 8px; }
+    .saving-detail { color: #55734d; font-size: 14px; margin-bottom: 22px; }
+    .final-total { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding-top: 18px; border-top: 1px solid #e4d8c7; }
+    .final-total span { color: #6b6258; font-size: 14px; }
+    .final-total strong { color: #3d342b; font-size: clamp(21px, 3vw, 28px); font-weight: 700; }
+    .price-details { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 18px; }
+    .price-detail { background: #fff; border: 1px solid #eee6db; border-radius: 14px; padding: 15px; }
+    .price-detail span { display: block; color: #8b7b68; font-size: 12px; margin-bottom: 6px; }
+    .price-detail strong { color: #3d342b; font-size: 16px; }
+    .discount-footnote { margin-top: 20px; color: #6b6258; font-size: 13px; line-height: 1.7; }
+    .discount-actions { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
+    .discount-actions a { text-decoration: none; border-radius: 999px; padding: 14px 24px; font-size: 14px; font-weight: 700; }
+    .discount-actions .back-link { color: #3d342b; border: 1px solid #d8cbb9; }
+    .discount-actions .contact-link { background: #111; color: #fff; border: 1px solid #111; }
+    @media(max-width: 600px) {
+      .discount-intro { padding: 36px 6% 8px; }
+      .discount-wrap { padding: 0 16px; margin: 20px auto 48px; }
+      .discount-months { align-items: flex-start; flex-direction: column; gap: 4px; }
+      .price-details { grid-template-columns: 1fr; }
+      .price-detail { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+      .price-detail span { margin-bottom: 0; }
+      .discount-result { padding: 20px; }
+      .final-total { align-items: flex-start; flex-direction: column; gap: 6px; }
+      .discount-actions { flex-direction: column; }
+      .discount-actions a { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <header class="top-navbar">
+    <nav>
+      <a href="index.html" class="logo-container">
+        <div class="logo-icon-box">K</div>
+        <span class="logo-text">Método Kiru</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Inicio</a>
+        <a href="programas.html">Programas</a>
+        <a href="tarifas.html" class="active" aria-current="page">Tarifas</a>
+        <a href="equipo.html">Equipo</a>
+        <a href="testimonios.html">Opiniones</a>
+        <a href="faq.html">FAQ</a>
+        <a href="trabaja-con-nosotros.html">Trabaja con nosotros</a>
+      </div>
+      <div class="nav-actions">
+        <a href="https://campus.metodokiru.es/" target="_blank" rel="noopener" class="mini-btn">Plataforma</a>
+        <a href="https://wa.me/34651382833?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20M%C3%A9todo%20Kiru." target="_blank" rel="noopener" class="mini-btn">WhatsApp</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="discount-intro">
+      <p class="eyebrow">Método Kiru · Continuidad</p>
+      <h1>Opciones de continuidad</h1>
+      <p class="subtitle">Planifica los próximos meses y consulta el ahorro disponible al realizar el pago por adelantado.</p>
+    </section>
+
+    <section class="discount-wrap" aria-label="Calculadora de descuentos">
+      <div class="discount-card">
+        <p class="discount-kicker">Calcula tu opción</p>
+        <div class="discount-months">
+          <label for="months">¿Cuántos meses quieres contratar?</label>
+          <div class="month-value"><span id="months-value">3</span> <small>meses</small></div>
+        </div>
+        <input class="discount-slider" id="months" type="range" min="1" max="8" step="1" value="3" aria-label="Número de meses">
+        <div class="slider-ends"><span>1 mes</span><span>8 meses</span></div>
+
+        <div class="quick-months" aria-label="Opciones rápidas">
+          <button type="button" data-months="1" aria-pressed="false">1 mes</button>
+          <button type="button" data-months="3" aria-pressed="true">3 meses</button>
+          <button type="button" data-months="8" aria-pressed="false">8 meses</button>
+        </div>
+
+        <div class="discount-result" aria-live="polite">
+          <p class="saving-label">Tu ahorro por pago anticipado</p>
+          <p class="saving-amount" id="saving-amount">52,50 €</p>
+          <p class="saving-detail" id="saving-detail">5 % de descuento sobre el total del periodo</p>
+          <div class="final-total">
+            <span>Total por el periodo seleccionado</span>
+            <strong id="final-total">997,50 €</strong>
+          </div>
+        </div>
+
+        <div class="price-details">
+          <div class="price-detail"><span>Precio sin descuento</span><strong id="regular-total">1.050,00 €</strong></div>
+          <div class="price-detail"><span>Precio mensual equivalente</span><strong id="monthly-equivalent">332,50 €</strong></div>
+          <div class="price-detail"><span>Sesiones aproximadas</span><strong id="session-count">24 sesiones</strong></div>
+        </div>
+
+        <p class="discount-footnote">El descuento se aplica al pagar por adelantado el periodo completo seleccionado. La contratación mensual no tiene descuento. El número de sesiones es orientativo y puede variar según el calendario.</p>
+      </div>
+
+      <div class="discount-actions">
+        <a href="tarifas.html" class="back-link">Volver a tarifas</a>
+        <a href="https://wa.me/34651382833?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20las%20opciones%20de%20continuidad%20de%20M%C3%A9todo%20Kiru." target="_blank" rel="noopener" class="contact-link">Consultar por WhatsApp</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p class="footer-links"><a href="index.html">Inicio</a> · <a href="programas.html">Programas</a> · <a href="tarifas.html">Tarifas</a> · <a href="equipo.html">Equipo</a> · <a href="testimonios.html">Opiniones</a> · <a href="faq.html">FAQ</a> · <a href="trabaja-con-nosotros.html">Trabaja con nosotros</a> · <a href="https://campus.metodokiru.es/" target="_blank" rel="noopener">Plataforma Kiru</a></p>
+    <p>Clases a domicilio en el noroeste de Madrid: Pozuelo, Aravaca, Las Rozas, Majadahonda y Boadilla.</p>
+    <p class="footer-ucm">Proyecto educativo de la preincubadora de la Universidad Complutense de Madrid.</p>
+    <p class="footer-copy">© 2026 Método Kiru</p>
+  </footer>
+
+  <script>
+    (() => {
+      const monthlyPrice = 350;
+      const monthsInput = document.getElementById('months');
+      const monthsValue = document.getElementById('months-value');
+      const savingAmount = document.getElementById('saving-amount');
+      const savingDetail = document.getElementById('saving-detail');
+      const finalTotal = document.getElementById('final-total');
+      const regularTotal = document.getElementById('regular-total');
+      const monthlyEquivalent = document.getElementById('monthly-equivalent');
+      const sessionCount = document.getElementById('session-count');
+      const quickButtons = [...document.querySelectorAll('[data-months]')];
+      const euro = value => new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' }).format(value);
+      const discountRate = months => months < 3 ? 0 : months === 3 ? 0.05 : months === 4 ? 0.06 : months === 5 ? 0.07 : months === 6 ? 0.08 : months === 7 ? 0.09 : 0.10;
+
+      function update() {
+        const months = Number(monthsInput.value);
+        const rate = discountRate(months);
+        const regular = monthlyPrice * months;
+        const saving = regular * rate;
+        const total = regular - saving;
+        monthsValue.textContent = months;
+        savingAmount.textContent = euro(saving);
+        savingDetail.textContent = rate ? Math.round(rate * 100) + ' % de descuento sobre el total del periodo' : 'Sin descuento por contratación mensual o bimestral';
+        finalTotal.textContent = euro(total);
+        regularTotal.textContent = euro(regular);
+        monthlyEquivalent.textContent = euro(total / months);
+        sessionCount.textContent = (months * 8) + (months === 1 ? ' sesiones' : ' sesiones');
+        quickButtons.forEach(button => button.setAttribute('aria-pressed', String(Number(button.dataset.months) === months)));
+      }
+
+      monthsInput.addEventListener('input', update);
+      quickButtons.forEach(button => button.addEventListener('click', () => {
+        monthsInput.value = button.dataset.months;
+        update();
+      }));
+      update();
+    })();
+  </script>
+</body>
+</html>
