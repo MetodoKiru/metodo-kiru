@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encuentra tu voluntariado | Método Kiru</title>
+  <meta name="description" content="Encuentra oportunidades de voluntariado en Madrid según tu zona, horario, experiencia e intereses. Iniciativa de Método Kiru para conectar jóvenes y asociaciones.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .vol-hero { padding: 64px 7% 44px; max-width: 1180px; margin: 0 auto; }
+    .vol-hero h1 { max-width: 850px; font-size: clamp(42px, 6vw, 68px); }
+    .vol-hero .subtitle { max-width: 780px; }
+    .vol-note { max-width: 780px; color: #6b6258; font-size: 13px; line-height: 1.7; margin-top: 20px; }
+    .vol-section { padding: 28px 7% 72px; }
+    .vol-container { max-width: 1180px; margin: 0 auto; }
+    .vol-filters { background: #fff; border: 1px solid #e4d8c7; border-radius: 22px; padding: 24px; margin-bottom: 28px; }
+    .vol-filters h2 { font-size: 25px; margin-bottom: 8px; }
+    .vol-filters > p { color: #6b6258; font-size: 14px; margin-bottom: 20px; line-height: 1.6; }
+    .filter-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .filter-field label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 7px; color: #3d342b; }
+    .filter-field select { width: 100%; padding: 12px; border: 1px solid #d8cbb9; border-radius: 10px; background: #fff; color: #3d342b; font: 14px 'Manrope', sans-serif; }
+    .filter-actions { display: flex; gap: 16px; align-items: center; margin-top: 18px; flex-wrap: wrap; }
+    .filter-actions button { border: 0; border-radius: 999px; padding: 12px 20px; font: 700 14px 'Manrope', sans-serif; cursor: pointer; }
+    .filter-apply { background: #111; color: #fff; }
+    .filter-reset { background: #f3ede4; color: #3d342b; }
+    .results-count { color: #6b6258; font-size: 14px; }
+    .vol-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+    .vol-card { display: flex; flex-direction: column; background: #fff; border: 1px solid #e4d8c7; border-radius: 22px; padding: 26px; box-shadow: 0 8px 24px rgba(0,0,0,.035); }
+    .vol-card[hidden] { display: none; }
+    .vol-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+    .vol-card h3 { font-family: 'DM Serif Display', Georgia, serif; font-size: 28px; font-weight: 400; line-height: 1.15; }
+    .vol-badge { flex-shrink: 0; background: #f3ede4; color: #66533d; border-radius: 999px; padding: 7px 10px; font-size: 11px; font-weight: 700; }
+    .vol-card .vol-location { color: #8b7b68; font-size: 13px; margin-bottom: 14px; }
+    .vol-card .vol-description { color: #444; font-size: 14px; line-height: 1.7; margin-bottom: 18px; }
+    .vol-facts { display: grid; gap: 10px; margin-bottom: 20px; }
+    .vol-fact { display: grid; grid-template-columns: 130px 1fr; gap: 12px; font-size: 13px; line-height: 1.5; }
+    .vol-fact strong { color: #3d342b; }
+    .vol-fact span { color: #5c554d; }
+    .vol-card-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; padding-top: 8px; }
+    .vol-card-actions a { display: inline-block; border-radius: 999px; text-decoration: none; padding: 12px 16px; font-size: 13px; font-weight: 700; }
+    .vol-primary { background: #111; color: #fff; }
+    .vol-secondary { border: 1px solid #d8cbb9; color: #3d342b; }
+    .vol-status { color: #6b6258; font-size: 12px; line-height: 1.6; margin-top: 15px; }
+    .vol-empty { display: none; padding: 28px; border-radius: 18px; background: #fff; color: #6b6258; text-align: center; line-height: 1.7; }
+    .vol-empty.visible { display: block; }
+    .vol-entity-cta { background: #eee5d8; padding: 44px 7%; }
+    .vol-entity-inner { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 28px; }
+    .vol-entity-inner h2 { font-size: 32px; margin-bottom: 10px; }
+    .vol-entity-inner p { max-width: 640px; color: #51483e; line-height: 1.7; font-size: 15px; }
+    .vol-entity-inner a { flex-shrink: 0; }
+    @media(max-width: 760px) {
+      .filter-grid, .vol-cards { grid-template-columns: 1fr; }
+      .vol-hero { padding: 42px 6% 28px; }
+      .vol-section { padding: 22px 5% 50px; }
+      .vol-card { padding: 22px; }
+      .vol-card-top { flex-direction: column; }
+      .vol-fact { grid-template-columns: 110px 1fr; }
+      .vol-entity-inner { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header class="top-navbar">
+    <nav>
+      <a href="index.html" class="logo-container">
+        <div class="logo-icon-box">K</div>
+        <span class="logo-text">Método Kiru</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Inicio</a>
+        <a href="programas.html">Programas</a>
+        <a href="tarifas.html">Tarifas</a>
+        <a href="voluntariado.html" class="active" aria-current="page">Voluntariado</a>
+        <a href="equipo.html">Equipo</a>
+        <a href="testimonios.html">Opiniones</a>
+        <a href="faq.html">FAQ</a>
+        <a href="trabaja-con-nosotros.html">Trabaja con nosotros</a>
+      </div>
+      <div class="nav-actions">
+        <a href="https://campus.metodokiru.es/" target="_blank" rel="noopener" class="mini-btn">Plataforma</a>
+        <a href="https://wa.me/34651382833?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20M%C3%A9todo%20Kiru." target="_blank" rel="noopener" class="mini-btn">WhatsApp</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="vol-hero">
+      <p class="eyebrow">Una iniciativa de Método Kiru</p>
+      <h1>Las ganas de ayudar merecen encontrar su lugar.</h1>
+      <p class="subtitle">Conectamos a jóvenes que quieren marcar la diferencia con asociaciones que necesitan voluntarios. Encuentra una oportunidad que encaje con tu zona, tus horarios, tus intereses y el tiempo que puedes dedicar.</p>
+      <p class="vol-note">Estamos construyendo este catálogo de forma progresiva. Las oportunidades se publican con la información disponible y algunas condiciones o plazas deben confirmarse directamente con la entidad. Indicamos cuándo hay información pendiente de verificar.</p>
+    </section>
+
+    <section class="vol-section">
+      <div class="vol-container">
+        <div class="vol-filters">
+          <h2>Encuentra tu voluntariado</h2>
+          <p>Combina los filtros para encontrar actividades que encajen contigo. No necesitas experiencia para empezar en todas las oportunidades.</p>
+          <div class="filter-grid">
+            <div class="filter-field">
+              <label for="filter-zone">Zona</label>
+              <select id="filter-zone"><option value="">Todas las zonas</option><option value="pozuelo">Pozuelo de Alarcón</option><option value="alcobendas">Alcobendas</option><option value="madrid">Madrid</option></select>
+            </div>
+            <div class="filter-field">
+              <label for="filter-day">Día / disponibilidad</label>
+              <select id="filter-day"><option value="">Cualquier día</option><option value="viernes">Viernes</option><option value="entresemana">Entre semana</option><option value="flexible">Flexible / por confirmar</option></select>
+            </div>
+            <div class="filter-field">
+              <label for="filter-experience">Experiencia</label>
+              <select id="filter-experience"><option value="">Cualquier nivel</option><option value="sin">Sin experiencia</option><option value="con">Con experiencia / por confirmar</option></select>
+            </div>
+            <div class="filter-field">
+              <label for="filter-group">Colectivo</label>
+              <select id="filter-group"><option value="">Cualquier colectivo</option><option value="infancia">Infancia</option><option value="adolescentes">Adolescentes</option><option value="adultos">Adultos</option><option value="familias">Familias</option><option value="discapacidad">Personas con discapacidad</option></select>
+            </div>
+            <div class="filter-field">
+              <label for="filter-type">Tipo de actividad</label>
+              <select id="filter-type"><option value="">Cualquier actividad</option><option value="ocio">Ocio y actividades</option><option value="acompanamiento">Acompañamiento</option><option value="administrativo">Administración / organización</option><option value="apoyo">Apoyo general</option></select>
+            </div>
+            <div class="filter-field">
+              <label for="filter-commitment">Compromiso</label>
+              <select id="filter-commitment"><option value="">Cualquier duración</option><option value="continuado">Continuado</option><option value="puntual">Puntual / por confirmar</option></select>
+            </div>
+          </div>
+          <div class="filter-actions">
+            <button class="filter-apply" type="button" id="apply-filters">Ver oportunidades</button>
+            <button class="filter-reset" type="button" id="reset-filters">Borrar filtros</button>
+            <span class="results-count" id="results-count" aria-live="polite">3 oportunidades</span>
+          </div>
+        </div>
+
+        <div class="vol-cards" id="vol-cards">
+          <article class="vol-card" data-zone="madrid" data-days="entresemana flexible" data-experience="con" data-groups="infancia familias" data-types="ocio acompanamiento administrativo apoyo" data-commitment="continuado puntual">
+            <div class="vol-card-top">
+              <h3>Casa Ronald McDonald</h3>
+              <span class="vol-badge">+18 años</span>
+            </div>
+            <p class="vol-location">📍 Madrid · Casa Ronald McDonald</p>
+            <p class="vol-description">Colabora para que las familias con hijos e hijas gravemente enfermos se sientan acompañadas y cerca de casa. Según la información oficial, el voluntariado puede apoyar en actividades, acompañamiento a familias, tareas de apoyo, mantenimiento, comunicación o labores administrativas.</p>
+            <div class="vol-facts">
+              <div class="vol-fact"><strong>Horario</strong><span>Según turno y disponibilidad; la información inicial apunta a tardes entre semana. Confirmar directamente.</span></div>
+              <div class="vol-fact"><strong>Experiencia</strong><span>Consultar qué formación o experiencia necesita cada función.</span></div>
+              <div class="vol-fact"><strong>Compromiso</strong><span>Voluntariado habitual; también existen colaboraciones puntuales para empresas y grupos.</span></div>
+              <div class="vol-fact"><strong>Requisitos</strong><span>La web oficial indica que hay que tener más de 18 años. El proceso y los turnos se confirman con la Fundación.</span></div>
+              <div class="vol-fact"><strong>Certificado de horas</strong><span>Por confirmar con la entidad.</span></div>
+            </div>
+            <div class="vol-card-actions">
+              <a class="vol-primary" href="https://casaronaldmcdonald.es/como-colaborar/voluntarios/" target="_blank" rel="noopener">Consultar voluntariado</a>
+              <a class="vol-secondary" href="https://casaronaldmcdonald.es/como-colaborar/" target="_blank" rel="noopener">Conocer la entidad</a>
+            </div>
+            <p class="vol-status">Ficha inicial. Las plazas y el horario concreto en Madrid deben confirmarse antes de desplazarse o comprometerse.</p>
+          </article>
+
+          <article class="vol-card" data-zone="alcobendas" data-days="viernes entresemana" data-experience="sin" data-groups="infancia adolescentes discapacidad" data-types="ocio apoyo" data-commitment="continuado">
+            <div class="vol-card-top">
+              <h3>APAMA · Servicio de Ocio</h3>
+              <span class="vol-badge">Sin experiencia previa</span>
+            </div>
+            <p class="vol-location">📍 Alcobendas · Servicio de Ocio</p>
+            <p class="vol-description">Apoyo en actividades lúdicas e inclusivas para niños y adolescentes con discapacidad intelectual. La convocatoria de voluntariado publicada por Imagina Alcobendas el 26 de octubre de 2026 indica que buscan personas con ganas de compartir, acompañar y dinamizar actividades.</p>
+            <div class="vol-facts">
+              <div class="vol-fact"><strong>Horario</strong><span>Viernes, de 17:00 a 20:00, según la convocatoria de voluntariado publicada.</span></div>
+              <div class="vol-fact"><strong>Experiencia</strong><span>No necesaria según la convocatoria; se valoran el respeto y las ganas de participar.</span></div>
+              <div class="vol-fact"><strong>Compromiso</strong><span>Actividad semanal; confirmar disponibilidad y duración esperada.</span></div>
+              <div class="vol-fact"><strong>Requisitos</strong><span>Contactar con APAMA para confirmar incorporación, formación y documentación requerida.</span></div>
+              <div class="vol-fact"><strong>Certificado de horas</strong><span>Por confirmar con la entidad.</span></div>
+            </div>
+            <div class="vol-card-actions">
+              <a class="vol-primary" href="https://www.imaginalcobendas.org/anuncio/voluntariado-apama/" target="_blank" rel="noopener">Ver convocatoria</a>
+              <a class="vol-secondary" href="mailto:ocio@apama.es">Contactar con APAMA</a>
+            </div>
+            <p class="vol-status">Convocatoria publicada el 26/10/2026. Confirma con la entidad que siguen aceptando solicitudes antes de incorporarte.</p>
+          </article>
+
+          <article class="vol-card" data-zone="pozuelo" data-days="flexible entresemana" data-experience="con" data-groups="adolescentes adultos discapacidad" data-types="ocio acompanamiento apoyo" data-commitment="continuado puntual">
+            <div class="vol-card-top">
+              <h3>Positivamente Únicos</h3>
+              <span class="vol-badge">Plazas limitadas / consultar</span>
+            </div>
+            <p class="vol-location">📍 Pozuelo de Alarcón · Otras opciones para adultos</p>
+            <p class="vol-description">Asociación que acompaña a personas con autismo, TDAH y otras condiciones del neurodesarrollo. Según la información comunicada directamente a Método Kiru, existe una necesidad concreta de apoyo a adolescentes en Pozuelo y otras posibilidades de colaboración con adultos.</p>
+            <div class="vol-facts">
+              <div class="vol-fact"><strong>Horario</strong><span>Pendiente de confirmar según la actividad.</span></div>
+              <div class="vol-fact"><strong>Experiencia</strong><span>Consultar con la asociación para cada oportunidad.</span></div>
+              <div class="vol-fact"><strong>Compromiso</strong><span>Depende de la actividad y del grupo.</span></div>
+              <div class="vol-fact"><strong>Requisitos</strong><span>Confirmar disponibilidad, requisitos y proceso de incorporación directamente con la entidad.</span></div>
+              <div class="vol-fact"><strong>Certificado de horas</strong><span>Por confirmar con la entidad.</span></div>
+            </div>
+            <div class="vol-card-actions">
+              <a class="vol-primary" href="https://positivamente-unicos.es/colabora/" target="_blank" rel="noopener">Consultar cómo colaborar</a>
+              <a class="vol-secondary" href="https://positivamente-unicos.es/" target="_blank" rel="noopener">Conocer la entidad</a>
+            </div>
+            <p class="vol-status">Información inicial obtenida por Método Kiru. Las plazas y condiciones exactas están pendientes de nueva confirmación.</p>
+          </article>
+        </div>
+        <div class="vol-empty" id="vol-empty">No hemos encontrado oportunidades con todos esos filtros. Prueba a ampliar la zona o el horario, o vuelve a consultar más adelante: iremos añadiendo nuevas entidades.</div>
+      </div>
+    </section>
+
+    <section class="vol-entity-cta">
+      <div class="vol-entity-inner">
+        <div>
+          <p class="eyebrow">¿Representas a una asociación?</p>
+          <h2>¿Necesitáis voluntarios?</h2>
+          <p>Cuéntanos qué actividades realizáis, qué perfiles necesitáis, los horarios, los requisitos y si podéis acreditar las horas de participación. Revisaremos la información antes de publicar una oportunidad.</p>
+        </div>
+        <a class="primary" href="https://form.jotform.com/262994875550069" target="_blank" rel="noopener">Añadir una oportunidad</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p class="footer-links"><a href="index.html">Inicio</a> · <a href="programas.html">Programas</a> · <a href="tarifas.html">Tarifas</a> · <a href="voluntariado.html">Voluntariado</a> · <a href="equipo.html">Equipo</a> · <a href="testimonios.html">Opiniones</a> · <a href="faq.html">FAQ</a> · <a href="trabaja-con-nosotros.html">Trabaja con nosotros</a> · <a href="https://campus.metodokiru.es/" target="_blank" rel="noopener">Plataforma Kiru</a></p>
+    <p>Clases a domicilio en el noroeste de Madrid: Pozuelo, Aravaca, Las Rozas, Majadahonda y Boadilla.</p>
+    <p class="footer-ucm">Proyecto educativo de la preincubadora de la Universidad Complutense de Madrid.</p>
+    <p class="footer-copy">© 2026 Método Kiru</p>
+  </footer>
+  <script>
+    (() => {
+      const filters = {
+        zone: document.getElementById('filter-zone'),
+        day: document.getElementById('filter-day'),
+        experience: document.getElementById('filter-experience'),
+        group: document.getElementById('filter-group'),
+        type: document.getElementById('filter-type'),
+        commitment: document.getElementById('filter-commitment')
+      };
+      const cards = [...document.querySelectorAll('.vol-card')];
+      const count = document.getElementById('results-count');
+      const empty = document.getElementById('vol-empty');
+      function applyFilters() {
+        let shown = 0;
+        cards.forEach(card => {
+          const match = Object.entries(filters).every(([key, select]) => {
+            const selected = select.value;
+            if (!selected) return true;
+            const values = (card.dataset[{zone:'zone',day:'days',experience:'experience',group:'groups',type:'types',commitment:'commitment'}[key]] || '').split(' ');
+            return values.includes(selected);
+          });
+          card.hidden = !match;
+          if (match) shown++;
+        });
+        count.textContent = shown + (shown === 1 ? ' oportunidad' : ' oportunidades');
+        empty.classList.toggle('visible', shown === 0);
+      }
+      document.getElementById('apply-filters').addEventListener('click', applyFilters);
+      Object.values(filters).forEach(select => select.addEventListener('change', applyFilters));
+      document.getElementById('reset-filters').addEventListener('click', () => {
+        Object.values(filters).forEach(select => select.value = '');
+        applyFilters();
+      });
+      applyFilters();
+    })();
+  </script>
+</body>
+</html>
