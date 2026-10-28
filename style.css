@@ -1094,3 +1094,76 @@ footer{
     font-size: 15px;
   }
 }
+
+
+/* CTA de voluntariado compartida en el pie de todas las páginas */
+.footer-volunteer-cta{
+  max-width:1040px;
+  margin:0 auto 30px;
+  padding:28px 32px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:28px;
+  text-align:left;
+  background:#f7f2ea;
+  border:1px solid #e4d8c7;
+  border-radius:20px;
+}
+.footer-volunteer-copy{max-width:650px}
+.footer-volunteer-eyebrow{
+  display:block;
+  margin-bottom:8px;
+  color:#8b7b68;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:1.4px;
+  text-transform:uppercase;
+}
+.footer-volunteer-cta h2{
+  margin:0 0 8px;
+  color:#2f2923;
+  font-family:'DM Serif Display',Georgia,serif;
+  font-size:clamp(23px,3vw,32px);
+  font-weight:400;
+  line-height:1.2;
+}
+.footer-volunteer-cta p{
+  margin:0;
+  color:#62584d;
+  font-size:14px;
+  line-height:1.7;
+}
+.footer-volunteer-button{
+  display:inline-flex;
+  flex-shrink:0;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  padding:13px 19px;
+  border:1px solid #2f2923;
+  border-radius:999px;
+  background:#2f2923;
+  color:#fff;
+  font-size:13px;
+  font-weight:700;
+  text-decoration:none;
+  transition:background .2s ease,transform .2s ease;
+}
+.footer-volunteer-button:hover{
+  background:#514438;
+  transform:translateY(-1px);
+}
+.footer-volunteer-button:focus-visible{
+  outline:3px solid #c8a97e;
+  outline-offset:3px;
+}
+@media(max-width:680px){
+  .footer-volunteer-cta{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:18px;
+    padding:24px 20px;
+  }
+  .footer-volunteer-button{width:100%;box-sizing:border-box}
+}
