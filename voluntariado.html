@@ -43,11 +43,14 @@
     .vol-status { color: #6b6258; font-size: 12px; line-height: 1.6; margin-top: 15px; }
     .vol-empty { display: none; padding: 28px; border-radius: 18px; background: #fff; color: #6b6258; text-align: center; line-height: 1.7; }
     .vol-empty.visible { display: block; }
-    .vol-entity-cta { background: #eee5d8; padding: 44px 7%; }
-    .vol-entity-inner { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 28px; }
-    .vol-entity-inner h2 { font-size: 32px; margin-bottom: 10px; }
-    .vol-entity-inner p { max-width: 640px; color: #51483e; line-height: 1.7; font-size: 15px; }
-    .vol-entity-inner a { flex-shrink: 0; }
+    .vol-entity-cta { background: #eee5d8; padding: 30px 7%; border-top: 1px solid #e4d8c7; }
+    .vol-entity-inner { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+    .vol-entity-inner h2 { font-size: clamp(24px, 3vw, 32px); line-height: 1.2; margin: 4px 0 8px; }
+    .vol-entity-inner p { max-width: 580px; color: #51483e; line-height: 1.55; font-size: 14px; margin: 0; }
+    .vol-entity-inner .eyebrow { font-size: 12px; margin-bottom: 5px; }
+    .vol-entity-inner a { flex-shrink: 0; white-space: nowrap; }
+    .vol-entity-inner .primary { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 12px 20px; text-decoration: none; border-radius: 999px; background: #171717; color: #fff; font-size: 14px; font-weight: 700; }
+    .vol-entity-inner .primary:hover { background: #3d342b; }
     @media(max-width: 760px) {
       .filter-grid, .vol-cards { grid-template-columns: 1fr; }
       .vol-hero { padding: 42px 6% 28px; }
@@ -200,11 +203,11 @@
     <section class="vol-entity-cta">
       <div class="vol-entity-inner">
         <div>
-          <p class="eyebrow">¿Representas a una asociación?</p>
-          <h2>¿Necesitáis voluntarios?</h2>
-          <p>Cuéntanos qué actividades realizáis, qué perfiles necesitáis, los horarios, los requisitos y si podéis acreditar las horas de participación. Revisaremos la información antes de publicar una oportunidad.</p>
+          <p class="eyebrow">Para asociaciones y ONG</p>
+          <h2>¿Buscáis personas voluntarias?</h2>
+          <p>Publicad oportunidades de voluntariado en Madrid y conectad con jóvenes dispuestos a colaborar.</p>
         </div>
-        <a class="primary" href="https://form.jotform.com/262994875550069" target="_blank" rel="noopener">Añadir una oportunidad</a>
+        <a class="primary" href="https://form.jotform.com/262994875550069" target="_blank" rel="noopener">Publicar oportunidad <span aria-hidden="true">→</span></a>
       </div>
     </section>
   </main>
