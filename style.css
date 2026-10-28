@@ -1094,3 +1094,44 @@ footer{
     font-size: 15px;
   }
 }
+
+
+/* Pie de página más limpio y consistente en toda la web */
+footer {
+  background: #fff;
+  border-top: 1px solid #e8e0d6;
+  padding: 38px 7% 26px;
+  text-align: center;
+  color: #746b61;
+}
+footer p { max-width: 980px; margin: 0 auto 12px; font-size: 13px; line-height: 1.8; }
+footer .footer-links { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 14px; margin-bottom: 18px; }
+footer .footer-links a { color: #342f29; text-decoration: none; }
+footer .footer-links a:hover { text-decoration: underline; text-underline-offset: 4px; }
+footer .footer-ucm { color: #9a8874; }
+footer .footer-copy { margin-top: 14px; margin-bottom: 0; color: #8b837b; }
+
+/* Bloques de llamada a la acción de voluntariado */
+.vol-entity-cta, .vol-survey-cta { padding: 38px 7%; background: #eee5d8; }
+.vol-entity-inner, .vol-survey-inner {
+  max-width: 1080px; margin: 0 auto; display: flex; align-items: center;
+  justify-content: space-between; gap: 28px; background: rgba(255,255,255,.62);
+  border: 1px solid #e0d2bf; border-radius: 24px; padding: 30px 34px;
+}
+.vol-entity-inner > div, .vol-survey-inner > div { max-width: 700px; }
+.vol-entity-inner .eyebrow, .vol-survey-inner .eyebrow { margin-bottom: 10px; letter-spacing: .08em; font-size: 11px; font-weight: 700; }
+.vol-entity-inner h2, .vol-survey-inner h2 { line-height: 1.15; margin-bottom: 10px; }
+.vol-entity-inner p, .vol-survey-inner p { line-height: 1.7; }
+.vol-entity-inner a, .vol-survey-inner a {
+  flex-shrink: 0; text-align: center; white-space: nowrap; text-decoration: none;
+  display: inline-block; border-radius: 999px; padding: 14px 20px; font-size: 14px; font-weight: 700;
+}
+.vol-entity-inner a.vol-primary { background: #171717; color: #fff; }
+.vol-survey-inner a.vol-secondary { background: transparent; border: 1px solid #b9a58d; color: #29241e; }
+@media(max-width:760px) {
+  footer { padding: 30px 6% 22px; }
+  footer .footer-links { gap: 10px 12px; }
+  .vol-entity-cta, .vol-survey-cta { padding: 28px 5%; }
+  .vol-entity-inner, .vol-survey-inner { flex-direction: column; align-items: flex-start; padding: 24px 20px; gap: 18px; }
+  .vol-entity-inner a, .vol-survey-inner a { white-space: normal; }
+}
