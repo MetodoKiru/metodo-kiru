@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex,follow">
-  <title>Opciones de continuidad | Método Kiru</title>
-  <meta name="description" content="Consulta las opciones de pago anticipado y el ahorro por continuidad con Método Kiru.">
+  <title>Descuentos por pago anticipado | Método Kiru</title>
+  <meta name="description" content="Ahorra un 5 % por 3 meses, un 10 % por 6 meses o un 15 % al contratar el curso completo de septiembre a junio.">
   <link rel="stylesheet" href="style.css">
   <style>
     .discount-intro { max-width: 900px; margin: 0 auto; padding: 56px 7% 12px; }
@@ -84,14 +84,14 @@
 
   <main>
     <section class="discount-intro">
-      <p class="eyebrow">Método Kiru · Continuidad</p>
-      <h1>Opciones de continuidad</h1>
-      <p class="subtitle">Esta calculadora refleja una propuesta de continuidad personalizada. Para consultar las tarifas generales, vuelve a la página de Tarifas.</p>
+      <p class="eyebrow">Método Kiru · Pago anticipado</p>
+      <h1>Cuanto más te comprometes, más ahorras</h1>
+      <p class="subtitle"><strong>5 % por 3 meses · 10 % por 6 meses · 15 % por el curso completo</strong> (septiembre–junio).</p>
     </section>
 
     <section class="discount-wrap" aria-label="Calculadora de descuentos">
       <div class="discount-card">
-        <p class="discount-kicker">Calcula tu opción</p>
+        <p class="discount-kicker">Calcula tu ahorro</p>
         <div class="discount-options">
           <div class="discount-field">
             <label for="program">¿Qué programa te interesa?</label>
@@ -111,16 +111,16 @@
         </div>
 
         <div class="discount-months">
-          <label for="months">¿Cuántos meses quieres contratar?</label>
+          <label for="months">¿Cuánto tiempo quieres contratar?</label>
           <div class="month-value"><span id="months-value">3</span> <small>meses</small></div>
         </div>
-        <input class="discount-slider" id="months" type="range" min="1" max="8" step="1" value="3" aria-label="Número de meses">
-        <div class="slider-ends"><span>1 mes</span><span>8 meses</span></div>
+        <input class="discount-slider" id="months" type="range" min="1" max="10" step="1" value="3" aria-label="Número de meses">
+        <div class="slider-ends"><span>1 mes</span><span>Curso completo · 10 meses</span></div>
 
         <div class="quick-months" aria-label="Opciones rápidas">
-          <button type="button" data-months="1" aria-pressed="false">1 mes</button>
-          <button type="button" data-months="3" aria-pressed="true">3 meses</button>
-          <button type="button" data-months="8" aria-pressed="false">8 meses</button>
+          <button type="button" data-months="3" aria-pressed="true">3 meses · 5 %</button>
+          <button type="button" data-months="6" aria-pressed="false">6 meses · 10 %</button>
+          <button type="button" data-months="10" aria-pressed="false">Curso completo · 15 %</button>
         </div>
 
         <div class="discount-result" aria-live="polite">
@@ -139,7 +139,7 @@
           <div class="price-detail"><span>Sesiones aproximadas</span><strong id="session-count">24 sesiones</strong></div>
         </div>
 
-        <p class="discount-footnote">El descuento se aplica al pagar por adelantado el periodo completo seleccionado. La contratación mensual no tiene descuento. El número de sesiones es orientativo y puede variar según el calendario.</p>
+        <p class="discount-footnote">El descuento se aplica al pagar por adelantado todo el periodo. 3 meses: 5 % · 6 meses: 10 % · curso completo de septiembre a junio (10 meses): 15 %. Para otros periodos, se aplica el tramo que corresponda. Las sesiones son aproximadas y pueden variar según el calendario.</p>
       </div>
 
       <div class="discount-actions">
@@ -176,11 +176,10 @@
       const quickButtons = [...document.querySelectorAll('[data-months]')];
       const euro = value => new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' }).format(value);
       const discountRate = months => {
-        if (months < 3) return 0;
-        const rates = programInput.value === 'base'
-          ? { 3: 0.02, 4: 0.03, 5: 0.04, 6: 0.05, 7: 0.06, 8: 0.07 }
-          : { 3: 0.05, 4: 0.06, 5: 0.07, 6: 0.08, 7: 0.09, 8: 0.10 };
-        return rates[months] || 0;
+        if (months >= 10) return 0.15;
+        if (months >= 6) return 0.10;
+        if (months >= 3) return 0.05;
+        return 0;
       };
 
       function update() {
@@ -194,7 +193,7 @@
         const total = regular - saving;
         monthsValue.textContent = months;
         savingAmount.textContent = euro(saving);
-        savingDetail.textContent = rate ? Math.round(rate * 100) + ' % de descuento sobre el total del periodo' : 'Sin descuento por contratación mensual o bimestral';
+        savingDetail.textContent = rate ? Math.round(rate * 100) + ' % de descuento por pago anticipado' : 'El descuento empieza a partir de 3 meses de pago anticipado';
         finalTotal.textContent = euro(total);
         regularTotal.textContent = euro(regular);
         monthlyEquivalent.textContent = euro(total / months);
