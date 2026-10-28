@@ -1094,3 +1094,42 @@ footer{
     font-size: 15px;
   }
 }
+
+
+/* Pie de página: limpio, legible y coherente con la paleta neutra */
+footer {
+  background: #fff;
+  border-top: 1px solid #e8dfd4;
+  padding: 36px 6% 24px;
+  text-align: center;
+  color: #746b61;
+}
+footer p {
+  max-width: 980px;
+  margin: 0 auto 10px;
+  font-size: 13px;
+  line-height: 1.8;
+}
+footer .footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px 12px;
+  margin-bottom: 18px;
+}
+footer .footer-links a {
+  color: #342f29;
+  text-decoration: none;
+  white-space: nowrap;
+}
+footer .footer-links a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+footer .footer-ucm { color: #9a8874; }
+footer .footer-copy { margin-top: 14px; margin-bottom: 0; color: #8b837b; }
+@media(max-width:760px) {
+  footer { padding: 28px 5% 20px; }
+  footer .footer-links { gap: 10px 12px; }
+}
