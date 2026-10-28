@@ -175,3 +175,23 @@ async function kiruReviews() {
 }
 
 document.addEventListener("DOMContentLoaded", () => { kiruTeam(); kiruReviews(); });
+
+
+// Navegación global: mantener Voluntariado accesible desde todas las páginas.
+document.addEventListener("DOMContentLoaded", () => {
+  const nav = document.querySelector(".nav-links");
+  if (nav && !nav.querySelector('a[href="voluntariado.html"]')) {
+    const link = document.createElement("a");
+    link.href = "voluntariado.html"; link.textContent = "Voluntariado";
+    const tarifas = [...nav.querySelectorAll("a")].find(a => /tarifas/i.test(a.textContent));
+    if (tarifas) tarifas.insertAdjacentElement("afterend", link); else nav.appendChild(link);
+  }
+  const footerLinks = document.querySelector("footer .footer-links");
+  if (footerLinks && !footerLinks.querySelector('a[href="voluntariado.html"]')) {
+    const link = document.createElement("a");
+    link.href = "voluntariado.html"; link.textContent = "Voluntariado";
+    const tarifas = [...footerLinks.querySelectorAll("a")].find(a => /tarifas/i.test(a.textContent));
+    if (tarifas) tarifas.insertAdjacentText("afterend", " · "), tarifas.insertAdjacentElement("afterend", link);
+    else footerLinks.append(" · ", link);
+  }
+});
