@@ -26,29 +26,38 @@
 </head>
 <body>
 
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
   <!-- BARRA SUPERIOR FIJA -->
   <header class="top-navbar">
-    <nav>
-      <a href="/" class="logo-container">
-        <div class="logo-icon-box">K</div>
+    <nav aria-label="Principal">
+      <a href="/" class="logo-container" aria-label="Método Kiru, inicio">
+        <div class="logo-icon-box" aria-hidden="true">K</div>
         <span class="logo-text">Método Kiru</span>
       </a>
-      <div class="nav-links">
+      <div class="nav-links" id="menu-principal">
         <a href="/">Inicio</a>
         <a href="/programas">Programas</a>
         <a href="/tarifas">Tarifas</a>
-        <a href="/voluntariado">Voluntariado</a>
         <a href="/equipo">Equipo</a>
         <a href="/testimonios">Opiniones</a>
-        <a href="/faq" class="active" aria-current="page">FAQ</a>
-        <a href="/trabaja-con-nosotros">Trabaja con nosotros</a>
+        <a href="/faq" aria-current="page">FAQ</a>
+        <a href="/trabaja-con-nosotros" class="nav-extra nav-extra-first">Trabaja con nosotros</a>
+        <a href="/voluntariado" class="nav-extra">Voluntariado</a>
+        <a href="https://campus.metodokiru.es/" target="_blank" rel="noopener" class="nav-extra">Plataforma Kiru</a>
+        <a href="https://wa.me/34651382833?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20M%C3%A9todo%20Kiru." target="_blank" rel="noopener" class="nav-wa">Escríbenos por WhatsApp</a>
       </div>
       <div class="nav-actions">
-        <a href="https://campus.metodokiru.es/" target="_blank" rel="noopener" class="mini-btn">Plataforma</a>
+        <a href="https://campus.metodokiru.es/" target="_blank" rel="noopener" class="mini-btn mini-btn-light">Plataforma</a>
         <a href="https://wa.me/34651382833?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20M%C3%A9todo%20Kiru." target="_blank" rel="noopener" class="mini-btn">WhatsApp</a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </nav>
   </header>
+
+  <main id="contenido">
 
   <section class="section">
     <h1 class="page-title">Preguntas frecuentes</h1>
@@ -61,7 +70,16 @@
           <span aria-hidden="true">+</span>
         </button>
         <div class="faq-answer">
-          <p>Una mentoría educativa a domicilio con metodología propia, pensada para alumnos de 10 a 15 años, especialmente con TDAH y TEA. Trabajamos hábitos de estudio, organización, autonomía y gestión emocional, siempre en casa y de forma individual.</p>
+          <p>Una mentoría educativa a domicilio con metodología propia, para alumnos de Primaria a 4.º de ESO. Trabajamos hábitos de estudio, organización, autonomía y gestión emocional, siempre en casa y de forma individual.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          ¿Para qué alumnos es?
+          <span aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Para familias que buscan clases particulares y apoyo educativo, que ven que a su hijo le cuesta estudiar u organizarse, o que quieren que gane hábitos y autonomía. También acompañamos a alumnos con TDAH o TEA. No hay una edad rígida: la adecuación depende de las necesidades de cada alumno.</p>
         </div>
       </div>
       <div class="faq-item">
@@ -170,13 +188,50 @@
     </div>
   </section>
 
+  </main>
+
   <!-- PIE DE PÁGINA -->
-  <footer>
-    <p class="footer-links"><a href="/">Inicio</a> · <a href="/programas">Programas</a> · <a href="/tarifas">Tarifas</a> · <a href="/voluntariado">Voluntariado</a> · <a href="/equipo">Equipo</a> · <a href="/testimonios">Opiniones</a> · <a href="/faq">FAQ</a> · <a href="/trabaja-con-nosotros">Trabaja con nosotros</a> · <a href="https://campus.metodokiru.es/" target="_blank" rel="noopener">Plataforma Kiru</a></p>
-    <p>Clases a domicilio en el noroeste de Madrid: Pozuelo, Aravaca, Las Rozas, Majadahonda y Boadilla.</p>
-    <p class="footer-ucm">Proyecto educativo de la preincubadora de la Universidad Complutense de Madrid.</p>
-    <p class="footer-copy">© 2026 Método Kiru</p>
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo-container" aria-label="Método Kiru, inicio">
+          <div class="logo-icon-box" aria-hidden="true">K</div>
+          <span class="logo-text">Método Kiru</span>
+        </a>
+        <p>Clases y mentoría educativa a domicilio, de Primaria a 4.º de ESO.</p>
+        <p class="footer-ucm">Proyecto educativo de la preincubadora de la Universidad Complutense de Madrid.</p>
+      </div>
+      <div>
+        <p class="footer-heading">Para familias</p>
+        <ul>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/programas">Programas</a></li>
+          <li><a href="/tarifas">Tarifas</a></li>
+          <li><a href="/equipo">Equipo</a></li>
+          <li><a href="/testimonios">Opiniones</a></li>
+          <li><a href="/faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-heading">Únete</p>
+        <ul>
+          <li><a href="/trabaja-con-nosotros">Trabaja con nosotros</a></li>
+          <li><a href="/voluntariado">Voluntariado</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-heading">Contacto</p>
+        <ul>
+          <li><a href="https://wa.me/34651382833?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20M%C3%A9todo%20Kiru." target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://campus.metodokiru.es/" target="_blank" rel="noopener">Plataforma Kiru</a></li>
+        </ul>
+        <p class="footer-zones">Clases a domicilio en el noroeste de Madrid: Pozuelo, Aravaca, Las Rozas, Majadahonda y Boadilla.</p>
+      </div>
+    </div>
+    <p class="footer-bottom">© 2026 Método Kiru</p>
   </footer>
+
+  <a class="wa-bar" href="https://wa.me/34651382833?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20M%C3%A9todo%20Kiru." target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
 
   <script src="/script.js"></script>
 </body>

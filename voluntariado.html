@@ -48,14 +48,14 @@
     .vol-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
     .vol-card h3 { font-family: 'DM Serif Display', Georgia, serif; font-size: 28px; font-weight: 400; line-height: 1.15; }
     .vol-badge { flex-shrink: 0; background: #f3ede4; color: #66533d; border-radius: 999px; padding: 7px 10px; font-size: 11px; font-weight: 700; }
-    .vol-card .vol-location { color: #8b7b68; font-size: 13px; margin-bottom: 14px; }
+    .vol-card .vol-location { color: var(--accent-text); font-size: 13px; margin-bottom: 14px; }
     .vol-card .vol-description { color: #444; font-size: 14px; line-height: 1.7; margin-bottom: 18px; }
     .vol-facts { display: grid; gap: 10px; margin-bottom: 20px; }
     .vol-fact { display: grid; grid-template-columns: 130px 1fr; gap: 12px; font-size: 13px; line-height: 1.5; }
     .vol-fact strong { color: #3d342b; }
     .vol-fact span { color: #5c554d; }
     .vol-card-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; padding-top: 8px; }
-    .vol-card-actions a { display: inline-block; border-radius: 999px; text-decoration: none; padding: 12px 16px; font-size: 13px; font-weight: 700; }
+    .vol-card-actions a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; border-radius: 999px; text-decoration: none; padding: 12px 16px; font-size: 13px; font-weight: 700; }
     .vol-primary { background: #111; color: #fff; }
     .vol-secondary { border: 1px solid #d8cbb9; color: #3d342b; }
     .vol-status { color: #6b6258; font-size: 12px; line-height: 1.6; margin-top: 15px; }
@@ -81,30 +81,39 @@
   </style>
 </head>
 <body>
+
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <!-- BARRA SUPERIOR FIJA -->
   <header class="top-navbar">
-    <nav>
-      <a href="/" class="logo-container">
-        <div class="logo-icon-box">K</div>
+    <nav aria-label="Principal">
+      <a href="/" class="logo-container" aria-label="Método Kiru, inicio">
+        <div class="logo-icon-box" aria-hidden="true">K</div>
         <span class="logo-text">Método Kiru</span>
       </a>
-      <div class="nav-links">
+      <div class="nav-links" id="menu-principal">
         <a href="/">Inicio</a>
         <a href="/programas">Programas</a>
         <a href="/tarifas">Tarifas</a>
-        <a href="/voluntariado" class="active" aria-current="page">Voluntariado</a>
         <a href="/equipo">Equipo</a>
         <a href="/testimonios">Opiniones</a>
         <a href="/faq">FAQ</a>
-        <a href="/trabaja-con-nosotros">Trabaja con nosotros</a>
+        <a href="/trabaja-con-nosotros" class="nav-extra nav-extra-first">Trabaja con nosotros</a>
+        <a href="/voluntariado" class="nav-extra" aria-current="page">Voluntariado</a>
+        <a href="https://campus.metodokiru.es/" target="_blank" rel="noopener" class="nav-extra">Plataforma Kiru</a>
+        <a href="https://wa.me/34651382833?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20M%C3%A9todo%20Kiru." target="_blank" rel="noopener" class="nav-wa">Escríbenos por WhatsApp</a>
       </div>
       <div class="nav-actions">
-        <a href="https://campus.metodokiru.es/" target="_blank" rel="noopener" class="mini-btn">Plataforma</a>
+        <a href="https://campus.metodokiru.es/" target="_blank" rel="noopener" class="mini-btn mini-btn-light">Plataforma</a>
         <a href="https://wa.me/34651382833?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20M%C3%A9todo%20Kiru." target="_blank" rel="noopener" class="mini-btn">WhatsApp</a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </nav>
   </header>
 
-  <main>
+  <main id="contenido">
     <section class="vol-hero">
       <p class="eyebrow">Método Kiru · Madrid</p>
       <h1>Encuentra tu <strong>voluntariado en Madrid</strong>.</h1>
@@ -156,7 +165,7 @@
               <h3>Casa Ronald McDonald</h3>
               <span class="vol-badge">+18 años</span>
             </div>
-            <p class="vol-location">📍 Madrid · Casa Ronald McDonald</p>
+            <p class="vol-location">Madrid · Casa Ronald McDonald</p>
             <p class="vol-description">Colabora para que las familias con hijos e hijas gravemente enfermos se sientan acompañadas y cerca de casa. Según la información oficial, el voluntariado puede apoyar en actividades, acompañamiento a familias, tareas de apoyo, mantenimiento, comunicación o labores administrativas.</p>
             <div class="vol-facts">
               <div class="vol-fact"><strong>Horario</strong><span>Según turno y disponibilidad; la información inicial apunta a tardes entre semana. Confirmar directamente.</span></div>
@@ -177,7 +186,7 @@
               <h3>APAMA · Servicio de Ocio</h3>
               <span class="vol-badge">Sin experiencia previa</span>
             </div>
-            <p class="vol-location">📍 Alcobendas · Servicio de Ocio</p>
+            <p class="vol-location">Alcobendas · Servicio de Ocio</p>
             <p class="vol-description">Apoyo en actividades lúdicas e inclusivas para niños y adolescentes con discapacidad intelectual. La convocatoria de voluntariado publicada por Imagina Alcobendas el 26 de octubre de 2026 indica que buscan personas con ganas de compartir, acompañar y dinamizar actividades.</p>
             <div class="vol-facts">
               <div class="vol-fact"><strong>Horario</strong><span>Viernes, de 17:00 a 20:00, según la convocatoria de voluntariado publicada.</span></div>
@@ -198,7 +207,7 @@
               <h3>Positivamente Únicos</h3>
               <span class="vol-badge">Plazas limitadas / consultar</span>
             </div>
-            <p class="vol-location">📍 Pozuelo de Alarcón · Otras opciones para adultos</p>
+            <p class="vol-location">Pozuelo de Alarcón · Otras opciones para adultos</p>
             <p class="vol-description">Asociación que acompaña a personas con autismo, TDAH y otras condiciones del neurodesarrollo. Según la información comunicada directamente a Método Kiru, existe una necesidad concreta de apoyo a adolescentes en Pozuelo y otras posibilidades de colaboración con adultos.</p>
             <div class="vol-facts">
               <div class="vol-fact"><strong>Horario</strong><span>Pendiente de confirmar según la actividad.</span></div>
@@ -230,12 +239,48 @@
     </section>
   </main>
 
-  <footer>
-    <p class="footer-links"><a href="/">Inicio</a> · <a href="/programas">Programas</a> · <a href="/tarifas">Tarifas</a> · <a href="/voluntariado">Voluntariado</a> · <a href="/equipo">Equipo</a> · <a href="/testimonios">Opiniones</a> · <a href="/faq">FAQ</a> · <a href="/trabaja-con-nosotros">Trabaja con nosotros</a> · <a href="https://campus.metodokiru.es/" target="_blank" rel="noopener">Plataforma Kiru</a></p>
-    <p>Clases a domicilio en el noroeste de Madrid: Pozuelo, Aravaca, Las Rozas, Majadahonda y Boadilla.</p>
-    <p class="footer-ucm">Proyecto educativo de la preincubadora de la Universidad Complutense de Madrid.</p>
-    <p class="footer-copy">© 2026 Método Kiru</p>
+  <!-- PIE DE PÁGINA -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo-container" aria-label="Método Kiru, inicio">
+          <div class="logo-icon-box" aria-hidden="true">K</div>
+          <span class="logo-text">Método Kiru</span>
+        </a>
+        <p>Clases y mentoría educativa a domicilio, de Primaria a 4.º de ESO.</p>
+        <p class="footer-ucm">Proyecto educativo de la preincubadora de la Universidad Complutense de Madrid.</p>
+      </div>
+      <div>
+        <p class="footer-heading">Para familias</p>
+        <ul>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/programas">Programas</a></li>
+          <li><a href="/tarifas">Tarifas</a></li>
+          <li><a href="/equipo">Equipo</a></li>
+          <li><a href="/testimonios">Opiniones</a></li>
+          <li><a href="/faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-heading">Únete</p>
+        <ul>
+          <li><a href="/trabaja-con-nosotros">Trabaja con nosotros</a></li>
+          <li><a href="/voluntariado">Voluntariado</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-heading">Contacto</p>
+        <ul>
+          <li><a href="https://wa.me/34651382833?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20M%C3%A9todo%20Kiru." target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://campus.metodokiru.es/" target="_blank" rel="noopener">Plataforma Kiru</a></li>
+        </ul>
+        <p class="footer-zones">Clases a domicilio en el noroeste de Madrid: Pozuelo, Aravaca, Las Rozas, Majadahonda y Boadilla.</p>
+      </div>
+    </div>
+    <p class="footer-bottom">© 2026 Método Kiru</p>
   </footer>
+
+  <a class="wa-bar" href="https://wa.me/34651382833?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20M%C3%A9todo%20Kiru." target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
   <script>
     (() => {
       const filters = {
