@@ -80,7 +80,7 @@ function servidor() {
   ok(script.includes(HOJA_OPINIONES), "script.js conserva la hoja de Opiniones");
   ok(src["trabaja-con-nosotros"].includes(FORM_MENTORES), "Trabaja con nosotros conserva el formulario de mentores");
   ok(src.voluntariado.includes(FORM_ENTIDADES), "Voluntariado conserva el formulario de entidades");
-  ok(/async function kiruTeam\(/.test(script) && script.includes('getElementById("team-grid")'), "script.js conserva la lectura de la hoja de Equipo (desactivada mientras no haya #team-grid)");
+  ok(/async function kiruTeam\(/.test(script) && src.equipo.includes('id="team-grid"'), "Equipo conserva #team-grid y la lectura de la hoja");
   ok(src.testimonios.includes('id="reviews-grid"'), "Opiniones conserva #reviews-grid");
   for (const n of PAGES) {
     const wa = src[n].match(/https:\/\/wa\.me\/\d+/g) || [];
@@ -133,8 +133,8 @@ function servidor() {
     const page = await pagina();
     await page.goto(BASE + "/equipo");
     await page.waitForTimeout(500);
-    const textoEquipo = await page.textContent("main");
-    ok(await page.$$eval(".team-card", c => c.length) === 0 && !textoEquipo.includes("Persona Prueba"), "Equipo no publica fichas ni datos personales del formulario");
+    await page.waitForFunction(() => document.querySelector("#team-grid").textContent.includes("Persona Prueba"), null, { timeout: 5000 }).catch(() => {});
+    ok((await page.textContent("#team-grid")).includes("Persona Prueba"), "Equipo muestra las fichas de la hoja (datos ficticios)");
     await page.goto(BASE + "/testimonios");
     await page.waitForFunction(() => document.querySelector("#reviews-grid").textContent.includes("ficticia"), null, { timeout: 5000 }).catch(() => {});
     const grid = await page.textContent("#reviews-grid");
