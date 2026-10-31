@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Método Kiru | Clases y mentoría a domicilio para alumnos con TDAH y TEA</title>
-  <meta name="description" content="Clases particulares y mentoría educativa a domicilio con Método Kiru, nuestra propia metodología para alumnos con TDAH y TEA. En el noroeste de Madrid: Pozuelo, Aravaca, Las Rozas, Majadahonda y Boadilla.">
+  <title>Método Kiru | Clases particulares y mentoría educativa a domicilio</title>
+  <meta name="description" content="Clases particulares y mentoría educativa a domicilio, de Primaria a 4.º de ESO: apoyo en los estudios, organización, hábitos y autonomía. Noroeste de Madrid.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700&display=swap">
@@ -15,8 +15,8 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Método Kiru">
   <meta property="og:locale" content="es_ES">
-  <meta property="og:title" content="Método Kiru | Clases y mentoría a domicilio para alumnos con TDAH y TEA">
-  <meta property="og:description" content="Clases particulares y mentoría educativa a domicilio con Método Kiru, nuestra propia metodología para alumnos con TDAH y TEA. En el noroeste de Madrid: Pozuelo, Aravaca, Las Rozas, Majadahonda y Boadilla.">
+  <meta property="og:title" content="Método Kiru | Clases particulares y mentoría educativa a domicilio">
+  <meta property="og:description" content="Clases particulares y mentoría educativa a domicilio, de Primaria a 4.º de ESO: apoyo en los estudios, organización, hábitos y autonomía. Noroeste de Madrid.">
   <meta property="og:url" content="https://www.metodokiru.es/">
   <meta property="og:image" content="https://www.metodokiru.es/assets/og-metodo-kiru.jpg">
   <meta property="og:image:width" content="1200">
@@ -26,29 +26,38 @@
 </head>
 <body>
 
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
   <!-- BARRA SUPERIOR FIJA -->
   <header class="top-navbar">
-    <nav>
-      <a href="/" class="logo-container">
-        <div class="logo-icon-box">K</div>
+    <nav aria-label="Principal">
+      <a href="/" class="logo-container" aria-label="Método Kiru, inicio">
+        <div class="logo-icon-box" aria-hidden="true">K</div>
         <span class="logo-text">Método Kiru</span>
       </a>
-      <div class="nav-links">
-        <a href="/" class="active" aria-current="page">Inicio</a>
+      <div class="nav-links" id="menu-principal">
+        <a href="/" aria-current="page">Inicio</a>
         <a href="/programas">Programas</a>
         <a href="/tarifas">Tarifas</a>
-        <a href="/voluntariado">Voluntariado</a>
         <a href="/equipo">Equipo</a>
         <a href="/testimonios">Opiniones</a>
         <a href="/faq">FAQ</a>
-        <a href="/trabaja-con-nosotros">Trabaja con nosotros</a>
+        <a href="/trabaja-con-nosotros" class="nav-extra nav-extra-first">Trabaja con nosotros</a>
+        <a href="/voluntariado" class="nav-extra">Voluntariado</a>
+        <a href="https://campus.metodokiru.es/" target="_blank" rel="noopener" class="nav-extra">Plataforma Kiru</a>
+        <a href="https://wa.me/34651382833?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20M%C3%A9todo%20Kiru." target="_blank" rel="noopener" class="nav-wa">Escríbenos por WhatsApp</a>
       </div>
       <div class="nav-actions">
-        <a href="https://campus.metodokiru.es/" target="_blank" rel="noopener" class="mini-btn">Plataforma</a>
+        <a href="https://campus.metodokiru.es/" target="_blank" rel="noopener" class="mini-btn mini-btn-light">Plataforma</a>
         <a href="https://wa.me/34651382833?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20M%C3%A9todo%20Kiru." target="_blank" rel="noopener" class="mini-btn">WhatsApp</a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </nav>
   </header>
+
+  <main id="contenido">
 
   <!-- CONTENIDO PRINCIPAL HERO -->
   <section class="hero hero-with-photo">
@@ -58,8 +67,10 @@
       <h1>Mucho más que clases particulares.</h1>
 
       <p class="subtitle">
-        Clases a domicilio con Método Kiru, nuestra propia metodología para alumnos con TDAH y TEA.
+        Clases y mentoría a domicilio, de Primaria a 4.º de ESO, para que tu hijo estudie mejor y gane organización, hábitos y autonomía. Con Método Kiru, nuestra propia metodología.
       </p>
+
+      <p class="hero-sub-note">También acompañamos a alumnos con TDAH o TEA.</p>
 
       <div class="hero-buttons">
         <a href="https://wa.me/34651382833?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20M%C3%A9todo%20Kiru."
@@ -159,17 +170,53 @@
         Escríbenos por WhatsApp
       </a>
       <a href="/tarifas" class="text-link">Ver tarifas</a>
-      <a href="/voluntariado" class="secondary">Encuentra tu voluntariado</a>
     </div>
   </section>
 
+  </main>
+
   <!-- PIE DE PÁGINA -->
-  <footer>
-    <p class="footer-links"><a href="/">Inicio</a> · <a href="/programas">Programas</a> · <a href="/tarifas">Tarifas</a> · <a href="/voluntariado">Voluntariado</a> · <a href="/equipo">Equipo</a> · <a href="/testimonios">Opiniones</a> · <a href="/faq">FAQ</a> · <a href="/trabaja-con-nosotros">Trabaja con nosotros</a> · <a href="https://campus.metodokiru.es/" target="_blank" rel="noopener">Plataforma Kiru</a></p>
-    <p>Clases a domicilio en el noroeste de Madrid: Pozuelo, Aravaca, Las Rozas, Majadahonda y Boadilla.</p>
-    <p class="footer-ucm">Proyecto educativo de la preincubadora de la Universidad Complutense de Madrid.</p>
-    <p class="footer-copy">© 2026 Método Kiru</p>
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo-container" aria-label="Método Kiru, inicio">
+          <div class="logo-icon-box" aria-hidden="true">K</div>
+          <span class="logo-text">Método Kiru</span>
+        </a>
+        <p>Clases y mentoría educativa a domicilio, de Primaria a 4.º de ESO.</p>
+        <p class="footer-ucm">Proyecto educativo de la preincubadora de la Universidad Complutense de Madrid.</p>
+      </div>
+      <div>
+        <p class="footer-heading">Para familias</p>
+        <ul>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/programas">Programas</a></li>
+          <li><a href="/tarifas">Tarifas</a></li>
+          <li><a href="/equipo">Equipo</a></li>
+          <li><a href="/testimonios">Opiniones</a></li>
+          <li><a href="/faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-heading">Únete</p>
+        <ul>
+          <li><a href="/trabaja-con-nosotros">Trabaja con nosotros</a></li>
+          <li><a href="/voluntariado">Voluntariado</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-heading">Contacto</p>
+        <ul>
+          <li><a href="https://wa.me/34651382833?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20M%C3%A9todo%20Kiru." target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://campus.metodokiru.es/" target="_blank" rel="noopener">Plataforma Kiru</a></li>
+        </ul>
+        <p class="footer-zones">Clases a domicilio en el noroeste de Madrid: Pozuelo, Aravaca, Las Rozas, Majadahonda y Boadilla.</p>
+      </div>
+    </div>
+    <p class="footer-bottom">© 2026 Método Kiru</p>
   </footer>
+
+  <a class="wa-bar" href="https://wa.me/34651382833?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20M%C3%A9todo%20Kiru." target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
 
   <script src="/script.js"></script>
 </body>
