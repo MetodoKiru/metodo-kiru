@@ -1,25 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
   <url>
     <loc>https://www.metodokiru.es/</loc>
+    <lastmod>2026-10-31</lastmod>
   </url>
-
+  <url>
+    <loc>https://www.metodokiru.es/programas</loc>
+    <lastmod>2026-10-31</lastmod>
+  </url>
   <url>
     <loc>https://www.metodokiru.es/tarifas</loc>
+    <lastmod>2026-10-31</lastmod>
   </url>
-
-
-  <url>
-    <loc>https://www.metodokiru.es/programas.html</loc>
-  </url>
-
-  <url>
-    <loc>https://www.metodokiru.es/testimonios</loc>
-  </url>
-
   <url>
     <loc>https://www.metodokiru.es/equipo</loc>
+    <lastmod>2026-10-31</lastmod>
   </url>
-
+  <url>
+    <loc>https://www.metodokiru.es/testimonios</loc>
+    <lastmod>2026-10-31</lastmod>
+  </url>
+  <url>
+    <loc>https://www.metodokiru.es/faq</loc>
+    <lastmod>2026-10-31</lastmod>
+  </url>
+  <url>
+    <loc>https://www.metodokiru.es/voluntariado</loc>
+    <lastmod>2026-10-31</lastmod>
+  </url>
+  <url>
+    <loc>https://www.metodokiru.es/trabaja-con-nosotros</loc>
+    <lastmod>2026-10-31</lastmod>
+  </url>
 </urlset>
