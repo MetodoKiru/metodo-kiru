@@ -1,27 +1,41 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+  // ---------- Menú en móvil ----------
   const menuBtn = document.querySelector(".menu-btn");
-  const closeBtn = document.querySelector(".close-menu");
-  const overlay = document.querySelector(".menu-overlay");
-
-  if (menuBtn && closeBtn && overlay) {
-    menuBtn.addEventListener("click", () => {
-      overlay.classList.add("active");
-    });
-
-    closeBtn.addEventListener("click", () => {
-      overlay.classList.remove("active");
-    });
+  const menu = document.getElementById("menu-principal");
+  const setMenu = open => {
+    document.body.classList.toggle("menu-open", open);
+    if (menuBtn) {
+      menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      menuBtn.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+    }
+  };
+  if (menuBtn && menu) {
+    menuBtn.addEventListener("click", () => setMenu(!document.body.classList.contains("menu-open")));
+    menu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => setMenu(false)));
+    document.addEventListener("keydown", e => { if (e.key === "Escape") setMenu(false); });
+    window.matchMedia("(min-width: 901px)").addEventListener("change", e => { if (e.matches) setMenu(false); });
   }
 
+  // ---------- Botón fijo de WhatsApp (móvil) ----------
+  const toggleWa = () => document.body.classList.toggle("show-wa", window.scrollY > 320);
+  window.addEventListener("scroll", toggleWa, { passive: true });
+  toggleWa();
+
+  // ---------- Preguntas frecuentes ----------
   const faqItems = document.querySelectorAll(".faq-item");
 
-  faqItems.forEach(item => {
+  faqItems.forEach((item, i) => {
     const question = item.querySelector(".faq-question");
+    const answer = item.querySelector(".faq-answer");
+    if (!question || !answer) return;
+    answer.id = answer.id || "faq-respuesta-" + (i + 1);
+    question.setAttribute("aria-controls", answer.id);
 
     question.addEventListener("click", () => {
       const open = item.classList.toggle("active");
       question.setAttribute("aria-expanded", open ? "true" : "false");
+      answer.style.maxHeight = open ? answer.scrollHeight + "px" : "";
     });
   });
 

@@ -26,33 +26,42 @@
 </head>
 <body>
 
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
   <!-- BARRA SUPERIOR FIJA -->
   <header class="top-navbar">
-    <nav>
-      <a href="/" class="logo-container">
-        <div class="logo-icon-box">K</div>
+    <nav aria-label="Principal">
+      <a href="/" class="logo-container" aria-label="Método Kiru, inicio">
+        <div class="logo-icon-box" aria-hidden="true">K</div>
         <span class="logo-text">Método Kiru</span>
       </a>
-      <div class="nav-links">
+      <div class="nav-links" id="menu-principal">
         <a href="/">Inicio</a>
         <a href="/programas">Programas</a>
-        <a href="/tarifas" class="active" aria-current="page">Tarifas</a>
+        <a href="/tarifas" aria-current="page">Tarifas</a>
         <a href="/voluntariado">Voluntariado</a>
         <a href="/equipo">Equipo</a>
         <a href="/testimonios">Opiniones</a>
         <a href="/faq">FAQ</a>
         <a href="/trabaja-con-nosotros">Trabaja con nosotros</a>
+        <a href="https://campus.metodokiru.es/" target="_blank" rel="noopener" class="nav-extra nav-extra-first">Plataforma Kiru</a>
+        <a href="https://wa.me/34651382833?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20M%C3%A9todo%20Kiru." target="_blank" rel="noopener" class="nav-wa">Escríbenos por WhatsApp</a>
       </div>
       <div class="nav-actions">
-        <a href="https://campus.metodokiru.es/" target="_blank" rel="noopener" class="mini-btn">Plataforma</a>
+        <a href="https://campus.metodokiru.es/" target="_blank" rel="noopener" class="mini-btn mini-btn-light">Plataforma</a>
         <a href="https://wa.me/34651382833?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20M%C3%A9todo%20Kiru." target="_blank" rel="noopener" class="mini-btn">WhatsApp</a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </nav>
   </header>
 
+  <main id="contenido">
+
   <!-- TARIFAS CONTENT -->
-  <section style="padding: 60px 7%;">
-    <div class="subpage-content" style="margin: 0 auto;">
+  <section class="page-main">
+    <div class="subpage-content">
       <h1>Tarifas</h1>
       <p class="subtitle">
         Elige la frecuencia de acompañamiento que mejor se adapte a las necesidades de tu hijo.
@@ -61,7 +70,10 @@
 
     <section class="tarifas-grid">
       <div class="tarifa-card">
-        <h2>Programa Base</h2>
+        <div class="tarifa-header">
+          <h2>Programa Base</h2>
+          <p>Apoyo académico a domicilio</p>
+        </div>
 
         <div class="precio-item">
           <span>1 sesión semanal</span>
@@ -80,7 +92,11 @@
       </div>
 
       <div class="tarifa-card destacado">
-        <h2>Método Kiru</h2>
+        <div class="etiqueta">Acompañamiento integral</div>
+        <div class="tarifa-header">
+          <h2>Método Kiru</h2>
+          <p>Clases y mentoría para aprender a estudiar</p>
+        </div>
 
         <div class="precio-item">
           <span>1 sesión semanal</span>
@@ -109,16 +125,26 @@
       </div>
     </section>
 
-    <p class="price-note">
-      Los precios están expresados por mes y pueden estar sujetos a disponibilidad de plazas y zona geográfica.
-    </p>
+    <div class="price-info">
+      <div class="price-discounts">
+        <span class="price-discounts-title">Descuento por pago anticipado</span>
+        <ul>
+          <li>3 meses <strong>5 %</strong></li>
+          <li>6 meses <strong>10 %</strong></li>
+          <li>Curso completo <strong>15 %</strong></li>
+        </ul>
+      </div>
+      <p class="price-note">
+        La cuota es mensual y se renueva automáticamente en la misma fecha de inicio de cada periodo. Cada periodo va de fecha a fecha. Los precios pueden estar sujetos a disponibilidad de plazas y zona geográfica. <a href="/condiciones">Condiciones de contratación</a>
+      </p>
+    </div>
 
-    <div class="hero-buttons" style="justify-content: center; margin-top: 40px;">
+    <div class="hero-buttons actions-center">
       <a href="/programas" class="primary">
         Ver qué incluye cada programa
       </a>
       <a href="/descuentos" class="secondary">
-        Descuentos
+        Calcula tu descuento
       </a>
       <a href="https://wa.me/34651382833?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20M%C3%A9todo%20Kiru."
          target="_blank" rel="noopener"
@@ -128,13 +154,51 @@
     </div>
   </section>
 
+  </main>
+
   <!-- PIE DE PÁGINA -->
-  <footer>
-    <p class="footer-links"><a href="/">Inicio</a> · <a href="/programas">Programas</a> · <a href="/tarifas">Tarifas</a> · <a href="/voluntariado">Voluntariado</a> · <a href="/equipo">Equipo</a> · <a href="/testimonios">Opiniones</a> · <a href="/faq">FAQ</a> · <a href="/trabaja-con-nosotros">Trabaja con nosotros</a> · <a href="https://campus.metodokiru.es/" target="_blank" rel="noopener">Plataforma Kiru</a></p>
-    <p>Clases a domicilio en el noroeste de Madrid: Pozuelo, Aravaca, Las Rozas, Majadahonda y Boadilla.</p>
-    <p class="footer-ucm">Proyecto educativo de la preincubadora de la Universidad Complutense de Madrid.</p>
-    <p class="footer-copy">© 2026 Método Kiru</p>
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo-container" aria-label="Método Kiru, inicio">
+          <div class="logo-icon-box" aria-hidden="true">K</div>
+          <span class="logo-text">Método Kiru</span>
+        </a>
+        <p>Clases y mentoría educativa a domicilio, de Primaria a 4.º de ESO.</p>
+        <p class="footer-ucm">Proyecto educativo de la preincubadora de la Universidad Complutense de Madrid.</p>
+      </div>
+      <div>
+        <p class="footer-heading">Para familias</p>
+        <ul>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/programas">Programas</a></li>
+          <li><a href="/tarifas">Tarifas</a></li>
+          <li><a href="/equipo">Equipo</a></li>
+          <li><a href="/testimonios">Opiniones</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/condiciones">Condiciones de contratación</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-heading">Únete</p>
+        <ul>
+          <li><a href="/trabaja-con-nosotros">Trabaja con nosotros</a></li>
+          <li><a href="/voluntariado">Voluntariado</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-heading">Contacto</p>
+        <ul>
+          <li><a href="https://wa.me/34651382833?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20M%C3%A9todo%20Kiru." target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://campus.metodokiru.es/" target="_blank" rel="noopener">Plataforma Kiru</a></li>
+        </ul>
+        <p class="footer-zones">Clases a domicilio en el noroeste de Madrid: Pozuelo, Aravaca, Las Rozas, Majadahonda y Boadilla.</p>
+      </div>
+    </div>
+    <p class="footer-bottom">© 2026 Método Kiru</p>
   </footer>
+
+  <a class="wa-bar" href="https://wa.me/34651382833?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20M%C3%A9todo%20Kiru." target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
 
   <script src="/script.js"></script>
 </body>

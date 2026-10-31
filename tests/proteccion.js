@@ -12,7 +12,7 @@ const path = require("path");
 const { chromium } = require("playwright");
 
 const ROOT = path.resolve(__dirname, "..");
-const PAGES = ["index", "programas", "tarifas", "descuentos", "equipo", "testimonios", "faq", "voluntariado", "trabaja-con-nosotros"];
+const PAGES = ["index", "programas", "tarifas", "descuentos", "equipo", "testimonios", "faq", "voluntariado", "trabaja-con-nosotros", "condiciones"];
 
 // ---------- Valores comerciales vigentes (NO cambiar sin autorización) ----------
 const PRECIOS = {
@@ -20,7 +20,8 @@ const PRECIOS = {
   kiru: { 1: 175, 2: 350, 3: 500 },
 };
 const WELCOME_PACK = "25 €";
-const TRAMOS = [[10, 0.15], [6, 0.10], [3, 0.05]];
+// Opciones de la calculadora: meses -> descuento por pago anticipado.
+const TRAMOS = { 1: 0, 3: 0.05, 6: 0.10, 10: 0.15 };
 
 // ---------- Integraciones (NO cambiar) ----------
 const WHATSAPP = "https://wa.me/34651382833";
@@ -79,13 +80,18 @@ function servidor() {
   ok(script.includes(HOJA_OPINIONES), "script.js conserva la hoja de Opiniones");
   ok(src["trabaja-con-nosotros"].includes(FORM_MENTORES), "Trabaja con nosotros conserva el formulario de mentores");
   ok(src.voluntariado.includes(FORM_ENTIDADES), "Voluntariado conserva el formulario de entidades");
-  ok(src.equipo.includes('id="team-grid"'), "Equipo conserva #team-grid");
+  ok(/async function kiruTeam\(/.test(script) && src.equipo.includes('id="team-grid"'), "Equipo conserva #team-grid y la lectura de la hoja");
   ok(src.testimonios.includes('id="reviews-grid"'), "Opiniones conserva #reviews-grid");
   for (const n of PAGES) {
     const wa = src[n].match(/https:\/\/wa\.me\/\d+/g) || [];
     ok(wa.length > 0 && wa.every(u => u === WHATSAPP), `${n}: WhatsApp presente y con el número correcto`);
     ok(src[n].includes(CAMPUS), `${n}: enlace al campus`);
   }
+  const ACLARACION = "La cuota es mensual y se renueva automáticamente en la misma fecha de inicio de cada periodo. Cada periodo va de fecha a fecha.";
+  ok(src.tarifas.includes(ACLARACION) && src.condiciones.includes(ACLARACION), "Tarifas y Condiciones incluyen la aclaración de la cuota mensual");
+  ok(PAGES.every(n => !/ciclo|4 semanas|cuatro semanas/i.test(src[n])), "Ninguna página habla de ciclos de cuatro semanas");
+  ok(PAGES.every(n => !/precio por sesi|€\/sesi|€ por sesi/i.test(src[n])), "Ninguna página muestra precio por sesión");
+  ok(/48 horas/.test(src.condiciones) && /48 horas/.test(src.faq), "Condiciones y FAQ recogen el aviso de 48 horas");
   const vercel = JSON.parse(fs.readFileSync(path.join(ROOT, "vercel.json"), "utf8"));
   ok(vercel.cleanUrls === true && vercel.redirects.length >= 8, "vercel.json conserva cleanUrls y las redirecciones antiguas");
 
@@ -107,17 +113,20 @@ function servidor() {
     await page.goto(BASE + "/descuentos");
     const euro = v => new Intl.NumberFormat("es-ES", { style: "currency", currency: "EUR" }).format(v);
     let bien = true;
-    for (const prog of ["base", "kiru"]) for (const f of [1, 2, 3]) for (let m = 1; m <= 10; m++) {
+    const opciones = await page.$$eval("[data-months]", bs => bs.map(b => Number(b.dataset.months)));
+    ok(JSON.stringify(opciones) === "[1,3,6,10]", "La calculadora ofrece solo 1, 3, 6 y 10 meses");
+    ok(await page.$("input[type=range]") === null, "Sin opciones intermedias (no hay deslizador)");
+    for (const prog of ["base", "kiru"]) for (const f of [1, 2, 3]) for (const m of [1, 3, 6, 10]) {
       await page.selectOption("#program", prog);
       await page.selectOption("#frequency", String(f));
-      await page.$eval("#months", (el, v) => { el.value = v; el.dispatchEvent(new Event("input")); }, String(m));
-      const tasa = (TRAMOS.find(([min]) => m >= min) || [0, 0])[1];
+      await page.click(`[data-months="${m}"]`);
+      const tasa = TRAMOS[m];
       const total = PRECIOS[prog][f] * m * (1 - tasa);
       const visto = (await page.textContent("#final-total")).trim();
       const sesiones = (await page.textContent("#session-count")).trim();
       if (visto !== euro(total) || !sesiones.startsWith(String(m * 4 * f) + " ")) { bien = false; console.log(`    ${prog} ${f}x ${m}m: ${visto} / ${sesiones}`); }
     }
-    ok(bien, "Totales y sesiones correctos en las 60 combinaciones (5 %, 10 %, 15 %)");
+    ok(bien, "Totales y sesiones correctos en las 24 combinaciones (0 %, 5 %, 10 %, 15 %)");
     await page.click('[data-months="6"]');
     ok(await page.getAttribute('[data-months="6"]', "aria-pressed") === "true", "Los botones rápidos se marcan");
     ok(page.errores.length === 0, "Sin errores de JavaScript" + (page.errores.length ? ": " + page.errores[0] : ""));
@@ -128,8 +137,9 @@ function servidor() {
   {
     const page = await pagina();
     await page.goto(BASE + "/equipo");
-    await page.waitForSelector(".team-card", { timeout: 5000 }).catch(() => {});
-    ok(await page.$$eval(".team-card", c => c.length) > 0, "Equipo pinta las tarjetas desde la hoja");
+    await page.waitForTimeout(500);
+    await page.waitForFunction(() => document.querySelector("#team-grid").textContent.includes("Persona Prueba"), null, { timeout: 5000 }).catch(() => {});
+    ok((await page.textContent("#team-grid")).includes("Persona Prueba"), "Equipo muestra las fichas de la hoja (datos ficticios)");
     await page.goto(BASE + "/testimonios");
     await page.waitForFunction(() => document.querySelector("#reviews-grid").textContent.includes("ficticia"), null, { timeout: 5000 }).catch(() => {});
     const grid = await page.textContent("#reviews-grid");
@@ -146,12 +156,29 @@ function servidor() {
       const r = await page.goto(BASE + (n === "index" ? "/" : "/" + n));
       const ancho = await page.evaluate(() => document.documentElement.scrollWidth);
       ok(r.status() === 200 && ancho <= 390 && page.errores.length === 0, `${n}: carga sin errores y sin scroll horizontal`);
+      ok(await page.$(".wa-bar") !== null, `${n}: botón fijo de WhatsApp en móvil`);
+      const pequenos = await page.$$eval("a, button", els => els.filter(e => { const r = e.getBoundingClientRect(); const st = getComputedStyle(e); return r.width > 0 && r.height > 0 && st.visibility !== "hidden" && !e.closest(".nav-links") && !e.closest("p, li, dd, span") && r.height < 40; }).map(e => e.textContent.trim().slice(0, 30)));
+      if (pequenos.length) console.log(`    ${n}: botones de menos de 40 px: ${pequenos.join(" | ")}`);
       const internos = await page.$$eval("a[href^='/']", as => [...new Set(as.map(a => a.getAttribute("href").split("#")[0]))]);
       for (const h of internos) {
         const res = await page.request.get(BASE + h);
         if (res.status() !== 200) ok(false, `${n}: enlace roto ${h}`);
       }
     }
+    await page.close();
+  }
+
+  console.log("Menú móvil");
+  {
+    const page = await pagina();
+    await page.goto(BASE + "/");
+    ok(!(await page.isVisible("#menu-principal a[href='/faq']")), "El menú está cerrado al cargar");
+    await page.click(".menu-btn");
+    await page.waitForTimeout(300);
+    ok(await page.isVisible("#menu-principal a[href='/faq']") && await page.getAttribute(".menu-btn", "aria-expanded") === "true", "El botón abre el menú con todas las páginas");
+    await page.keyboard.press("Escape");
+    await page.waitForTimeout(300);
+    ok(!(await page.isVisible("#menu-principal a[href='/faq']")), "Escape cierra el menú");
     await page.close();
   }
 
