@@ -12,7 +12,7 @@ const path = require("path");
 const { chromium } = require("playwright");
 
 const ROOT = path.resolve(__dirname, "..");
-const PAGES = ["index", "programas", "tarifas", "descuentos", "equipo", "testimonios", "faq", "voluntariado", "trabaja-con-nosotros"];
+const PAGES = ["index", "programas", "tarifas", "descuentos", "equipo", "testimonios", "faq", "voluntariado", "trabaja-con-nosotros", "condiciones"];
 
 // ---------- Valores comerciales vigentes (NO cambiar sin autorización) ----------
 const PRECIOS = {
@@ -87,6 +87,11 @@ function servidor() {
     ok(wa.length > 0 && wa.every(u => u === WHATSAPP), `${n}: WhatsApp presente y con el número correcto`);
     ok(src[n].includes(CAMPUS), `${n}: enlace al campus`);
   }
+  const ACLARACION = "La cuota es mensual y se renueva automáticamente en la misma fecha de inicio de cada periodo. Cada periodo va de fecha a fecha.";
+  ok(src.tarifas.includes(ACLARACION) && src.condiciones.includes(ACLARACION), "Tarifas y Condiciones incluyen la aclaración de la cuota mensual");
+  ok(PAGES.every(n => !/ciclo|4 semanas|cuatro semanas/i.test(src[n])), "Ninguna página habla de ciclos de cuatro semanas");
+  ok(PAGES.every(n => !/precio por sesi|€\/sesi|€ por sesi/i.test(src[n])), "Ninguna página muestra precio por sesión");
+  ok(/48 horas/.test(src.condiciones) && /48 horas/.test(src.faq), "Condiciones y FAQ recogen el aviso de 48 horas");
   const vercel = JSON.parse(fs.readFileSync(path.join(ROOT, "vercel.json"), "utf8"));
   ok(vercel.cleanUrls === true && vercel.redirects.length >= 8, "vercel.json conserva cleanUrls y las redirecciones antiguas");
 
