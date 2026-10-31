@@ -6,7 +6,23 @@
   <meta name="robots" content="noindex,follow">
   <title>Descuentos por pago anticipado | Método Kiru</title>
   <meta name="description" content="Ahorra un 5 % por 3 meses, un 10 % por 6 meses o un 15 % al contratar el curso completo de septiembre a junio.">
-  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700&display=swap">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Método Kiru">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="Descuentos por pago anticipado | Método Kiru">
+  <meta property="og:description" content="Ahorra un 5 % por 3 meses, un 10 % por 6 meses o un 15 % al contratar el curso completo de septiembre a junio.">
+  <meta property="og:url" content="https://www.metodokiru.es/descuentos">
+  <meta property="og:image" content="https://www.metodokiru.es/assets/og-metodo-kiru.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="/style.css">
   <style>
     .discount-intro { max-width: 900px; margin: 0 auto; padding: 56px 7% 12px; }
     .discount-intro .eyebrow { margin-bottom: 12px; }
@@ -61,19 +77,19 @@
 <body>
   <header class="top-navbar">
     <nav>
-      <a href="index.html" class="logo-container">
+      <a href="/" class="logo-container">
         <div class="logo-icon-box">K</div>
         <span class="logo-text">Método Kiru</span>
       </a>
       <div class="nav-links">
-        <a href="index.html">Inicio</a>
-        <a href="programas.html">Programas</a>
-        <a href="tarifas.html" class="active" aria-current="page">Tarifas</a>
-        <a href="voluntariado.html">Voluntariado</a>
-        <a href="equipo.html">Equipo</a>
-        <a href="testimonios.html">Opiniones</a>
-        <a href="faq.html">FAQ</a>
-        <a href="trabaja-con-nosotros.html">Trabaja con nosotros</a>
+        <a href="/">Inicio</a>
+        <a href="/programas">Programas</a>
+        <a href="/tarifas" class="active" aria-current="page">Tarifas</a>
+        <a href="/voluntariado">Voluntariado</a>
+        <a href="/equipo">Equipo</a>
+        <a href="/testimonios">Opiniones</a>
+        <a href="/faq">FAQ</a>
+        <a href="/trabaja-con-nosotros">Trabaja con nosotros</a>
       </div>
       <div class="nav-actions">
         <a href="https://campus.metodokiru.es/" target="_blank" rel="noopener" class="mini-btn">Plataforma</a>
@@ -143,14 +159,14 @@
       </div>
 
       <div class="discount-actions">
-        <a href="tarifas.html" class="back-link">Volver a tarifas</a>
+        <a href="/tarifas" class="back-link">Volver a tarifas</a>
         <a href="https://wa.me/34651382833?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20las%20opciones%20de%20continuidad%20de%20M%C3%A9todo%20Kiru." target="_blank" rel="noopener" class="contact-link">Consultar por WhatsApp</a>
       </div>
     </section>
   </main>
 
   <footer>
-    <p class="footer-links"><a href="index.html">Inicio</a> · <a href="programas.html">Programas</a> · <a href="tarifas.html">Tarifas</a> · <a href="voluntariado.html">Voluntariado</a> · <a href="equipo.html">Equipo</a> · <a href="testimonios.html">Opiniones</a> · <a href="faq.html">FAQ</a> · <a href="trabaja-con-nosotros.html">Trabaja con nosotros</a> · <a href="https://campus.metodokiru.es/" target="_blank" rel="noopener">Plataforma Kiru</a></p>
+    <p class="footer-links"><a href="/">Inicio</a> · <a href="/programas">Programas</a> · <a href="/tarifas">Tarifas</a> · <a href="/voluntariado">Voluntariado</a> · <a href="/equipo">Equipo</a> · <a href="/testimonios">Opiniones</a> · <a href="/faq">FAQ</a> · <a href="/trabaja-con-nosotros">Trabaja con nosotros</a> · <a href="https://campus.metodokiru.es/" target="_blank" rel="noopener">Plataforma Kiru</a></p>
     <p>Clases a domicilio en el noroeste de Madrid: Pozuelo, Aravaca, Las Rozas, Majadahonda y Boadilla.</p>
     <p class="footer-ucm">Proyecto educativo de la preincubadora de la Universidad Complutense de Madrid.</p>
     <p class="footer-copy">© 2026 Método Kiru</p>
@@ -171,7 +187,6 @@
       const savingDetail = document.getElementById('saving-detail');
       const finalTotal = document.getElementById('final-total');
       const regularTotal = document.getElementById('regular-total');
-      const monthlyEquivalent = document.getElementById('monthly-equivalent');
       const sessionCount = document.getElementById('session-count');
       const quickButtons = [...document.querySelectorAll('[data-months]')];
       const euro = value => new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' }).format(value);
@@ -196,7 +211,6 @@
         savingDetail.textContent = rate ? Math.round(rate * 100) + ' % de descuento por pago anticipado' : 'El descuento empieza a partir de 3 meses de pago anticipado';
         finalTotal.textContent = euro(total);
         regularTotal.textContent = euro(regular);
-        monthlyEquivalent.textContent = euro(total / months);
         sessionCount.textContent = (months * 4 * frequency) + ' sesiones aprox.';
         quickButtons.forEach(button => button.setAttribute('aria-pressed', String(Number(button.dataset.months) === months)));
       }
