@@ -1702,3 +1702,9 @@ blockquote span{
 .price-note a{ white-space:nowrap; }
 
 .programas-comparacion{ align-items:start; }
+
+/* Kit Kiru en la portada */
+.kit-promo-in{display:flex;gap:28px;align-items:center;max-width:860px;margin:0 auto}
+.kit-promo-in img{width:166px;height:auto;border-radius:12px;box-shadow:var(--shadow);flex-shrink:0}
+.kit-promo-in p{margin:0 0 18px}
+@media (max-width:640px){.kit-promo-in{flex-direction:column;text-align:center}.kit-promo-in .hero-buttons{justify-content:center}}
