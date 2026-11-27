@@ -135,7 +135,7 @@
             </div>
             <div class="filter-field">
               <label for="filter-day">Día / disponibilidad</label>
-              <select id="filter-day"><option value="">Cualquier día</option><option value="viernes">Viernes</option><option value="entresemana">Entre semana</option><option value="flexible">Flexible / por confirmar</option></select>
+              <select id="filter-day"><option value="">Cualquier día</option><option value="viernes">Viernes</option><option value="entresemana">Entre semana</option><option value="findesemana">Fin de semana</option><option value="flexible">Flexible / por confirmar</option></select>
             </div>
             <div class="filter-field">
               <label for="filter-experience">Experiencia</label>
@@ -157,7 +157,7 @@
           <div class="filter-actions">
             <button class="filter-apply" type="button" id="apply-filters">Ver oportunidades</button>
             <button class="filter-reset" type="button" id="reset-filters">Borrar filtros</button>
-            <span class="results-count" id="results-count" aria-live="polite">3 oportunidades</span>
+            <span class="results-count" id="results-count" aria-live="polite">4 oportunidades</span>
           </div>
         </div>
 
@@ -223,6 +223,26 @@
             </div>
             <p class="vol-status">Las plazas de voluntariado para el curso 2026–2027 están completas. Consulta con la asociación si se abre una nueva convocatoria.</p>
           </article>
+
+          <article class="vol-card" data-jotform="6707319002117013204" data-zone="madrid" data-days="entresemana findesemana flexible" data-experience="sin" data-groups="infancia adolescentes discapacidad" data-types="ocio acompanamiento" data-commitment="puntual">
+            <div class="vol-card-top">
+              <h3>ALEPH-TEA · Ocio con personas con TEA</h3>
+              <span class="vol-badge">Sin experiencia previa</span>
+            </div>
+            <p class="vol-location">Madrid · Varias localizaciones</p>
+            <p class="vol-description">Asociación que da oportunidades y apoyos a cada persona con autismo (TEA) y a su familia. Acompañarás a niños, adolescentes y jóvenes en su tiempo de ocio: piscina, ocio compartido, excursiones, colonias o campamentos urbanos, siempre junto al profesional responsable de la actividad.</p>
+            <div class="vol-facts">
+              <div class="vol-fact"><strong>Horario</strong><span>De lunes a domingo, según la actividad (por ejemplo, de 10:00 a 12:00). Hay actividades de mañana, tarde y noche.</span></div>
+              <div class="vol-fact"><strong>Experiencia</strong><span>No necesaria. La entidad da formación sobre cada actividad y cada participante.</span></div>
+              <div class="vol-fact"><strong>Compromiso</strong><span>Puntual, por actividad. Solo piden avisar si no puedes acudir. 30 plazas.</span></div>
+              <div class="vol-fact"><strong>Requisitos</strong><span>Tener 18 años o más y el certificado negativo de delitos sexuales.</span></div>
+              <div class="vol-fact"><strong>Certificado de horas</strong><span>Sí: certificado de horas, de participación y carta de recomendación, tras la entrevista y una participación adecuada.</span></div>
+            </div>
+            <div class="vol-card-actions">
+              <a class="vol-primary" href="https://aleph-tea.org/" target="_blank" rel="noopener">Conocer la entidad</a>
+            </div>
+            <p class="vol-status">Ficha enviada por la propia asociación el 17/11/2026. Confirma plazas y fechas con la entidad.</p>
+          </article>
         </div>
         <div class="vol-empty" id="vol-empty">No hemos encontrado oportunidades con todos esos filtros. Prueba a ampliar la zona o el horario, o vuelve a consultar más adelante: iremos añadiendo nuevas entidades.</div>
       </div>
@@ -284,6 +304,10 @@
 
   <a class="wa-bar" href="https://wa.me/34651382833?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20M%C3%A9todo%20Kiru." target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
   <script>
+    // Dirección de la aplicación web del Apps Script «VoluntariadoWeb» (hoja de
+    // respuestas del formulario de entidades). Vacía = solo las fichas de arriba.
+    const VOLUNTARIADO_API = '';
+
     (() => {
       const filters = {
         zone: document.getElementById('filter-zone'),
@@ -293,16 +317,17 @@
         type: document.getElementById('filter-type'),
         commitment: document.getElementById('filter-commitment')
       };
-      const cards = [...document.querySelectorAll('.vol-card')];
+      const datasetKey = {zone:'zone',day:'days',experience:'experience',group:'groups',type:'types',commitment:'commitment'};
+      const list = document.getElementById('vol-cards');
       const count = document.getElementById('results-count');
       const empty = document.getElementById('vol-empty');
       function applyFilters() {
         let shown = 0;
-        cards.forEach(card => {
+        list.querySelectorAll('.vol-card').forEach(card => {
           const match = Object.entries(filters).every(([key, select]) => {
             const selected = select.value;
             if (!selected) return true;
-            const values = (card.dataset[{zone:'zone',day:'days',experience:'experience',group:'groups',type:'types',commitment:'commitment'}[key]] || '').split(' ');
+            const values = (card.dataset[datasetKey[key]] || '').split(' ');
             return values.includes(selected);
           });
           card.hidden = !match;
@@ -318,6 +343,134 @@
         applyFilters();
       });
       applyFilters();
+
+      // ---------- Fichas aprobadas en la hoja (casilla «Publicar») ----------
+      if (!VOLUNTARIADO_API) return;
+
+      const norm = t => String(t || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').trim();
+      const items = t => String(t || '').split(/[\n,;]+/).map(x => x.trim()).filter(Boolean);
+      const safeUrl = u => {
+        u = String(u || '').trim();
+        if (!u) return '';
+        if (!/^https?:\/\//i.test(u) && /^[\w.-]+\.[a-z]{2,}(\/|$)/i.test(u)) u = 'https://' + u;
+        try { const url = new URL(u); return /^https?:$/.test(url.protocol) ? url.href : ''; } catch (e) { return ''; }
+      };
+      const hora = t => {
+        const m = String(t || '').match(/(\d{1,2})[:.](\d{2})\s*([ap])?\.?\s*m?/i);
+        if (!m) return '';
+        let h = +m[1];
+        if (m[3]) { const pm = m[3].toLowerCase() === 'p'; if (pm && h < 12) h += 12; if (!pm && h === 12) h = 0; }
+        return String(h).padStart(2, '0') + ':' + m[2];
+      };
+      const frase = t => { t = String(t || '').trim(); if (!t) return ''; if (t === t.toUpperCase() && /[A-ZÁÉÍÓÚ]{4}/.test(t)) t = t.charAt(0) + t.slice(1).toLowerCase(); return /[.!?)]$/.test(t) ? t : t + '.'; };
+      const DIAS = ['lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado', 'domingo'];
+      const NOMBRE_DIA = ['lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado', 'domingo'];
+
+      function zoneValue(localidad) {
+        const slug = norm(localidad).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+        if (!slug) return '';
+        const existing = [...filters.zone.options].find(o => o.value && (slug === o.value || slug.startsWith(o.value + '-')));
+        if (existing) return existing.value;
+        const opt = document.createElement('option');
+        opt.value = slug;
+        opt.textContent = String(localidad).trim();
+        filters.zone.appendChild(opt);
+        return slug;
+      }
+
+      function horario(o) {
+        const idx = items(o.dias).map(d => DIAS.indexOf(norm(d))).filter(i => i >= 0).sort((a, b) => a - b);
+        let dias = '';
+        if (idx.length === 7) dias = 'De lunes a domingo';
+        else if (idx.length && idx.every((v, i) => i === 0 || v === idx[i - 1] + 1) && idx.length > 2) dias = 'De ' + NOMBRE_DIA[idx[0]] + ' a ' + NOMBRE_DIA[idx[idx.length - 1]];
+        else if (idx.length) dias = idx.map(i => NOMBRE_DIA[i]).join(', ').replace(/^./, c => c.toUpperCase());
+        const ini = hora(o.inicio), fin = hora(o.fin);
+        const franjas = items(o.franjas).map(f => f.toLowerCase()).join(', ');
+        return [dias, ini && fin ? 'de ' + ini + ' a ' + fin : '', franjas ? 'franja: ' + franjas : '']
+          .filter(Boolean).join(', ') + '. Confirmar con la entidad.';
+      }
+
+      function buildCard(o) {
+        const dias = items(o.dias).map(norm);
+        const days = new Set();
+        if (dias.some(d => ['lunes', 'martes', 'miercoles', 'jueves', 'viernes'].includes(d))) days.add('entresemana');
+        if (dias.includes('viernes')) days.add('viernes');
+        if (dias.some(d => d === 'sabado' || d === 'domingo')) days.add('findesemana');
+        if (!dias.length || items(o.franjas).some(f => norm(f) === 'flexible')) days.add('flexible');
+
+        const groups = new Set();
+        items(o.colectivos).map(norm).forEach(g => {
+          if (g.includes('infancia') || g.includes('nin')) groups.add('infancia');
+          if (g.includes('adolescen') || g.includes('joven')) groups.add('adolescentes');
+          if (g.includes('adult') || g.includes('mayor')) groups.add('adultos');
+          if (g.includes('famil')) groups.add('familias');
+          if (g.includes('discapacidad') || g.includes('neurodiver')) groups.add('discapacidad');
+        });
+        const types = new Set();
+        items(o.actividad).map(norm).forEach(t => {
+          if (t.includes('ocio') || t.includes('aire libre') || t.includes('deporte')) types.add('ocio');
+          if (t.includes('acompan')) types.add('acompanamiento');
+          if (t.includes('administra') || t.includes('organiza')) types.add('administrativo');
+        });
+        types.add('apoyo');
+        const sinExperiencia = norm(o.experiencia).startsWith('no');
+        const commitment = norm(o.frecuencia).includes('puntual') ? 'puntual' : 'continuado';
+
+        const card = document.createElement('article');
+        card.className = 'vol-card';
+        card.dataset.jotform = o.id || '';
+        card.dataset.zone = zoneValue(o.localidad);
+        card.dataset.days = [...days].join(' ');
+        card.dataset.experience = sinExperiencia ? 'sin' : 'con';
+        card.dataset.groups = [...groups].join(' ');
+        card.dataset.types = [...types].join(' ');
+        card.dataset.commitment = commitment;
+
+        const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text) n.textContent = text; return n; };
+        const nombre = o.nombre || o.nombreLegal;
+        const top = el('div', 'vol-card-top');
+        top.append(el('h3', '', o.titulo ? nombre + ' · ' + o.titulo : nombre));
+        const edad = parseInt(o.edadMinima, 10);
+        top.append(el('span', 'vol-badge', sinExperiencia ? 'Sin experiencia previa' : (edad ? '+' + edad + ' años' : 'Voluntariado')));
+        card.append(top);
+        card.append(el('p', 'vol-location', o.localidad || 'Madrid'));
+        const desc = [frase(o.tareas), o.mision ? 'Sobre la entidad: ' + frase(o.mision) : ''].filter(Boolean).join(' ');
+        if (desc) card.append(el('p', 'vol-description', desc));
+
+        const facts = el('div', 'vol-facts');
+        const fact = (k, v) => { if (!v) return; const f = el('div', 'vol-fact'); f.append(el('strong', '', k), el('span', '', v)); facts.append(f); };
+        fact('Horario', horario(o));
+        fact('Experiencia', [sinExperiencia ? 'No necesaria.' : (o.experiencia ? o.experiencia + '.' : ''),
+          norm(o.formacion).startsWith('si') ? 'La entidad da formación inicial' + (o.formacionDetalle ? ': ' + frase(o.formacionDetalle) : '.') : ''].filter(Boolean).join(' '));
+        fact('Compromiso', [o.frecuencia ? o.frecuencia + '.' : '', frase(o.compromiso), o.plazas ? o.plazas + ' plazas.' : ''].filter(Boolean).join(' '));
+        fact('Requisitos', [edad ? 'Tener ' + edad + ' años o más.' : '', frase(o.requisitos),
+          norm(o.certificadoDelitos).startsWith('si') ? 'Piden certificado negativo de delitos sexuales' + (o.certificadosDetalle ? ' (' + o.certificadosDetalle + ').' : '.') : '',
+          frase(o.proceso)].filter(Boolean).join(' '));
+        const docs = items(o.documentacion).join(', ').toLowerCase();
+        fact('Certificado de horas', docs ? 'Sí: ' + docs + (o.condicionesDocumentacion ? '. ' + frase(o.condicionesDocumentacion) : '.') : 'Por confirmar con la entidad.');
+        card.append(facts);
+
+        const actions = el('div', 'vol-card-actions');
+        const contacto = safeUrl(o.contacto), web = safeUrl(o.web);
+        const link = (cls, href, text) => { const a = el('a', cls, text); a.href = href; a.target = '_blank'; a.rel = 'noopener'; actions.append(a); };
+        if (contacto) link('vol-primary', contacto, 'Apuntarme');
+        if (web) link(contacto ? 'vol-secondary' : 'vol-primary', web, 'Conocer la entidad');
+        if (actions.childElementCount) card.append(actions);
+        card.append(el('p', 'vol-status', 'Ficha enviada por la propia entidad. Confirma plazas y horario antes de comprometerte.'));
+        return card;
+      }
+
+      fetch(VOLUNTARIADO_API)
+        .then(r => r.ok ? r.json() : Promise.reject(r.status))
+        .then(data => {
+          const ya = new Set([...list.querySelectorAll('.vol-card[data-jotform]')].map(c => c.dataset.jotform));
+          (data.oportunidades || []).forEach(o => {
+            if (!(o.nombre || o.nombreLegal) || (o.id && ya.has(o.id))) return;
+            list.appendChild(buildCard(o));
+          });
+          applyFilters();
+        })
+        .catch(() => {});
     })();
   </script>
 </body>
